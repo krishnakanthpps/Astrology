@@ -111,7 +111,7 @@ public class Login extends BaseActivity implements View.OnClickListener {
                 overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
                 break;
             case R.id.forgotpasswordtv:
-                Intent forgot = new Intent(Login.this, SelectedSignDashBoard.class);
+                Intent forgot = new Intent(Login.this, ForgotPasswordDialog.class);
                 startActivity(forgot);
                 overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
                 break;

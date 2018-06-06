@@ -72,5 +72,10 @@
             android:label="@string/app_signout"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+        <activity android:name="dashboard.ForgotPasswordDialog"
+            android:configChanges="orientation"
+            android:label="@string/forgot"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
     </application>
 </manifest>
