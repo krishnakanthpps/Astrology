@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f75820"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:text="Generate Your Horoscope"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text"
+            android:layout_margin="40dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/usernameET"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/rounded_edittext"
+                android:drawableLeft="@drawable/user_small"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="Name"
+                android:inputType="text"
+                android:padding="5dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="#d4d4d4" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/ddET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_edittext"
+                    android:drawablePadding="15dp"
+                    android:ems="10"
+                    android:hint="DD"
+                    android:inputType="number"
+                    android:padding="5dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="#d4d4d4" />
+
+                <EditText
+                    android:id="@+id/mmET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_edittext"
+                    android:drawablePadding="15dp"
+                    android:ems="10"
+                    android:hint="MM"
+                    android:inputType="number"
+                    android:padding="5dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="#d4d4d4" />
+
+                <EditText
+                    android:id="@+id/yyyyET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_edittext"
+                    android:drawablePadding="15dp"
+                    android:ems="10"
+                    android:hint="YYYY"
+                    android:inputType="number"
+                    android:padding="5dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="#d4d4d4" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/placeofbirthEt"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/rounded_edittext"
+                android:drawableLeft="@drawable/place_of_birth"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="Place Of Birth"
+                android:inputType="text"
+                android:padding="5dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="#d4d4d4" />
+
+            <EditText
+                android:id="@+id/timeofbirthEt"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/rounded_edittext"
+                android:drawableLeft="@drawable/time_of_birth"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="Time Of Birth"
+                android:inputType="text"
+                android:padding="5dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="#d4d4d4" />
+
+            <Button
+                android:id="@+id/continueBT"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/rounded_button"
+                android:text="Continue"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

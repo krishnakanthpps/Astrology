@@ -1,0 +1,137 @@
+<resources>
+    <string name="app_name">SriAstrology</string>
+
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="slide_1_title">Daily Workout</string>
+    <string name="slide_1_desc">Set your daily workout routine by the help of trainer</string>
+    <string name="slide_2_title">Meditation Techniques </string>
+    <string name="slide_2_desc">Learn about the different meditation techniques and practice them</string>
+    <string name="slide_3_title">Diet Chart</string>
+    <string name="slide_3_desc">Make your diet chart by the help of health experts</string>
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+
+
+    <string name="internet_enable">No InternetConnection</string>
+    <string name="internet_enable_message">Please check your mobile data or wifi connection.</string>
+    <string name="ok">OK</string>
+    <string name="cancel">CANCEL</string>
+
+
+
+    <string name="app_demo_screens_visibility_boolean_status_key">demoScreenVisibleStatus</string>
+    <string name="app_login_status_key">loginStatus</string>
+    <string name="app_loggedinAs">loggedin_as</string>
+    <string name="poweredby">Powered by Anaghasoftech.com</string>
+
+    <string name="know_your_sign_status_key">knowSignStatus</string>
+    <string name="selected_sign_value">selectedSign</string>
+    <string name="signin_status_key">signinStatus</string>
+
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_drawer_labels">
+   <!--     <item>@string/nav_item_home</item>
+        <item>@string/action_about_app</item>
+        <item>@string/action_contact_us</item>
+        <item>@string/action_about_us</item>
+        <item>@string/nav_item_app_reviews</item>
+        <item>@string/action_media_and_share</item>-->
+        <item>@string/nav_item_home</item>
+        <item>@string/nav_item_dailyhoroscope</item>
+        <item>@string/nav_item_yourchartdetails</item>
+       <!-- <item>@string/nav_item_personalizedhoroscope</item>-->
+
+        <item>@string/nav_item_personality</item>
+        <item>@string/nav_item_career</item>
+        <item>@string/nav_item_moneymatters</item>
+        <item>@string/nav_item_health</item>
+        <item>@string/nav_item_marriage</item>
+        <item>@string/nav_item_children</item>
+
+
+        <item>@string/nav_item_logout</item>
+    </string-array>
+
+
+    <string name="nav_item_dailyhoroscope">Daily Horoscope</string>
+    <string name="nav_item_yourchartdetails">Your Chart Details</string>
+    <string name="nav_item_personalizedhoroscope">Personalized Horoscope</string>
+    <string name="nav_item_logout">Logout</string>
+
+
+    <string name="nav_item_home">Home</string>
+    <string name="action_about_app">About App</string>
+    <string name="action_about_us">About Us</string>
+    <string name="action_contact_us">Contact Us</string>
+    <string name="nav_item_app_reviews">Reviews</string>
+    <string name="action_media_and_share">Media and share</string>
+    <string name="action_quick_demo">Quick Demo</string>
+    <string name="action_list">List</string>
+    <string name="nav_item_feedback">Feedback</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="nav_drawer_user_images_white">
+        <item>@drawable/nav_home_white</item>
+        <item>@drawable/dailyhoroscope</item>
+        <item>@drawable/yourchartdetails</item>
+        <!--<item>@drawable/personalizedhoroscope</item>-->
+        <item>@drawable/person</item>
+        <item>@drawable/career</item>
+        <item>@drawable/money</item>
+        <item>@drawable/health</item>
+        <item>@drawable/ring</item>
+        <item>@drawable/children</item>
+        <item>@drawable/logout</item>
+       <!-- <item>@drawable/nav_home_white</item>
+        <item>@drawable/info_android</item>
+        <item>@drawable/contact_us_updated</item>
+        <item>@drawable/nav_rewards_white</item>
+        <item>@drawable/nav_support_help_white</item>
+        <item>@drawable/ic_share</item>-->
+    </string-array>
+
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="submit">submit</string>
+
+
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="profile">Profile</string>
+
+
+    <string name="generatehoroscope">Horoscope</string>
+    <string name="personaldetails">Details</string>
+    <string name="thankyou">Thankyou</string>
+
+
+    <string name="know_your_sign">KnowYourSign</string>
+    <string name="address_one">Address One</string>
+    <string name="address_two">Address Two</string>
+    <string name="address_l_one">Address Line1</string>
+    <string name="address_l_two">Address Line2</string>
+    <string name="address_one_country">Country</string>
+    <string name="address_one_state">State</string>
+    <string name="address_one_city">City</string>
+    <string name="address_one_mobile_one">Mobile One</string>
+    <string name="address_one_contactphone_one">Contact Phone</string>
+    <string name="address_one_mobile_two">Mobile Two</string>
+    <string name="middle_name">MiddleName</string>
+    <string name="last_name">LastName</string>
+    <string name="first_name">FirstName</string>
+    <string name="prompt_register_email">Email</string>
+    <string name="action_update_profile_edit">profile_update</string>
+    <string name="nav_item_personality">Personality</string>
+    <string name="nav_item_career">Career</string>
+    <string name="nav_item_moneymatters">Money Matters</string>
+    <string name="nav_item_health">Health</string>
+    <string name="nav_item_marriage">Marriage</string>
+    <string name="nav_item_children">Childrean</string>
+    <string name="app_signout">SignOut</string>
+
+</resources>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.anagha.astrology">
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/appicon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="utilitys.WelcomeActivity"
+            android:theme="@style/AppThemeNOAAuthentication.Dark.Dialog"/>
+        <!--<activity android:name=".HomeActivity"/>-->
+        <!--<activity android:name="dashboard.DashBoard"
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />-->
+        <activity android:name=".SelectedSignDashBoard"
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+        <activity android:name="dashboard.Login"
+            android:configChanges="orientation"
+            android:label="@string/login"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+        <activity android:name="dashboard.Register"
+            android:configChanges="orientation"
+            android:label="@string/register"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+       <!-- <activity android:name="dashboard.GenerateHoroscope"
+            android:configChanges="orientation"
+            android:label="@string/register"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+        <activity android:name="dashboard.PersonalDetails"
+            android:configChanges="orientation"
+            android:label="@string/register"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />-->
+        <activity android:name="dashboard.Thankyou"
+            android:configChanges="orientation"
+            android:label="@string/register"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+        <activity android:name=".UserProfileView"
+            android:configChanges="orientation"
+            android:label="@string/profile"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+        <activity android:name=".UserProfileUpdateView"
+            android:configChanges="orientation"
+            android:label="@string/profile"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+        <activity android:name="dashboard.LogOutActivity"
+            android:configChanges="orientation"
+            android:label="@string/app_signout"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+    </application>
+</manifest>

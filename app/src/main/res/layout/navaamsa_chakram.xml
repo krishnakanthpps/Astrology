@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/house_background"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/button1"
+                android:background="@drawable/house_background"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:minWidth="42dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_weight="1"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/button2"
+                android:background="@drawable/house_background"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:minWidth="42dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Sa" />
+
+            <TextView
+                android:id="@+id/button3"
+                android:background="@drawable/house_background"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:minWidth="42dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_weight="1"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/button4"
+                android:background="@drawable/house_background"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_weight="1"
+                android:minWidth="42dp"
+                android:text="" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/button21"
+                        android:gravity="center"
+                        android:background="@drawable/house_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:minWidth="42dp"
+
+                        android:text="Ra" />
+
+                    <TextView
+                        android:id="@+id/button31"
+                        android:gravity="center"
+                        android:background="@drawable/house_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:minWidth="42dp"
+                        android:text="Ch" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:background="@drawable/house_background"
+                        android:id="@+id/button22"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Button" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/button23"
+                        android:gravity="center"
+                        android:background="@drawable/house_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:minWidth="42dp"
+                        android:text="Lg" />
+
+                    <TextView
+                        android:id="@+id/button33"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:minWidth="42dp"
+                        android:background="@drawable/house_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Ma   Ke" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/button41"
+                android:background="@drawable/house_background"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimaryDark"
+                android:minWidth="42dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/button42"
+                android:background="@drawable/house_background"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_weight="1"
+                android:minWidth="42dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/button43"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/house_background"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:minWidth="42dp"
+                android:text="Sk   Gu   Lg" />
+
+            <TextView
+                android:id="@+id/button44"
+                android:background="@drawable/house_background"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:minWidth="42dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Sy    Bu" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

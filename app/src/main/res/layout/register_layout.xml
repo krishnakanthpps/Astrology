@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f75820"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="35dp"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <EditText
+            android:id="@+id/usernameET"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_edittext"
+            android:drawableLeft="@drawable/user_small"
+            android:drawablePadding="10dp"
+            android:drawableTint="#6e6e6e"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="text"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="#d4d4d4"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/useremailET"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_edittext"
+            android:drawableLeft="@drawable/email_small"
+            android:drawablePadding="10dp"
+            android:drawableTint="#6e6e6e"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="#d4d4d4"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/mobilenoET"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_edittext"
+            android:drawableLeft="@drawable/mobile"
+            android:drawablePadding="10dp"
+            android:drawableTint="#6e6e6e"
+            android:hint="Mobile Number"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="#d4d4d4"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/passwordEt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_edittext"
+            android:drawableLeft="@drawable/password_small"
+            android:drawablePadding="10dp"
+            android:drawableTint="#6e6e6e"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="#d4d4d4"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/repasswordEt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_edittext"
+            android:drawableLeft="@drawable/password_small"
+            android:drawablePadding="10dp"
+            android:drawableTint="#6e6e6e"
+            android:ems="10"
+            android:hint="Re-Enter Password"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="#d4d4d4"
+            android:textSize="18sp" />
+
+        <!-- <EditText
+             android:id="@+id/dateofbirthEt"
+             android:layout_width="match_parent"
+             android:layout_height="40dp"
+             android:layout_marginTop="15dp"
+             android:background="@drawable/rounded_edittext"
+             android:drawableLeft="@drawable/time_of_birth"
+             android:drawablePadding="10dp"
+             android:drawableTint="#6e6e6e"
+             android:editable="false"
+             android:ems="10"
+             android:hint="Date Of Birth"
+             android:inputType="text"
+             android:paddingLeft="15dp"
+             android:paddingRight="15dp"
+             android:textColor="@color/black"
+             android:textColorHint="#d4d4d4"
+             android:textSize="18sp" />-->
+
+        <EditText
+            android:id="@+id/placeofbirthEt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_edittext"
+            android:drawableLeft="@drawable/place_of_birth"
+            android:drawablePadding="10dp"
+            android:drawableTint="#6e6e6e"
+            android:ems="10"
+            android:hint="Place Of Birth"
+            android:inputType="text"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="#d4d4d4"
+            android:textSize="18sp" />
+
+        <!-- <EditText
+             android:id="@+id/timeofbirthEt"
+             android:layout_width="match_parent"
+             android:layout_height="40dp"
+             android:layout_marginTop="15dp"
+             android:background="@drawable/rounded_edittext"
+             android:drawableLeft="@drawable/time_of_birth"
+             android:drawablePadding="10dp"
+             android:drawableTint="#6e6e6e"
+             android:editable="false"
+             android:ems="10"
+             android:hint="Time Of Birth"
+             android:inputType="text"
+             android:paddingLeft="15dp"
+             android:paddingRight="15dp"
+             android:textColor="@color/black"
+             android:textColorHint="#d4d4d4"
+             android:textSize="18sp" />-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dateofbirthEt"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:ems="10"
+                    android:hint="DOB"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#d4d4d4"
+                    android:textSize="18sp"
+                    android:layout_marginRight="2dp"/>
+
+                <TextView
+                    android:layout_marginLeft="2dp"
+                    android:id="@+id/timeofbirthEt"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="TOB"
+                    android:inputType="text"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#d4d4d4"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/registerBT"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_button"
+            android:text="Register"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/register_logintv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:padding="5dp"
+            android:gravity="center_horizontal"
+            android:text="Have already account? Login"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

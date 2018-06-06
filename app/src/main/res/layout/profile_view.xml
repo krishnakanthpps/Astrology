@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="User Name"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/user_profile_view_userNameTV"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="top"
+                android:hint="@string/app_name"
+                android:inputType="textPersonName"
+                android:text="@string/app_name"
+                android:textColor="@color/greyhint"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="Email"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/user_profile_view_userEmailET"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="top"
+                android:maxLines="1"
+                android:text="@string/app_name"
+                android:textColor="@color/greyhint"
+                android:textSize="16sp"
+
+                />
+
+            <LinearLayout
+                android:id="@+id/allbasic_Details_LT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/user_profile_view_firstname_compound_LT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="First Name"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/user_profile_view_firstNameTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="top"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:text="First Name"
+                        android:textColor="@color/greyhint"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/user_profile_view_lastname_compound_LT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Last Name"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimary"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/user_profile_view_lastNameTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="top"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:text="Last Name"
+                        android:textColor="@color/greyhint"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/user_profile_view_middlename_compound_LT_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Contact Phone"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/user_profile_view_mobile_no_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="top"
+                        android:inputType="phone"
+                        android:text="mobile one"
+                        android:textColor="@color/greyhint"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/gender_dobLT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Gender"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/user_profile_view_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center_vertical"
+                        android:inputType="textPersonName"
+                        android:text="Gender"
+                        android:textColor="@color/greyhint"
+                        android:textSize="16sp"
+                        android:visibility="visible"/>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/user_profile_view_dateofbirthTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/time_of_birth"
+                        android:drawablePadding="3dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center_vertical"
+                        android:inputType="textPersonName"
+                        android:text="DOB"
+                        android:textColor="@color/greyhint"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/user_profile_view_timeofbirthTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/time_of_birth"
+                        android:drawablePadding="3dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center_vertical"
+                        android:inputType="textPersonName"
+                        android:text="TOB"
+                        android:textColor="@color/greyhint"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/user_profile_view_addressone_compound_LT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Address(1)"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimary"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/user_profile_view_address_line_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="top"
+                        android:inputType="textPersonName"
+                        android:text="Address line one"
+                        android:textColor="@color/greyhint"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/user_profile_view_city_compound_LT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="City"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimary"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/user_profile_view_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="top"
+                        android:inputType="textPersonName"
+                        android:text="City"
+                        android:textColor="@color/greyhint"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/user_profile_view_country_compound_LT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Country"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimary"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/user_profile_view_country"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="top"
+                        android:inputType="textPersonName"
+                        android:text="Country"
+                        android:textColor="@color/greyhint"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/user_profile_view_state_compound_LT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="State"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimary"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/user_profile_view_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="top"
+                        android:inputType="textPersonName"
+                        android:text="State"
+                        android:textColor="@color/greyhint"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/user_profile_view_state_compound_LT_"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Zip/Postal Code"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimary"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/user_profile_view_zip"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="top"
+                        android:inputType="textPostalAddress"
+                        android:text="Zip/Postal Code"
+                        android:textColor="@color/greyhint"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

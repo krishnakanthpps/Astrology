@@ -1,0 +1,66 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/selectedsign_drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimaryDark"
+                android:elevation="6dp"
+                android:minHeight="?attr/actionBarSize"
+                app:tabMode="fixed"
+                app:tabTextColor="#ffffff"
+                app:tabSelectedTextColor="#ffffff"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="25dp"
+                android:background="#d67601"
+                android:text="Subscribe"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </LinearLayout>-->
+
+        <include
+            android:id="@+id/mainwelcomelyt"
+            layout="@layout/main_welcome_layout" />
+
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/selectedsign_fragment_navigation_drawer"
+        android:name="dashboard.FragmentDrawer"
+        android:layout_width="@dimen/nav_header_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:layout="@layout/selectedsign_nav_header_gd_logo_signinup"
+        tools:layout="@layout/selectedsign_nav_header_gd_logo_signinup" />
+</android.support.v4.widget.DrawerLayout>
+
+

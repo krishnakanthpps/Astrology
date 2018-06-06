@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="2dp">
+
+    <LinearLayout
+        android:id="@+id/updated_products_list_row_shop_items_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:clickable="false"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <ImageView
+            android:id="@+id/updated_products_list_row_list_item_productIM"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barbie"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_weight="7"
+            android:orientation="horizontal"
+            tools:ignore="RtlHardcoded">
+
+            <LinearLayout
+                android:id="@+id/updated_products_list_row_shope_card_list_item_product_rowLT"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:clickable="false"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/products_list_row_list_item_product_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="roboto-thin"
+                    android:gravity="start"
+                    android:maxLines="2"
+                    android:minLines="1"
+                    android:text="Barbie Let's Party"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/products_list_row_codeTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="#21953-Barbie Doll-Let's Party"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="normal" />
+                <!-- <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_gravity="center_vertical"
+                     android:layout_weight="1"
+                     android:orientation="horizontal">
+                     &lt;!&ndash;
+                     <TextView
+                         android:id="@+id/updated_products_list_row_brandHint"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:fontFamily="sans-serif-light"
+                         android:singleLine="true"
+                         android:text="Code:"
+                         android:textColor="@color/colorPrimary"
+                         android:textSize="12sp"
+                         android:textStyle="normal" />&ndash;&gt;
+                     <TextView
+                         android:id="@+id/updated_products_list_row_brandTV"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:fontFamily="roboto-light"
+                         android:text="#21953-Barbie Doll-Let's Party"
+                         android:textColor="@color/colorPrimary"
+                         android:textSize="12sp"
+                         android:textStyle="normal" />
+                 </LinearLayout>-->
+
+                <!--               <LinearLayout
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_gravity="center"
+                                   android:orientation="horizontal"
+                                   android:padding="1dp">-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="start"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/products_list_row_typeTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="roboto-light"
+                                android:gravity="start"
+                                android:minLines="1"
+                                android:text="Girl"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/products_list_row_occasionTV"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="9"
+                                android:fontFamily="roboto-light"
+                                android:gravity="left"
+                                android:maxLength="50"
+                                android:maxLines="1"
+                                android:paddingLeft="5dp"
+                                android:paddingStart="5dp"
+                                android:text="Baby shower/Birthday/Marriage/Retirement"
+                                android:textColor="#FF5252"
+                                android:textSize="13sp"
+                                android:visibility="visible" />
+                        </LinearLayout>
+
+                        <!-- <LinearLayout
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent"
+                             android:layout_gravity="center_vertical"
+                             android:layout_weight="1"
+                             android:gravity="start"
+                             android:orientation="horizontal"
+                             android:paddingLeft="2dp">
+
+                             <TextView
+                                 android:id="@+id/updated_products_list_row_avail_period_dateTV"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:fontFamily="roboto-light"
+                                 android:gravity="left"
+                                 android:maxLength="30"
+                                 android:singleLine="true"
+                                 android:text="2 KGs"
+                                 android:textColor="#FF5252"
+                                 android:textSize="13sp"
+                                 android:visibility="visible" />
+                         </LinearLayout>-->
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <!--  <org.sufficientlysecure.htmltextview.HtmlTextView
+                                  android:id="@+id/updated_products_list_row_price_with_striker"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:fontFamily="roboto-light"
+                                  android:gravity="start"
+                                  android:maxLength="10"
+                                  android:minLines="1"
+                                  android:paddingRight="2dp"
+                                  android:text="$1833.55"
+                                  android:textColor="@color/Grey"
+                                  android:textSize="13sp"
+                                  android:visibility="visible" />-->
+
+                            <TextView
+                                android:id="@+id/products_list_row_priceTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:maxLength="10"
+                                android:minLines="1"
+                                android:paddingRight="2dp"
+                                android:text="$183.55"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="13sp"
+                                android:visibility="visible" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:visibility="visible">
+
+                                <LinearLayout
+                                    android:id="@+id/saleIndicatorNotExistLT"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:visibility="visible">
+
+                                    <TextView
+                                        android:id="@+id/products_list_row_product_qtyTV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="2dp"
+                                        android:fontFamily="roboto-light"
+                                        android:gravity="start"
+                                        android:maxLength="25"
+                                        android:minLines="1"
+                                        android:paddingLeft="2dp"
+                                        android:paddingRight="2dp"
+                                        android:text="10 Items"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textSize="13sp"
+                                        android:visibility="visible" />
+
+                                    <TextView
+                                        android:id="@+id/products_list_row_product_sizeTV"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="2dp"
+                                        android:layout_weight="0.5"
+                                        android:fontFamily="roboto-light"
+                                        android:gravity="start"
+                                        android:maxLength="9"
+                                        android:minLines="1"
+                                        android:paddingLeft="2dp"
+                                        android:text="2 KGs"
+                                        android:textColor="@color/colorAccent"
+                                        android:textSize="13sp"
+                                        android:visibility="visible" />
+                                </LinearLayout>
+                                <!--   <TextView
+                                       android:id="@+id/updated_products_list_row_product_offerSaleIndicator_tagTv"
+                                       android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                       android:layout_gravity="center_vertical"
+                                       android:layout_weight="0.5"
+                                       android:fontFamily="roboto-light"
+                                       android:gravity="left"
+                                       android:maxLength="30"
+                                       android:minLines="1"
+                                       android:paddingRight="2dp"
+                                       android:singleLine="true"
+                                       android:text="Buy 2 get 1 free"
+                                       android:textColor="@color/colorAccent"
+                                       android:textSize="13sp"
+                                       android:visibility="visible" />-->
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/products_list_row_descTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="left"
+                        android:minLines="1"
+                        android:padding="2dp"
+                        android:text="Signature Decoset"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="13sp"
+                        android:visibility="visible" />
+                </LinearLayout>
+                <!-- </LinearLayout>-->
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
