@@ -29,4 +29,21 @@ public interface APIService {
             @Field("dateofbirth") String dateofbirth,
             @Field("timeofbirth") String timeofbirth,
             @Field("placeofbirth") String placeofbirth);
+
+
+
+    //The forgotpassword call
+    @FormUrlEncoded
+    @POST("index.php?r=site/requestpasswordreset")
+    Call<RegisterResponse> forgotPassword(
+            @Field("email") String email);
+
+
+    //The changepassword call
+    @FormUrlEncoded
+    @POST("index.php?r=users/changepassword")
+    Call<RegisterResponse> changePassword(
+            @Field("userid") String userid,
+            @Field("password") String password,
+            @Field("newpassword") String newpassword);
 }

@@ -134,5 +134,8 @@
     <string name="nav_item_children">Childrean</string>
     <string name="app_signout">SignOut</string>
     <string name="forgot">Forgot</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="new_password">New Password</string>
+    <string name="password">Password</string>
 
 </resources>
