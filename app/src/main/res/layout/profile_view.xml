@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -64,16 +63,14 @@
                 android:maxLines="1"
                 android:text="@string/app_name"
                 android:textColor="@color/greyhint"
-                android:textSize="16sp"
-
-                />
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:id="@+id/allbasic_Details_LT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
+                <!--firstname-->
                 <LinearLayout
                     android:id="@+id/user_profile_view_firstname_compound_LT"
                     android:layout_width="match_parent"
@@ -100,7 +97,7 @@
                         android:textColor="@color/greyhint"
                         android:textSize="16sp" />
                 </LinearLayout>
-
+                <!--lastname-->
                 <LinearLayout
                     android:id="@+id/user_profile_view_lastname_compound_LT"
                     android:layout_width="match_parent"
@@ -129,9 +126,9 @@
                         android:textColor="@color/greyhint"
                         android:textSize="16sp" />
                 </LinearLayout>
-
+                <!--contact-->
                 <LinearLayout
-                    android:id="@+id/user_profile_view_middlename_compound_LT_"
+                    android:id="@+id/user_profile_view_contact_compound_LT_"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -155,8 +152,8 @@
                         android:textColor="@color/greyhint"
                         android:textSize="16sp" />
                 </LinearLayout>
-
-                <LinearLayout
+                <!--gender-->
+                <!--<LinearLayout
                     android:id="@+id/gender_dobLT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -181,11 +178,8 @@
                         android:textColor="@color/greyhint"
                         android:textSize="16sp"
                         android:visibility="visible"/>
-
-
-
-                </LinearLayout>
-
+                </LinearLayout>-->
+                <!--dob_tob-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -223,7 +217,34 @@
 
 
                 </LinearLayout>
+                <!--Place of Birth-->
+                <LinearLayout
+                    android:id="@+id/placeofbirthLT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Place Of Birth"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/user_profile_view_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="top"
+                        android:inputType="text"
+                        android:text="Pleace Of Birth"
+                        android:textColor="@color/greyhint"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+                </LinearLayout>
+                <!--address-->
                 <LinearLayout
                     android:id="@+id/user_profile_view_addressone_compound_LT"
                     android:layout_width="match_parent"
@@ -234,7 +255,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="Address(1)"
+                        android:text="Address"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/colorPrimary"
 
@@ -247,11 +268,11 @@
                         android:fontFamily="sans-serif-light"
                         android:gravity="top"
                         android:inputType="textPersonName"
-                        android:text="Address line one"
+                        android:text="Address line"
                         android:textColor="@color/greyhint"
                         android:textSize="16sp" />
                 </LinearLayout>
-
+                <!--city-->
                 <LinearLayout
                     android:id="@+id/user_profile_view_city_compound_LT"
                     android:layout_width="match_parent"
@@ -279,7 +300,35 @@
                         android:textColor="@color/greyhint"
                         android:textSize="16sp" />
                 </LinearLayout>
+                <!--state-->
+                <LinearLayout
+                    android:id="@+id/user_profile_view_state_compound_LT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="State"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimary"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/user_profile_view_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="top"
+                        android:inputType="textPersonName"
+                        android:text="State"
+                        android:textColor="@color/greyhint"
+                        android:textSize="16sp" />
+                </LinearLayout>
+                <!--country-->
                 <LinearLayout
                     android:id="@+id/user_profile_view_country_compound_LT"
                     android:layout_width="match_parent"
@@ -308,64 +357,36 @@
                         android:textSize="16sp" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/user_profile_view_state_compound_LT"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                <!--postal zip-->
+                <!--  <LinearLayout
+                      android:id="@+id/user_profile_view_state_compound_LT_"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="State"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/colorPrimary"
+                      <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="sans-serif-light"
+                          android:text="Zip/Postal Code"
+                          android:textAppearance="?android:attr/textAppearanceSmall"
+                          android:textColor="@color/colorPrimary"
 
-                        />
+                          />
 
-                    <TextView
-                        android:id="@+id/user_profile_view_state"
-                        android:layout_width="match_parent"
-                        android:layout_height="38dp"
-                        android:fontFamily="sans-serif-light"
-                        android:gravity="top"
-                        android:inputType="textPersonName"
-                        android:text="State"
-                        android:textColor="@color/greyhint"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/user_profile_view_state_compound_LT_"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="Zip/Postal Code"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/colorPrimary"
-
-                        />
-
-                    <TextView
-                        android:id="@+id/user_profile_view_zip"
-                        android:layout_width="match_parent"
-                        android:layout_height="42dp"
-                        android:fontFamily="sans-serif-light"
-                        android:gravity="top"
-                        android:inputType="textPostalAddress"
-                        android:text="Zip/Postal Code"
-                        android:textColor="@color/greyhint"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                      <TextView
+                          android:id="@+id/user_profile_view_zip"
+                          android:layout_width="match_parent"
+                          android:layout_height="42dp"
+                          android:fontFamily="sans-serif-light"
+                          android:gravity="top"
+                          android:inputType="textPostalAddress"
+                          android:text="Zip/Postal Code"
+                          android:textColor="@color/greyhint"
+                          android:textSize="16sp" />
+                  </LinearLayout>-->
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
 
 </LinearLayout>

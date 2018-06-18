@@ -3,13 +3,18 @@ package com.anagha.astrology;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +35,10 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
     private Toolbar mToolbar;
     private TextView loginUserNameTv;
     static SharedPreferences sPrefs;
+
+    WebView myWebView;
+    ProgressBar progress;
+
     // private ViewPager viewPager;
     //private TabLayout tabLayout;
 
@@ -59,11 +68,19 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
         drawerFragment.setDrawerListener(this);
 
 
+        myWebView = (WebView) findViewById(R.id.webview);
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        progress = (ProgressBar) findViewById(R.id.progressBar);
+        progress.setVisibility(View.GONE);
+        myWebView.setWebViewClient(new MyWebViewClient());
+        myWebView.getSettings().setJavaScriptEnabled(true);
+
        /* viewPager = (ViewPager) findViewById(R.id.pager);
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 
         setupViewPager(viewPager);*/
-
+        myWebView.loadUrl("http://192.168.2.12/astro/backend/web/index.php?r=site/dashas");
 
         loginUserNameTv = (TextView) findViewById(R.id.loggedinusernameTV);
         loginUserNameTv.setText(sPrefs.getString("userName", null));
@@ -235,4 +252,37 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
         }
 
     }*/
+
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+           /* if (url.startsWith("mailto:")) {
+                MailTo mt = MailTo.parse(url);
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_EMAIL, new String[]{mt.getTo()});
+                i.putExtra(Intent.EXTRA_SUBJECT, mt.getSubject());
+                i.putExtra(Intent.EXTRA_TEXT, mt.getBody());
+                _ctx.startActivity(i);
+                return true;
+            }*/
+            view.loadUrl(url);
+            return true;
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            progress.setVisibility(View.GONE);
+            SelectedSignDashBoard.this.progress.setProgress(100);
+            super.onPageFinished(view, url);
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            progress.setVisibility(View.VISIBLE);
+            SelectedSignDashBoard.this.progress.setProgress(0);
+            super.onPageStarted(view, url, favicon);
+        }
+    }
+
 }

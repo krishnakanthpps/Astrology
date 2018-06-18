@@ -35,4 +35,13 @@
         <item>@color/dot_inactive_screen3</item>
     </array>
 
+
+
+    <color name="progress_red">#ff1200</color>
+    <color name="progress_yellow">#f0e100</color>
+    <color name="progress_green">#14a800</color>
+
+
+
+
 </resources>

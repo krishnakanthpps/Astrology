@@ -44,6 +44,7 @@ public interface APIService {
     @POST("index.php?r=users/changepassword")
     Call<RegisterResponse> changePassword(
             @Field("userid") String userid,
-            @Field("password") String password,
-            @Field("newpassword") String newpassword);
+            @Field("oldpassword") String password,
+            @Field("password") String newpassword
+           );
 }

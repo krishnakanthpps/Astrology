@@ -28,7 +28,6 @@ public class MainActivity extends BaseActivity {
         return R.layout.activity_main;
     }
 
-
     private void navigationScreens() {
         long FLASH_TIME = 2500;
         //for demoscreen already seen but nonlogin-PreloginDashboard

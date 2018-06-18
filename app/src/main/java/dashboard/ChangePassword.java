@@ -72,7 +72,7 @@ public class ChangePassword extends BaseActivity implements View.OnClickListener
             case R.id.submitBT:
                 if (!validations(oldPasswordET.getText().toString(), newPasswordET.getText().toString(), confirmnewPasswordET.getText().toString())) {
                     if (NetworkConnectionCheck.checkInternetConnection(_context)) {
-                        userForgotPassword();
+                        userChangePassword();
                     } else {
                         new WebCall(_context).DialogForWifi_Enable_CloseDialog(_context.getString(R.string.internet_enable), _context.getString(R.string.internet_enable_message), R.drawable.warning_red);
                     }
@@ -148,7 +148,7 @@ public class ChangePassword extends BaseActivity implements View.OnClickListener
         return pstatus;
     }
 
-    private void userForgotPassword() {
+    private void userChangePassword() {
         //defining a progress dialog to show while signing up
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Reset Password...");

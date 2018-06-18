@@ -31,7 +31,7 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/button2"
+                android:id="@+id/ariesTV"
                 android:background="@drawable/house_background"
                 android:layout_height="match_parent"
                 android:gravity="center"

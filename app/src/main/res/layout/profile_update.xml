@@ -39,7 +39,7 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp" />
 
-
+            <!--email-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,6 +63,28 @@
 
                 />
 
+            <!--contactno-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Contact"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/userprofile_update_userMobileET"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="@string/address_one_contactphone_one"
+                android:textColor="@color/greyhint"
+                android:textSize="16sp" />
+            <!--first name-->
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/userprofile_update_userFNET_InputLayout"
                 android:layout_width="match_parent"
@@ -81,7 +103,7 @@
                     android:singleLine="true"
                     android:textColor="#666666" />
             </android.support.design.widget.TextInputLayout>
-
+            <!--lastname-->
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/userprofile_update_userLET_InputLayout"
                 android:layout_width="match_parent"
@@ -101,46 +123,8 @@
                     android:textColor="#666666" />
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/userprofile_update_userMET_InputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/userprofile_update_userMET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:hint="@string/middle_name"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="textPersonName"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:textColor="#666666" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/userprofile_update_mobile_no_one__InputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/userprofile_update_mobile_no_one"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:hint="@string/address_one_contactphone_one"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="phone"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:textColor="#666666" />
-            </android.support.design.widget.TextInputLayout>
-
-
-            <LinearLayout
+            <!--gender-->
+            <!--<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_gravity="center"
@@ -178,9 +162,8 @@
                 </RadioGroup>
 
 
-            </LinearLayout>
-
-
+            </LinearLayout>-->
+            <!--dob_tob-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
@@ -217,7 +200,7 @@
 
 
             </LinearLayout>
-
+            <!--addressone-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -258,26 +241,26 @@
                         android:textColor="#666666" />
                 </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/userprofile_update_address_line_two_description_InputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:visibility="visible">
+                <!-- <android.support.design.widget.TextInputLayout
+                     android:id="@+id/userprofile_update_address_line_two_description_InputLayout"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:orientation="horizontal"
+                     android:visibility="visible">
 
-                    <EditText
-                        android:id="@+id/userprofile_update_address_line_two_description"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:hint="@string/address_l_two"
-                        android:imeOptions="actionUnspecified"
-                        android:inputType="textMultiLine"
-                        android:maxLines="3"
-                        android:singleLine="true"
-                        android:textColor="#666666" />
-                </android.support.design.widget.TextInputLayout>
-
+                     <EditText
+                         android:id="@+id/userprofile_update_address_line_two_description"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:fontFamily="sans-serif-light"
+                         android:hint="@string/address_l_two"
+                         android:imeOptions="actionUnspecified"
+                         android:inputType="textMultiLine"
+                         android:maxLines="3"
+                         android:singleLine="true"
+                         android:textColor="#666666" />
+                 </android.support.design.widget.TextInputLayout>-->
+                <!--city-->
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/userprofile_update_city_InputLayout"
                     android:layout_width="match_parent"
@@ -296,7 +279,7 @@
                         android:textColor="#666666" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
-
+            <!--state_country_-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -305,7 +288,7 @@
                 android:orientation="vertical"
                 android:visibility="visible">
 
-
+                <!--state-->
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/userprofile_update_state_InputLayout"
                     android:layout_width="match_parent"
@@ -324,7 +307,7 @@
                         android:singleLine="true"
                         android:textColor="#666666" />
                 </android.support.design.widget.TextInputLayout>
-
+                <!--country-->
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/userprofile_update_country_InputLayout"
                     android:layout_width="match_parent"
@@ -343,8 +326,8 @@
                         android:singleLine="true"
                         android:textColor="#666666" />
                 </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
+                <!--postal-->
+                <!--<android.support.design.widget.TextInputLayout
                     android:id="@+id/userprofile_update_zip_InputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -361,7 +344,7 @@
                         android:maxLines="1"
                         android:singleLine="true"
                         android:textColor="#666666" />
-                </android.support.design.widget.TextInputLayout>
+                </android.support.design.widget.TextInputLayout>-->
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
