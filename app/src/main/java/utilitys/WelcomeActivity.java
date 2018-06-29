@@ -140,8 +140,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void updateDemoScreenVisibleStatus(String demoScreenVisibleStatus, boolean b) {
         SharedPreferences.Editor e = sPrefs.edit();
-        e.putBoolean(demoScreenVisibleStatus, b).apply();
-        e.commit();
+        e.putBoolean(demoScreenVisibleStatus, b).commit();
+
     }
 
     //  viewpager change listener

@@ -22,7 +22,6 @@
     <string name="cancel">CANCEL</string>
 
 
-
     <string name="app_demo_screens_visibility_boolean_status_key">demoScreenVisibleStatus</string>
     <string name="app_login_status_key">loginStatus</string>
     <string name="app_loggedinAs">loggedin_as</string>
@@ -35,16 +34,16 @@
 
     <!-- Toolbar titles when navigation menu item is selected -->
     <string-array name="nav_drawer_labels">
-   <!--     <item>@string/nav_item_home</item>
-        <item>@string/action_about_app</item>
-        <item>@string/action_contact_us</item>
-        <item>@string/action_about_us</item>
-        <item>@string/nav_item_app_reviews</item>
-        <item>@string/action_media_and_share</item>-->
+        <!--     <item>@string/nav_item_home</item>
+             <item>@string/action_about_app</item>
+             <item>@string/action_contact_us</item>
+             <item>@string/action_about_us</item>
+             <item>@string/nav_item_app_reviews</item>
+             <item>@string/action_media_and_share</item>-->
         <item>@string/nav_item_home</item>
         <item>@string/nav_item_dailyhoroscope</item>
         <item>@string/nav_item_yourchartdetails</item>
-       <!-- <item>@string/nav_item_personalizedhoroscope</item>-->
+        <!-- <item>@string/nav_item_personalizedhoroscope</item>-->
 
         <item>@string/nav_item_personality</item>
         <item>@string/nav_item_career</item>
@@ -86,12 +85,12 @@
         <item>@drawable/ring</item>
         <item>@drawable/children</item>
         <item>@drawable/logout</item>
-       <!-- <item>@drawable/nav_home_white</item>
-        <item>@drawable/info_android</item>
-        <item>@drawable/contact_us_updated</item>
-        <item>@drawable/nav_rewards_white</item>
-        <item>@drawable/nav_support_help_white</item>
-        <item>@drawable/ic_share</item>-->
+        <!-- <item>@drawable/nav_home_white</item>
+         <item>@drawable/info_android</item>
+         <item>@drawable/contact_us_updated</item>
+         <item>@drawable/nav_rewards_white</item>
+         <item>@drawable/nav_support_help_white</item>
+         <item>@drawable/ic_share</item>-->
     </string-array>
 
 
@@ -118,13 +117,17 @@
     <string name="address_one_country">Country</string>
     <string name="address_one_state">State</string>
     <string name="address_one_city">City</string>
-    <string name="address_one_mobile_one">Mobile One</string>
-    <string name="address_one_contactphone_one">Contact Phone</string>
-    <string name="address_one_mobile_two">Mobile Two</string>
+    <string name="address_mobile">Mobile</string>
+    <!--
+        <string name="address_one_contactphone_one">Contact Phone</string>
+    -->
+    <!-- <string name="address_one_mobile_two">Mobile Two</string>-->
     <string name="middle_name">MiddleName</string>
     <string name="last_name">LastName</string>
     <string name="first_name">FirstName</string>
-    <string name="prompt_register_email">Email</string>
+    <!--
+        <string name="prompt_register_email">Email</string>
+    -->
     <string name="action_update_profile_edit">profile_update</string>
     <string name="nav_item_personality">Personality</string>
     <string name="nav_item_career">Career</string>
@@ -137,5 +140,6 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="new_password">New Password</string>
     <string name="password">Password</string>
+    <string name="email">Email</string>
 
 </resources>

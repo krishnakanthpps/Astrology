@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "726260695191",
+    "firebase_url": "https://sriastrology-1ac6a.firebaseio.com",
+    "project_id": "sriastrology-1ac6a",
+    "storage_bucket": "sriastrology-1ac6a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726260695191:android:d486fc7fd7eeedb8",
+        "android_client_info": {
+          "package_name": "com.anagha.astrology"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "726260695191-odqfr11s61fkol0goourptc2gb88qbfr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.anagha.astrology",
+            "certificate_hash": "052f2eb80f6476a321e7606ddc32b399f460eb05"
+          }
+        },
+        {
+          "client_id": "726260695191-994gn2fod3ndallf69gq7v7houho2gbi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCIPKsZJd50oZrziiaHw0nJyYBRyHEB1c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "726260695191-994gn2fod3ndallf69gq7v7houho2gbi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

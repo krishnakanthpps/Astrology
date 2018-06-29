@@ -31,13 +31,13 @@
 
             <TextView
                 android:id="@+id/userprofile_update_userNameTV"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
                 android:maxLines="2"
                 android:text="@string/app_name"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp" />
+                android:textSize="25sp" />
 
             <!--email-->
             <TextView
@@ -46,19 +46,20 @@
                 android:layout_marginBottom="-10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-light"
-                android:text="Email"
+                android:text="@string/email"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
-                android:id="@+id/userprofile_update_userEmailET"
+                android:id="@+id/userprofile_update_userEmailTV"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_vertical"
+                android:hint="@string/email"
                 android:maxLines="1"
-                android:text="@string/prompt_register_email"
-                android:textColor="@color/greyhint"
+                android:textColor="@color/black"
+                android:textColorHint="@color/greyhint"
                 android:textSize="16sp"
 
                 />
@@ -70,19 +71,20 @@
                 android:layout_marginBottom="-10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-light"
-                android:text="Contact"
+                android:text="@string/address_mobile"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
-                android:id="@+id/userprofile_update_userMobileET"
+                android:id="@+id/userprofile_update_userMobileTV"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center_vertical"
+                android:hint="@string/address_mobile"
                 android:maxLines="1"
-                android:text="@string/address_one_contactphone_one"
-                android:textColor="@color/greyhint"
+                android:textColor="@color/black"
+                android:textColorHint="@color/greyhint"
                 android:textSize="16sp" />
             <!--first name-->
             <android.support.design.widget.TextInputLayout
@@ -97,11 +99,12 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:hint="@string/first_name"
+                    android:textColorHint="@color/greyhint"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPersonName"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:textColor="#666666" />
+                    android:textColor="@color/black" />
             </android.support.design.widget.TextInputLayout>
             <!--lastname-->
             <android.support.design.widget.TextInputLayout
@@ -116,11 +119,12 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:hint="@string/last_name"
+                    android:textColorHint="@color/greyhint"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPersonName"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:textColor="#666666" />
+                    android:textColor="@color/black" />
             </android.support.design.widget.TextInputLayout>
 
             <!--gender-->
@@ -180,9 +184,10 @@
                     android:drawableLeft="@drawable/time_of_birth"
                     android:fontFamily="sans-serif-light"
                     android:gravity="center|left"
-                    android:text="*DoB"
+                    android:hint="*DoB"
+                    android:textColorHint="@color/greyhint"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/greyhint" />
+                    android:textColor="@color/black" />
 
 
                 <TextView
@@ -194,9 +199,10 @@
                     android:drawableLeft="@drawable/time_of_birth"
                     android:fontFamily="sans-serif-light"
                     android:gravity="center|left"
-                    android:text="*ToB"
+                    android:hint="*ToB"
+                    android:textColorHint="@color/greyhint"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/greyhint" />
+                    android:textColor="@color/black" />
 
 
             </LinearLayout>
@@ -229,16 +235,17 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/userprofile_update_address_line_one_description"
+                        android:id="@+id/userprofile_update_address_line_oneET"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
                         android:hint="@string/address_l_one"
+                        android:textColorHint="@color/greyhint"
                         android:imeOptions="actionUnspecified"
                         android:inputType="textMultiLine"
                         android:maxLines="3"
                         android:singleLine="true"
-                        android:textColor="#666666" />
+                        android:textColor="@color/black" />
                 </android.support.design.widget.TextInputLayout>
 
                 <!-- <android.support.design.widget.TextInputLayout
@@ -268,15 +275,16 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/userprofile_update_city"
+                        android:id="@+id/userprofile_update_cityET"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
                         android:hint="@string/address_one_city"
+                        android:textColorHint="@color/greyhint"
                         android:imeOptions="actionUnspecified"
                         android:inputType="textMultiLine"
                         android:singleLine="true"
-                        android:textColor="#666666" />
+                        android:textColor="@color/black" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
             <!--state_country_-->
@@ -296,7 +304,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/userprofile_update_state"
+                        android:id="@+id/userprofile_update_stateET"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
@@ -305,7 +313,8 @@
                         android:inputType="textPostalAddress"
                         android:maxLines="1"
                         android:singleLine="true"
-                        android:textColor="#666666" />
+                        android:textColorHint="@color/greyhint"
+                        android:textColor="@color/black" />
                 </android.support.design.widget.TextInputLayout>
                 <!--country-->
                 <android.support.design.widget.TextInputLayout
@@ -315,7 +324,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/userprofile_update_country"
+                        android:id="@+id/userprofile_update_countryET"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
@@ -324,7 +333,8 @@
                         android:inputType="textPostalAddress"
                         android:maxLines="1"
                         android:singleLine="true"
-                        android:textColor="#666666" />
+                        android:textColorHint="@color/greyhint"
+                        android:textColor="@color/black" />
                 </android.support.design.widget.TextInputLayout>
                 <!--postal-->
                 <!--<android.support.design.widget.TextInputLayout
@@ -347,5 +357,6 @@
                 </android.support.design.widget.TextInputLayout>-->
             </LinearLayout>
         </LinearLayout>
+
     </ScrollView>
 </LinearLayout>

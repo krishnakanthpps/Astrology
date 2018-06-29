@@ -149,6 +149,7 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/navaamsaDOB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left|center_vertical"
@@ -158,6 +159,7 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/navaamsaDOBTIMETV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -179,7 +181,7 @@
             android:textColor="@color/black"
             android:textSize="14sp" />
 
-        <include layout="@layout/navaamsa_chakram" />
+        <include layout="@layout/navaamsa_new" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -200,6 +202,7 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/janmaamsaDOBTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left|center_vertical"
@@ -209,6 +212,7 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/janmaamsaDOBTIMETV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -229,7 +233,7 @@
             android:textColor="@color/black"
             android:textSize="14sp" />
 
-        <include layout="@layout/navaamsa_chakram" />
+        <include layout="@layout/jammaamsa_new_view" />
 
         <include layout="@layout/help_items_webview" />
 

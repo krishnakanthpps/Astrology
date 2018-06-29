@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Bundle;
 
-
 import dashboard.Login;
 import utilitys.BaseActivity;
 import utilitys.WebCall;
@@ -97,7 +96,6 @@ public class MainActivity extends BaseActivity {
     private boolean getLoginStatus(String loginStatus) {
         return sPrefs.getBoolean(loginStatus, false);
     }
-
 
     @Override
     protected void onDestroy() {

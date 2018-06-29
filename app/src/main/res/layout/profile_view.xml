@@ -42,15 +42,15 @@
                 android:gravity="top"
                 android:hint="@string/app_name"
                 android:inputType="textPersonName"
-                android:text="@string/app_name"
-                android:textColor="@color/greyhint"
+                android:textColor="@color/black"
+                android:textColorHint="@color/greyhint"
                 android:textSize="16sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
-                android:text="Email"
+                android:text="@string/email"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/colorPrimary" />
 
@@ -60,9 +60,10 @@
                 android:layout_height="38dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="top"
+                android:hint="@string/email"
                 android:maxLines="1"
-                android:text="@string/app_name"
-                android:textColor="@color/greyhint"
+                android:textColor="@color/black"
+                android:textColorHint="@color/greyhint"
                 android:textSize="16sp" />
 
             <LinearLayout
@@ -81,7 +82,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="First Name"
+                        android:text="@string/first_name"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/colorPrimary" />
 
@@ -91,10 +92,11 @@
                         android:layout_height="38dp"
                         android:fontFamily="sans-serif-light"
                         android:gravity="top"
+                        android:hint="@string/first_name"
                         android:inputType="textPersonName"
                         android:maxLines="1"
-                        android:text="First Name"
-                        android:textColor="@color/greyhint"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/greyhint"
                         android:textSize="16sp" />
                 </LinearLayout>
                 <!--lastname-->
@@ -108,7 +110,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="Last Name"
+                        android:text="@string/last_name"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/colorPrimary"
 
@@ -120,10 +122,11 @@
                         android:layout_height="38dp"
                         android:fontFamily="sans-serif-light"
                         android:gravity="top"
+                        android:hint="@string/last_name"
                         android:inputType="textPersonName"
                         android:maxLines="1"
-                        android:text="Last Name"
-                        android:textColor="@color/greyhint"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/greyhint"
                         android:textSize="16sp" />
                 </LinearLayout>
                 <!--contact-->
@@ -137,7 +140,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="Contact Phone"
+                        android:text="@string/address_mobile"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/colorPrimary" />
 
@@ -147,9 +150,10 @@
                         android:layout_height="38dp"
                         android:fontFamily="sans-serif-light"
                         android:gravity="top"
+                        android:hint="@string/address_mobile"
                         android:inputType="phone"
-                        android:text="mobile one"
-                        android:textColor="@color/greyhint"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/greyhint"
                         android:textSize="16sp" />
                 </LinearLayout>
                 <!--gender-->
@@ -194,9 +198,10 @@
                         android:drawablePadding="3dp"
                         android:fontFamily="sans-serif-light"
                         android:gravity="center_vertical"
+                        android:hint="DOB"
                         android:inputType="textPersonName"
-                        android:text="DOB"
-                        android:textColor="@color/greyhint"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/greyhint"
                         android:textSize="16sp"
                         android:visibility="visible" />
 
@@ -209,9 +214,10 @@
                         android:drawablePadding="3dp"
                         android:fontFamily="sans-serif-light"
                         android:gravity="center_vertical"
+                        android:hint="TOB"
                         android:inputType="textPersonName"
-                        android:text="TOB"
-                        android:textColor="@color/greyhint"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/greyhint"
                         android:textSize="16sp"
                         android:visibility="visible" />
 
@@ -233,14 +239,15 @@
                         android:textColor="@color/colorPrimary" />
 
                     <TextView
-                        android:id="@+id/user_profile_view_gender"
+                        android:id="@+id/user_profile_view_placeofbirthTV"
                         android:layout_width="match_parent"
                         android:layout_height="38dp"
                         android:fontFamily="sans-serif-light"
                         android:gravity="top"
+                        android:hint="Pleace Of Birth"
                         android:inputType="text"
-                        android:text="Pleace Of Birth"
-                        android:textColor="@color/greyhint"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/greyhint"
                         android:textSize="16sp"
                         android:visibility="visible" />
                 </LinearLayout>
@@ -262,14 +269,15 @@
                         />
 
                     <TextView
-                        android:id="@+id/user_profile_view_address_line_one"
+                        android:id="@+id/user_profile_view_address_line_oneTV"
                         android:layout_width="match_parent"
                         android:layout_height="38dp"
                         android:fontFamily="sans-serif-light"
                         android:gravity="top"
+                        android:hint="Address line"
                         android:inputType="textPersonName"
-                        android:text="Address line"
-                        android:textColor="@color/greyhint"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/greyhint"
                         android:textSize="16sp" />
                 </LinearLayout>
                 <!--city-->
@@ -290,14 +298,15 @@
                         />
 
                     <TextView
-                        android:id="@+id/user_profile_view_city"
+                        android:id="@+id/user_profile_view_cityTV"
                         android:layout_width="match_parent"
                         android:layout_height="38dp"
                         android:fontFamily="sans-serif-light"
                         android:gravity="top"
+                        android:hint="City"
                         android:inputType="textPersonName"
-                        android:text="City"
-                        android:textColor="@color/greyhint"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/greyhint"
                         android:textSize="16sp" />
                 </LinearLayout>
                 <!--state-->
@@ -318,14 +327,15 @@
                         />
 
                     <TextView
-                        android:id="@+id/user_profile_view_state"
+                        android:id="@+id/user_profile_view_stateTV"
                         android:layout_width="match_parent"
                         android:layout_height="38dp"
                         android:fontFamily="sans-serif-light"
                         android:gravity="top"
+                        android:hint="State"
                         android:inputType="textPersonName"
-                        android:text="State"
-                        android:textColor="@color/greyhint"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/greyhint"
                         android:textSize="16sp" />
                 </LinearLayout>
                 <!--country-->
@@ -346,14 +356,15 @@
                         />
 
                     <TextView
-                        android:id="@+id/user_profile_view_country"
+                        android:id="@+id/user_profile_view_countryTV"
                         android:layout_width="match_parent"
                         android:layout_height="38dp"
                         android:fontFamily="sans-serif-light"
                         android:gravity="top"
+                        android:hint="Country"
                         android:inputType="textPersonName"
-                        android:text="Country"
-                        android:textColor="@color/greyhint"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/greyhint"
                         android:textSize="16sp" />
                 </LinearLayout>
 

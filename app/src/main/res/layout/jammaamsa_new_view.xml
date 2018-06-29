@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/house_background"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp">
+
+                <TextView
+                    android:id="@+id/tweleveTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+
+                    tools:layout_editor_absoluteX="7dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/oneTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+
+                    tools:layout_editor_absoluteX="65dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/twoTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="123dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/threeTV"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="181dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp">
+
+                <TextView
+                    android:id="@+id/elevenTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="7dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right|bottom"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="visible"
+                    android:text="Janm"
+                    tools:layout_editor_absoluteX="65dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|bottom"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:text="amsa"
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="visible"
+                    tools:layout_editor_absoluteX="123dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/fourTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="181dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp">
+
+                <TextView
+                    android:id="@+id/tenTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="7dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="invisible"
+                    tools:layout_editor_absoluteX="65dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="invisible"
+                    tools:layout_editor_absoluteX="123dp"
+                    tools:layout_editor_absoluteY="1dp" />
+                <TextView
+                    android:id="@+id/fiveTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:text=""
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="181dp"
+                    tools:layout_editor_absoluteY="1dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp">
+
+                <TextView
+                    android:id="@+id/nineTV"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="7dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/eightTV"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="65dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/sevenTV"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="123dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/sixTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="181dp"
+                    tools:layout_editor_absoluteY="1dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>

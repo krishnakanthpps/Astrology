@@ -1,8 +1,13 @@
 package retrofitrelated;
+import models.Bhavaasmodel;
+import models.ChakrasResult;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 
 /**
@@ -47,4 +52,20 @@ public interface APIService {
             @Field("oldpassword") String password,
             @Field("password") String newpassword
            );
+
+    //profileview
+    @GET("index.php?r=users/view")
+    Call<ProfileViewResultResponse> loadProfileView(@Query("id") String id);
+
+    //sidemenu_options
+    @GET("index.php?r=horoscopeplanets/horoscopebhavas")
+    //&id=145&bhavam=self
+    Call<Bhavaasmodel> loadBhaavas(@Query("id") String id,@Query("bhavam") String bhavam);
+
+    /*main dashboard chakras*/
+    @GET("index.php?r=horoscopeplanets/viewnew")
+        //&id=145&bhavam=self
+    Call<ChakrasResult> loadChakras(@Query("id") String id);
+
+
 }

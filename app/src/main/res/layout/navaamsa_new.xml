@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/house_background"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp">
+
+                <TextView
+                    android:id="@+id/piscesTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+
+                    tools:layout_editor_absoluteX="7dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/ariesTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+
+                    tools:layout_editor_absoluteX="65dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/taurusTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="123dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/geminiTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="181dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp">
+
+                <TextView
+                    android:id="@+id/aquariusTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="7dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="right|bottom"
+                    android:text="Nava"
+                    tools:layout_editor_absoluteX="65dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:gravity="left|bottom"
+                    android:text="amsa"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="123dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/cancerTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="181dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp">
+
+                <TextView
+                    android:id="@+id/capricornTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="7dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="invisible"
+                    tools:layout_editor_absoluteX="65dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="invisible"
+                    tools:layout_editor_absoluteX="123dp"
+                    tools:layout_editor_absoluteY="1dp" />
+                <TextView
+                    android:id="@+id/leoTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:text=""
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="181dp"
+                    tools:layout_editor_absoluteY="1dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp">
+
+                <TextView
+                    android:id="@+id/sagittariusTV"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="7dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/scorpioTV"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="65dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/libraTV"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="123dp"
+                    tools:layout_editor_absoluteY="1dp" />
+
+                <TextView
+                    android:id="@+id/virgoTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/house_background"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxWidth="20dp"
+                    android:minWidth="20dp"
+                    android:textColor="@color/colorPrimary"
+                    tools:layout_editor_absoluteX="181dp"
+                    tools:layout_editor_absoluteY="1dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>
