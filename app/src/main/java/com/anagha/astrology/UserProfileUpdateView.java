@@ -1,5 +1,6 @@
 package com.anagha.astrology;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +11,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,9 +33,17 @@ import java.util.Calendar;
 
 import dashboard.FragmentDrawer;
 import dashboard.Register;
+import dashboard.Thankyou;
 import models.Userdetailview;
+import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofitrelated.APIService;
+import retrofitrelated.APIUrl;
 import retrofitrelated.ProfileViewResultResponse;
+import retrofitrelated.RegisterResponse;
 import utilitys.BaseActivity;
 import utilitys.NetworkConnectionCheck;
 import utilitys.WebCall;
@@ -52,7 +63,9 @@ public class UserProfileUpdateView extends BaseActivity implements
 
     private TextView userprofile_update_userNameTV;
     private TextView userprofile_update_userEmailTV;
-    private TextView userprofile_update_userMobileTV;
+    // private TextView userprofile_update_userMobileTV;
+    private EditText userprofile_update_userMobileTV;
+
 
     private TextView userprofile_update_dateofbirthTV;
     private TextView userprofile_update_timeofbirthTV;
@@ -105,7 +118,9 @@ public class UserProfileUpdateView extends BaseActivity implements
 
         userprofile_update_userNameTV = (TextView) findViewById(R.id.userprofile_update_userNameTV);
         userprofile_update_userEmailTV = (TextView) findViewById(R.id.userprofile_update_userEmailTV);
-        userprofile_update_userMobileTV = (TextView) findViewById(R.id.userprofile_update_userMobileTV);
+        //userprofile_update_userMobileTV = (TextView) findViewById(R.id.userprofile_update_userMobileTV);
+        userprofile_update_userMobileTV = (EditText) findViewById(R.id.userprofile_update_userMobileTV);
+
 
         userprofile_update_dateofbirthTV = (TextView) findViewById(R.id.userprofile_update_dateofbirthTV);
         userprofile_update_timeofbirthTV = (TextView) findViewById(R.id.userprofile_update_timeofbirthTV);
@@ -150,9 +165,19 @@ public class UserProfileUpdateView extends BaseActivity implements
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(
+
+        if (NetworkConnectionCheck.checkInternetConnection(_ctx)) {
+            Intent i = new Intent(_ctx, UserProfileView.class);
+            startActivity(i);
+            finishAffinity();
+            overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
+        } else {
+            new WebCall(_ctx).DialogForWifi_Enable_CloseDialog("Internet Enable ", "For this Request Please enable Intenet-Wifi,GPS", R.drawable.error_icon);
+        }
+
+       /* overridePendingTransition(
                 R.anim.activity_animation_right_to_left,
-                R.anim.right_to_left);
+                R.anim.right_to_left);*/
     }
 
     @Override
@@ -169,7 +194,8 @@ public class UserProfileUpdateView extends BaseActivity implements
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.action_menu_submit:
-                if (!validations(userprofile_update_userFNET.getText().toString(),
+                if (!validations(userprofile_update_userMobileTV.getText().toString(),
+                        userprofile_update_userFNET.getText().toString(),
                         userprofile_update_userLET.getText().toString(),
                         userprofile_update_address_placeofbirthET.getText().toString(),
                         userprofile_update_address_line_oneET.getText().toString(),
@@ -179,7 +205,7 @@ public class UserProfileUpdateView extends BaseActivity implements
                 )) {
                     if (NetworkConnectionCheck.checkInternetConnection(_ctx)) {
 
-                        //userProfileUpdate();
+                        userProfileUpdate();
 
                     } else {
                         new WebCall(_ctx).DialogForWifi_Enable_CloseDialog(_ctx.getString(R.string.internet_enable), _ctx.getString(R.string.internet_enable_message), R.drawable.warning_red);
@@ -196,7 +222,16 @@ public class UserProfileUpdateView extends BaseActivity implements
         return super.onOptionsItemSelected(item);
     }
 
-    private boolean validations(String firstname, String lastname,String placeofbirth, String addressone, String city, String state, String country) {
+    private boolean validations(String mobileno, String firstname, String lastname, String placeofbirth, String addressone, String city, String state, String country) {
+        if (TextUtils.isEmpty(mobileno)) {
+            new WebCall(_ctx).EmptyDialog("Required", "Enter MobileNo", R.drawable.warning_red);
+            return true;
+        }
+        /*if (!(mobileno.length() >= 10)) {
+            new WebCall(_ctx).EmptyDialog("Required", "Password should 6 digit", R.drawable.warning_red);
+            //inputLayoutPassword.setError("Password should be atleast more than 6 digits and shold have one numeric and once alphabet");
+            return true;
+        }*/
         if (TextUtils.isEmpty(firstname)) {
             new WebCall(_ctx).EmptyDialog("Required", "Enter First Name", R.drawable.warning_red);
             return true;
@@ -205,11 +240,11 @@ public class UserProfileUpdateView extends BaseActivity implements
             new WebCall(_ctx).EmptyDialog("Required", "Enter Last Name", R.drawable.warning_red);
             return true;
         }
-        if (!WebCall.isEmailValid(placeofbirth)) {
+        if (TextUtils.isEmpty(placeofbirth)) {
             new WebCall(_ctx).EmptyDialog("Required", "Enter Place Of Birth", R.drawable.warning_red);
             return true;
         }
-        if (!WebCall.isEmailValid(addressone)) {
+        if (TextUtils.isEmpty(addressone)) {
             new WebCall(_ctx).EmptyDialog("Required", "Enter Address One", R.drawable.warning_red);
             return true;
         }
@@ -340,5 +375,75 @@ public class UserProfileUpdateView extends BaseActivity implements
 
 
         userprofile_update_timeofbirthTV.setText(Hour + ":" + minute + " : " + ampm);
+    }
+
+
+    private void userProfileUpdate() {
+        //defining a progress dialog to show while signing up
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Profile Updating...");
+        progressDialog.show();
+
+        //building retrofit object
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(APIUrl.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        //Defining retrofit api service
+        APIService service = retrofit.create(APIService.class);
+        //Defining the user object as we need to pass it with the call
+
+        //defining the call
+        Call<RegisterResponse> call = service.updateUserProfile(
+                sPrefs.getString("userid", null),
+                userprofile_update_userFNET.getText().toString(),
+                userprofile_update_userLET.getText().toString(),
+                userprofile_update_dateofbirthTV.getText().toString(),
+                userprofile_update_timeofbirthTV.getText().toString(),
+                userprofile_update_userMobileTV.getText().toString(),
+                userprofile_update_address_placeofbirthET.getText().toString(),
+                userprofile_update_cityET.getText().toString(),
+                userprofile_update_stateET.getText().toString(),
+                userprofile_update_countryET.getText().toString(),
+                userprofile_update_address_line_oneET.getText().toString()
+        );
+        //calling the api
+        call.enqueue(new Callback<RegisterResponse>() {
+
+            @Override
+            public void onResponse(Call<retrofitrelated.RegisterResponse> call, Response<retrofitrelated.RegisterResponse> registerresponse) {
+                //hiding progress dialog
+                Log.i("response", registerresponse.toString());
+                progressDialog.dismiss();
+                //displaying the message from the response as toast
+                if (registerresponse.body().getStatus().equalsIgnoreCase("success")) {
+                    Log.i("responsetrue", registerresponse.toString());
+                    //here save success result object values and navigate to dashboard
+                    //update sharedpreference3 with login true for everytime dashboard
+                    //saveLoginStatus(getResources().getString(R.string.signin_status_key), true);
+                    Toast mytoast = Toast.makeText(getApplicationContext(), registerresponse.body().getMessage(), Toast.LENGTH_SHORT);
+                    mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
+                    mytoast.show();
+
+                    Intent intent = new Intent(UserProfileUpdateView.this, SelectedSignDashBoard.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
+                    UserProfileUpdateView.this.finish();
+                } else {
+                    Log.i("responseelse", registerresponse.toString());
+                    Toast mytoast = Toast.makeText(getApplicationContext(), registerresponse.body().getMessage(), Toast.LENGTH_SHORT);
+                    mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
+                    mytoast.show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<retrofitrelated.RegisterResponse> call, Throwable t) {
+                Log.e("response", t.toString());
+                progressDialog.dismiss();
+                Toast.makeText(getApplicationContext(), "error :" + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

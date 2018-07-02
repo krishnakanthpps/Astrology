@@ -111,9 +111,15 @@ public class UserProfileView extends BaseActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(
-                R.anim.activity_animation_right_to_left,
-                R.anim.right_to_left);
+        if (NetworkConnectionCheck.checkInternetConnection(_ctx)) {
+            Intent i = new Intent(_ctx, SelectedSignDashBoard.class);
+            startActivity(i);
+            finishAffinity();
+            overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
+        } else {
+            new WebCall(_ctx).DialogForWifi_Enable_CloseDialog("Internet Enable ", "For this Request Please enable Intenet-Wifi,GPS", R.drawable.error_icon);
+        }
+
     }
 
     @Override
@@ -134,6 +140,7 @@ public class UserProfileView extends BaseActivity {
                 String profileobj = new Gson().toJson(shareresponse);
                 userProfileEdit.putExtra("profileView", profileobj);
                 startActivity(userProfileEdit);
+                finishAffinity();
                 overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
                 break;
             default:

@@ -245,7 +245,6 @@
                         android:fontFamily="sans-serif-light"
                         android:gravity="top"
                         android:hint="Pleace Of Birth"
-                        android:inputType="text"
                         android:textColor="@color/black"
                         android:textColorHint="@color/greyhint"
                         android:textSize="16sp"

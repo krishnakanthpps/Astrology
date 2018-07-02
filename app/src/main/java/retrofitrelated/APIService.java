@@ -68,4 +68,21 @@ public interface APIService {
     Call<ChakrasResult> loadChakras(@Query("id") String id);
 
 
+
+    //The update user profile
+    @FormUrlEncoded
+    @POST("index.php?r=users/update")
+    Call<RegisterResponse> updateUserProfile(
+            @Field("userid") String userid,
+            @Field("first_name") String firstname,
+            @Field("last_name") String lastname,
+            @Field("dateofbirth") String dateofbirth,
+            @Field("timeofbirth") String timeofbirth,
+            @Field("mobile") String mobile,
+            @Field("placeofbirth") String placeofbirth,
+            @Field("current_city") String city,
+            @Field("current_state") String state,
+            @Field("current_country") String country,
+            @Field("address") String address);
+
 }

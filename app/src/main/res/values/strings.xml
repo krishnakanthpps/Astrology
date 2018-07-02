@@ -102,6 +102,7 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="profile">Profile</string>
+    <string name="profileupdate">ProfileUpdate</string>
 
 
     <string name="generatehoroscope">Horoscope</string>

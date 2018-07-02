@@ -169,7 +169,7 @@ public class ChangePassword extends BaseActivity implements View.OnClickListener
 
         //defining the call
         Call<RegisterResponse> call = service.changePassword(
-                "",
+                sPrefs.getString("userid", null),
                 oldPasswordET.getText().toString(),
                 newPasswordET.getText().toString()
         );

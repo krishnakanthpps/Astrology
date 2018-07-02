@@ -85,7 +85,7 @@
         <activity
             android:name=".UserProfileUpdateView"
             android:configChanges="orientation"
-            android:label="@string/profile"
+            android:label="@string/profileupdate"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
         <activity
