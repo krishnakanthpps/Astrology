@@ -33,7 +33,7 @@
                 android:textSize="18sp"
                 android:ems="10"
                 android:textColor="@color/black"
-                android:hint="UserId/Email"
+                android:hint="Email"
                 android:drawableLeft="@drawable/user_small"
                 android:drawableTint="#6e6e6e"
                 android:textColorHint="#d4d4d4"

@@ -120,9 +120,14 @@ public class Login extends BaseActivity implements View.OnClickListener {
 
     private boolean validations(String emailUserId, String password) {
         if (TextUtils.isEmpty(emailUserId)) {
-            new WebCall(_context).EmptyDialog("Required", "Enter User name or Email", R.drawable.warning_red);
+            new WebCall(_context).EmptyDialog("Required", "Enter Email", R.drawable.warning_red);
             return true;
-        } else if (TextUtils.isEmpty(password)) {
+        }
+        if (!WebCall.isEmailValid(emailUserId)) {
+            new WebCall(_context).EmptyDialog("Required", "Enter Valid Email", R.drawable.warning_red);
+            return true;
+        }
+        else if (TextUtils.isEmpty(password)) {
             new WebCall(_context).EmptyDialog("Required", "Enter Password", R.drawable.warning_red);
             return true;
         }

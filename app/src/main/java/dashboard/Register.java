@@ -338,7 +338,7 @@ public class Register extends BaseActivity implements View.OnClickListener, Date
                 dobET.getText().toString(),
                 timeofbirthET.getText().toString(),
                 placeofbirthET.getText().toString()
-                );
+        );
         //calling the api
         call.enqueue(new Callback<retrofitrelated.RegisterResponse>() {
 
@@ -378,5 +378,6 @@ public class Register extends BaseActivity implements View.OnClickListener, Date
             }
         });
     }
+
 
 }
