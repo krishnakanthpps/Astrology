@@ -81,5 +81,8 @@ public class WebCall {
         }
         return isPasswordValid;
     }
+    public static class Config {
+        public static final boolean DEVELOPER_MODE = false;
+    }
 
 }

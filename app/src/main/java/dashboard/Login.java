@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.anagha.astrology.R;
 import com.anagha.astrology.SelectedSignDashBoard;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 
 import org.json.JSONException;
@@ -48,6 +49,7 @@ public class Login extends BaseActivity implements View.OnClickListener {
     Context _context = Login.this;
     InputMethodManager inputManager;
     static SharedPreferences sPrefs;
+    String refreshedToken;
 
     @Override
     protected int getLayoutResource() {
@@ -87,6 +89,8 @@ public class Login extends BaseActivity implements View.OnClickListener {
         signinBT = (Button) findViewById(R.id.singinBT);
         signupTV = (TextView) findViewById(R.id.signuptv);
         forgotPassTV = (TextView) findViewById(R.id.forgotpasswordtv);
+
+        refreshedToken = FirebaseInstanceId.getInstance().getToken();
     }
 
     @Override
@@ -95,7 +99,7 @@ public class Login extends BaseActivity implements View.OnClickListener {
             case R.id.singinBT:
                 if (!validations(userNameET.getText().toString(), passwordET.getText().toString())) {
                     if (NetworkConnectionCheck.checkInternetConnection(_context)) {
-                     userSignIn();
+                        userSignIn();
                     } else {
                         new WebCall(_context).DialogForWifi_Enable_CloseDialog(_context.getString(R.string.internet_enable), _context.getString(R.string.internet_enable_message), R.drawable.warning_red);
                     }
@@ -126,8 +130,7 @@ public class Login extends BaseActivity implements View.OnClickListener {
         if (!WebCall.isEmailValid(emailUserId)) {
             new WebCall(_context).EmptyDialog("Required", "Enter Valid Email", R.drawable.warning_red);
             return true;
-        }
-        else if (TextUtils.isEmpty(password)) {
+        } else if (TextUtils.isEmpty(password)) {
             new WebCall(_context).EmptyDialog("Required", "Enter Password", R.drawable.warning_red);
             return true;
         }
@@ -156,7 +159,9 @@ public class Login extends BaseActivity implements View.OnClickListener {
         //defining the call
         Call<retrofitrelated.LoginResult> call = service.loginUser(
                 userNameET.getText().toString(),
-                passwordET.getText().toString()
+                passwordET.getText().toString(),
+                FirebaseInstanceId.getInstance().getToken(),
+                "Android"
         );
 
         //calling the api
@@ -192,7 +197,7 @@ public class Login extends BaseActivity implements View.OnClickListener {
                             response.body().getResult().getDasa_end_date(),
                             response.body().getResult().getToken());
 
-                    Toast mytoast = Toast.makeText(getApplicationContext(), "Welcome :"+response.body().getResult().getEmail(), Toast.LENGTH_SHORT);
+                    Toast mytoast = Toast.makeText(getApplicationContext(), "Welcome :" + response.body().getResult().getEmail(), Toast.LENGTH_SHORT);
                     mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
                     mytoast.show();
 
@@ -204,7 +209,7 @@ public class Login extends BaseActivity implements View.OnClickListener {
                     Toast mytoast = Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG);
                     mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
                     mytoast.show();
-                   // Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                    // Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
 

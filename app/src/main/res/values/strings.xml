@@ -51,7 +51,7 @@
         <item>@string/nav_item_health</item>
         <item>@string/nav_item_marriage</item>
         <item>@string/nav_item_children</item>
-
+        <item>@string/nav_item_remidies</item>
 
         <item>@string/nav_item_logout</item>
     </string-array>
@@ -84,6 +84,7 @@
         <item>@drawable/health</item>
         <item>@drawable/ring</item>
         <item>@drawable/children</item>
+        <item>@drawable/personalizedhoroscope</item>
         <item>@drawable/logout</item>
         <!-- <item>@drawable/nav_home_white</item>
          <item>@drawable/info_android</item>
@@ -136,6 +137,7 @@
     <string name="nav_item_health">Health</string>
     <string name="nav_item_marriage">Marriage</string>
     <string name="nav_item_children">Childrean</string>
+    <string name="nav_item_remidies">Remidies</string>
     <string name="app_signout">SignOut</string>
     <string name="forgot">Forgot</string>
     <string name="confirm_password">Confirm Password</string>

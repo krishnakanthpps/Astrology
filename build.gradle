@@ -12,13 +12,14 @@ buildscript {
         // in the individual module build.gradle files
 
         // Add this line
-        //classpath 'com.google.gms:google-services:4.0.0'
+        classpath 'com.google.gms:google-services:4.0.1'
     }
 }
 
 allprojects {
     repositories {
         jcenter()
+        google() // Google's Maven repository
     }
 }
 

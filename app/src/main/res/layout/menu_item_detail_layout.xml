@@ -33,10 +33,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:progress="70"
+                android:progress="10"
+                android:indeterminateTint="@color/greyhint"
                 android:visibility="visible"
-                android:progressDrawable="@drawable/custome_progress_bar" />
-
+               />
+<!--  android:progressDrawable="@drawable/custome_progress_bar"-->
             <TextView
                 android:id="@+id/specialTV"
                 android:layout_width="match_parent"

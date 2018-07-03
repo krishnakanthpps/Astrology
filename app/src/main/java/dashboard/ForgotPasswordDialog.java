@@ -157,4 +157,12 @@ public class ForgotPasswordDialog extends BaseActivity implements View.OnClickLi
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(
+                R.anim.activity_animation_right_to_left,
+                R.anim.right_to_left);
+    }
 }

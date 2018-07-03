@@ -128,7 +128,7 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
         loginUserNameTv.setText(sPrefs.getString("userName", null));
 
 
-        myWebView.loadUrl("http://expertwebworx.in/astro/backend/web/index.php?r=site/dashas&id="+Integer.parseInt(sPrefs.getString("userid", null)));
+        myWebView.loadUrl("http://expertwebworx.in/astro/backend/web/index.php?r=site/dashas&id=" + Integer.parseInt(sPrefs.getString("userid", null)));
 
 
         nameTV = (TextView) findViewById(R.id.nameTV);
@@ -230,12 +230,12 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                 mytoast.show();
                 break;
             case 2://Your chart Details
-               /* webabout = new Intent(this, WebPageActivity.class);
-                 webabout.putExtra("bhaavaam","");
-                startActivity(webabout);
+                Intent mychart = new Intent(this, MyChartDetailsActivity.class);
+                mychart.putExtra("bhaavaam", "MyChart Details");
+                startActivity(mychart);
                 overridePendingTransition(
                         R.anim.activity_animation_right_to_left,
-                        R.anim.right_to_left);*/
+                        R.anim.right_to_left);
 
                 mytoast = Toast.makeText(getApplicationContext(), "Welcome : Your chart Details", Toast.LENGTH_SHORT);
                 mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
@@ -326,7 +326,21 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                 mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
                 mytoast.show();
                 break;
-            case 9://Logout
+            case 9://Remidies
+               /* webabout = new Intent(this, BhaavasActivity.class);
+                //webabout.putExtra("bhaavaam", "children");
+                webabout.putExtra("bhaavaam", "Children");
+                webabout.putExtra("bhaavaam_no", "6");
+                startActivity(webabout);
+                overridePendingTransition(
+                        R.anim.activity_animation_right_to_left,
+                        R.anim.right_to_left);*/
+
+                mytoast = Toast.makeText(getApplicationContext(), "Welcome : Remidies", Toast.LENGTH_SHORT);
+                mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
+                mytoast.show();
+                break;
+            case 10://Logout
                 webabout = new Intent(this, LogOutActivity.class);
                 startActivity(webabout);
                 overridePendingTransition(

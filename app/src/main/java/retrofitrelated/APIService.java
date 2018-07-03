@@ -21,7 +21,9 @@ public interface APIService {
     @POST("index.php?r=site/login")
     Call<LoginResult> loginUser(
             @Field("username") String username,
-            @Field("password") String password);
+            @Field("password") String password,
+            @Field("deviceToken") String deviceToken,
+            @Field("deviceType") String deviceType);
 
     //The register call
     @FormUrlEncoded
@@ -33,7 +35,9 @@ public interface APIService {
             @Field("password") String password,
             @Field("dateofbirth") String dateofbirth,
             @Field("timeofbirth") String timeofbirth,
-            @Field("placeofbirth") String placeofbirth);
+            @Field("placeofbirth") String placeofbirth,
+            @Field("deviceToken") String deviceToken,
+            @Field("deviceType") String deviceType);
 
 
 

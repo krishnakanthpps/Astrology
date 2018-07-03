@@ -1,15 +1,22 @@
 package com.anagha.astrology;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Range;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -71,8 +78,6 @@ public class BhaavasActivity extends BaseActivity {
         specialInfoTV = (TextView) findViewById(R.id.specialTV);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
-
-
         if (NetworkConnectionCheck.checkInternetConnection(_ctx)) {
             userBhaavaasView();
         } else {
@@ -107,6 +112,7 @@ public class BhaavasActivity extends BaseActivity {
 
         //calling the api
         call.enqueue(new Callback<Bhavaasmodel>() {
+            @SuppressLint("ResourceType")
             @Override
             public void onResponse(Call<Bhavaasmodel> call, Response<Bhavaasmodel> response) {
                 //hiding progress dialog
@@ -121,7 +127,46 @@ public class BhaavasActivity extends BaseActivity {
                         } else {*/
                         specialInfoTV.setVisibility(View.VISIBLE);
                         progressBar.setVisibility(View.VISIBLE);
-                        progressBar.setProgress(Integer.parseInt(response.body().getPercentage()));
+
+                        if (new Range<Integer>(0, 25).contains(Integer.parseInt(response.body().getPercentage()))) {
+                            //red colored
+                            progressBar.setProgress(Integer.parseInt(response.body().getPercentage()));
+                            //progressBar.setProgressDrawable(getResources().getDrawable(R.drawable.progressone));
+
+                            Drawable progressDrawable = progressBar.getProgressDrawable().mutate();
+                            progressDrawable.setColorFilter(R.color.progress_red, android.graphics.PorterDuff.Mode.SRC_IN);
+                            progressBar.setProgressTintList(ColorStateList.valueOf(R.color.progress_red));
+                            progressBar.setProgressDrawable(progressDrawable);
+
+                        } else if (new Range<Integer>(25, 50).contains(Integer.parseInt(response.body().getPercentage()))) {
+                            //green colored
+                            progressBar.setProgress(Integer.parseInt(response.body().getPercentage()));
+                            //progressBar.setProgressDrawable(getResources().getDrawable(R.drawable.progresstwo));
+                            Drawable progressDrawable = progressBar.getProgressDrawable().mutate();
+                            progressDrawable.setColorFilter(R.color.progress_yellow, android.graphics.PorterDuff.Mode.SRC_IN);
+                            progressBar.setProgressTintList(ColorStateList.valueOf(R.color.progress_yellow));
+                            progressBar.setProgressDrawable(progressDrawable);
+
+                        } else if (new Range<Integer>(50, 75).contains(Integer.parseInt(response.body().getPercentage()))) {
+                            //orange colored
+                            progressBar.setProgress(Integer.parseInt(response.body().getPercentage()));
+                            //progressBar.setProgressDrawable(getResources().getDrawable(R.drawable.progressthree));
+                            Drawable progressDrawable = progressBar.getProgressDrawable().mutate();
+                            progressDrawable.setColorFilter(getColor(R.color.colorPrimary), android.graphics.PorterDuff.Mode.SRC_IN);
+                            progressBar.setProgressTintList(ColorStateList.valueOf(R.color.colorPrimary));
+                            progressBar.setProgressDrawable(progressDrawable);
+                        } else {
+                            //green colored
+                            //progressBar.setBackgroundColor(getResources().getColor(R.color.progress_yellow));
+                            //progressBar.setProgressDrawable(getResources().getDrawable(R.drawable.progressfour));
+                            progressBar.setProgress(Integer.parseInt(response.body().getPercentage()));
+                            Drawable progressDrawable = progressBar.getProgressDrawable().mutate();
+                            progressDrawable.setColorFilter(R.color.progress_green, android.graphics.PorterDuff.Mode.SRC_IN);
+                            progressBar.setProgressTintList(ColorStateList.valueOf(R.color.progress_green));
+                            //progressBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(_ctx, Color.GREEN), PorterDuff.Mode.SRC_IN );
+                            progressBar.setProgressDrawable(progressDrawable);
+
+                        }
                         specialInfoTV.setText(Html.fromHtml(response.body().getRegular_information() + "<br>" + response.body().getHundredpercentage_information()));
                         //}
                     } catch (NullPointerException npe) {

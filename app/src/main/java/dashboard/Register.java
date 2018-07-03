@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 
 import com.anagha.astrology.R;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
@@ -63,6 +64,7 @@ public class Register extends BaseActivity implements View.OnClickListener, Date
     Calendar calendar;
     TimePickerDialog timePickerDialog;
     int CalendarHour, CalendarMinute;
+    String refreshedToken;
     @Override
     protected int getLayoutResource() {
         return R.layout.register_layout;
@@ -103,6 +105,7 @@ public class Register extends BaseActivity implements View.OnClickListener, Date
         timeofbirthET = (TextView) findViewById(R.id.timeofbirthEt);
         dobET = (TextView) findViewById(R.id.dateofbirthEt);
         registerLoginTV = (TextView) findViewById(R.id.register_logintv);
+        refreshedToken = FirebaseInstanceId.getInstance().getToken();
 
 
         calendar = Calendar.getInstance();
@@ -337,7 +340,9 @@ public class Register extends BaseActivity implements View.OnClickListener, Date
                 passwordET.getText().toString(),
                 dobET.getText().toString(),
                 timeofbirthET.getText().toString(),
-                placeofbirthET.getText().toString()
+                placeofbirthET.getText().toString(),
+                FirebaseInstanceId.getInstance().getToken(),
+                "Android"
         );
         //calling the api
         call.enqueue(new Callback<retrofitrelated.RegisterResponse>() {
