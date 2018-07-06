@@ -6,14 +6,27 @@ public class ChakrasResult {
     private String dateofbirth;
     private String timeofbirth;
     private String rasi;
+    private String moonsign;
     private DashBoardResults result;
 
+/*
     public ChakrasResult(String status, String message, String dateofbirth, String timeofbirth, String rasi, DashBoardResults result) {
         this.status = status;
         this.message = message;
         this.dateofbirth = dateofbirth;
         this.timeofbirth = timeofbirth;
         this.rasi = rasi;
+        this.result = result;
+    }
+*/
+
+    public ChakrasResult(String status, String message, String dateofbirth, String timeofbirth, String rasi, String moonsign, DashBoardResults result) {
+        this.status = status;
+        this.message = message;
+        this.dateofbirth = dateofbirth;
+        this.timeofbirth = timeofbirth;
+        this.rasi = rasi;
+        this.moonsign = moonsign;
         this.result = result;
     }
 
@@ -63,5 +76,13 @@ public class ChakrasResult {
 
     public void setRasi(String rasi) {
         this.rasi = rasi;
+    }
+
+    public String getMoonsign() {
+        return moonsign;
+    }
+
+    public void setMoonsign(String moonsign) {
+        this.moonsign = moonsign;
     }
 }

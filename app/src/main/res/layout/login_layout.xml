@@ -101,7 +101,6 @@
                     android:padding="10dp"
                     android:textColor="@color/white"
                     android:text="Forgot Password?" />
-
             </LinearLayout>
 
            <!-- <TextView
@@ -123,8 +122,5 @@
                 android:textColor="@color/white"
                 android:text="Forgot Password?"  />-->
         </LinearLayout>
-
-
     </RelativeLayout>
-
 </LinearLayout>

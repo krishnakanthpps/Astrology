@@ -384,5 +384,4 @@ public class Register extends BaseActivity implements View.OnClickListener, Date
         });
     }
 
-
 }

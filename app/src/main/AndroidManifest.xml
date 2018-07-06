@@ -22,7 +22,7 @@
              notification message. See README(https://goo.gl/6BKBk7) for more. -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/colorAccent" />
+            android:resource="@color/colorPrimary" />
 
         <!--MainActivity-->
         <activity
@@ -113,6 +113,19 @@
         <!--MyChartDetailsView-->
         <activity
             android:name=".MyChartDetailsActivity"
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+        <!--DailyHoroscope-->
+        <activity
+            android:name="dashboard.DailyHoroscope"
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+        <activity
+            android:name="dashboard.Help_AppDetails"
             android:configChanges="orientation"
             android:label="@string/app_name"
             android:screenOrientation="portrait"

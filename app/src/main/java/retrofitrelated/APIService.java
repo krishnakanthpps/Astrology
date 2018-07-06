@@ -73,6 +73,12 @@ public interface APIService {
 
 
 
+    /*option view mychart*/
+    @GET("index.php?r=horoscopeplanets/viewnew2")
+    //&id=16&bhavam=6
+    Call<ChakrasResult> loadMyChartChakras(@Query("id") String id);
+
+
     //The update user profile
     @FormUrlEncoded
     @POST("index.php?r=users/update")

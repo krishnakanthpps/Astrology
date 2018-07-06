@@ -219,6 +219,7 @@
 
         <!--<include layout="@layout/help_items_webview" />-->
 
+        <include layout="@layout/bhaavam_strength_list"></include>
     </LinearLayout>
 
 </ScrollView>

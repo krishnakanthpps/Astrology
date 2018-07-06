@@ -25,6 +25,23 @@ public class DashBoardResults {
     public String navamsha_Leo;
     public String navamsha_Virgo;
     public String navamsha_Libra;
+    public String navamsha_Scorpio;
+    public String navamsha_Pisces;
+    //public String navamsha_Virgo;
+
+
+    public String Self;
+    public String Wealth;
+    public String Family;
+    public String Mother;
+    public String Assets;
+    public String Children;
+    public String EnemiesDebt;
+    public String Marriage;
+    public String Health;
+    public String Lucky_Father;
+    public String Career;
+    public String Savings;
 
     public String getJanma_Cancer() {
         return janma_Cancer;
@@ -218,8 +235,101 @@ public class DashBoardResults {
         this.navamsha_Pisces = navamsha_Pisces;
     }
 
-    public String navamsha_Scorpio;
-    public String navamsha_Pisces;
-    //public String navamsha_Virgo;
 
+
+    public String getSelf() {
+        return Self;
+    }
+
+    public void setSelf(String self) {
+        Self = self;
+    }
+
+    public String getWealth() {
+        return Wealth;
+    }
+
+    public void setWealth(String wealth) {
+        Wealth = wealth;
+    }
+
+    public String getFamily() {
+        return Family;
+    }
+
+    public void setFamily(String family) {
+        Family = family;
+    }
+
+    public String getMother() {
+        return Mother;
+    }
+
+    public void setMother(String mother) {
+        Mother = mother;
+    }
+
+    public String getAssets() {
+        return Assets;
+    }
+
+    public void setAssets(String assets) {
+        Assets = assets;
+    }
+
+    public String getChildren() {
+        return Children;
+    }
+
+    public void setChildren(String children) {
+        Children = children;
+    }
+
+    public String getEnemiesDebt() {
+        return EnemiesDebt;
+    }
+
+    public void setEnemiesDebt(String enemiesDebt) {
+        EnemiesDebt = enemiesDebt;
+    }
+
+    public String getMarriage() {
+        return Marriage;
+    }
+
+    public void setMarriage(String marriage) {
+        Marriage = marriage;
+    }
+
+    public String getHealth() {
+        return Health;
+    }
+
+    public void setHealth(String health) {
+        Health = health;
+    }
+
+    public String getLucky_Father() {
+        return Lucky_Father;
+    }
+
+    public void setLucky_Father(String lucky_Father) {
+        Lucky_Father = lucky_Father;
+    }
+
+    public String getCareer() {
+        return Career;
+    }
+
+    public void setCareer(String career) {
+        Career = career;
+    }
+
+    public String getSavings() {
+        return Savings;
+    }
+
+    public void setSavings(String savings) {
+        Savings = savings;
+    }
 }

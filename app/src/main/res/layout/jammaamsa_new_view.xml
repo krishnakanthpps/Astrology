@@ -47,10 +47,8 @@
                     android:gravity="center"
                     android:maxLength="20"
                     android:maxWidth="20dp"
-
                     android:minWidth="20dp"
                     android:textColor="@color/colorPrimary"
-
                     tools:layout_editor_absoluteX="65dp"
                     tools:layout_editor_absoluteY="1dp" />
 
@@ -119,9 +117,9 @@
                     android:maxLength="20"
                     android:maxWidth="20dp"
                     android:minWidth="20dp"
+                    android:text="Rassi"
                     android:textColor="@color/colorPrimary"
                     android:visibility="visible"
-                    android:text="Janm"
                     tools:layout_editor_absoluteX="65dp"
                     tools:layout_editor_absoluteY="1dp" />
 
@@ -133,7 +131,7 @@
                     android:maxLength="20"
                     android:maxWidth="20dp"
                     android:minWidth="20dp"
-                    android:text="amsa"
+                    android:text="chakram"
                     android:textColor="@color/colorPrimary"
                     android:visibility="visible"
                     tools:layout_editor_absoluteX="123dp"
@@ -206,6 +204,7 @@
                     android:visibility="invisible"
                     tools:layout_editor_absoluteX="123dp"
                     tools:layout_editor_absoluteY="1dp" />
+
                 <TextView
                     android:id="@+id/fiveTV"
                     android:layout_width="wrap_content"
@@ -263,7 +262,6 @@
                 <TextView
                     android:id="@+id/sevenTV"
                     android:layout_width="wrap_content"
-
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/house_background"

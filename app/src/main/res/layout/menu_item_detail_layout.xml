@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <include
@@ -27,16 +28,38 @@
                 android:textColor="#6e6e6e"
                 android:textSize="13sp" />
 
-            <ProgressBar
+            <!--<ProgressBar
                 android:id="@+id/progressBar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:layout_margin="10dp"
-                android:progress="10"
+                android:progress="50"
                 android:indeterminateTint="@color/greyhint"
                 android:visibility="visible"
-               />
+               />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                android:id="@+id/progressBarCircle"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:visibility="invisible"
+                />
+            <TextView
+                android:id="@+id/progressTV"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="10/100"
+                android:visibility="invisible"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp" />
+        </LinearLayout>
 <!--  android:progressDrawable="@drawable/custome_progress_bar"-->
             <TextView
                 android:id="@+id/specialTV"

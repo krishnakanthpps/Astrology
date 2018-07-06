@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_menu_info"
+        android:icon="@drawable/info_android"
+        android:orderInCategory="100"
+        android:title="@string/info_about"
+        app:showAsAction="always" />
+</menu>

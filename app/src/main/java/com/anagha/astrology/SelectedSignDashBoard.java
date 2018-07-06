@@ -11,6 +11,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -20,11 +22,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
+import dashboard.DailyHoroscope;
 import dashboard.FragmentDrawer;
+import dashboard.Help_AppDetails;
 import dashboard.LogOutActivity;
 import dashboard.Login;
 import models.ChakrasResult;
 import models.NavDrawerItem;
+import models.SettingsOptions;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -219,12 +226,13 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
             case 0://nav_item_home
                 break;
             case 1://DailyHoroscope
-               /* webabout = new Intent(this, BhaavasActivity.class);
-                webabout.putExtra("bhaavaam", "");
-                startActivity(webabout);
+                Intent dailyhoroscope = new Intent(this, DailyHoroscope.class);
+                dailyhoroscope.putExtra("bhaavaam", "MyHoroscope");
+                startActivity(dailyhoroscope);
                 overridePendingTransition(
                         R.anim.activity_animation_right_to_left,
-                        R.anim.right_to_left);*/
+                        R.anim.right_to_left);
+
                 mytoast = Toast.makeText(getApplicationContext(), "Welcome : DailyHoroscope", Toast.LENGTH_SHORT);
                 mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
                 mytoast.show();
@@ -259,7 +267,7 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                 webabout = new Intent(this, BhaavasActivity.class);
                 //webabout.putExtra("bhaavaam", "career");
                 webabout.putExtra("bhaavaam", "Career");
-                webabout.putExtra("bhaavaam_no", "11");
+                webabout.putExtra("bhaavaam_no", "10");
                 startActivity(webabout);
                 overridePendingTransition(
                         R.anim.activity_animation_right_to_left,
@@ -274,7 +282,7 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                 webabout = new Intent(this, BhaavasActivity.class);
                 //webabout.putExtra("bhaavaam", "savings");
                 webabout.putExtra("bhaavaam", "Money Matters");
-                webabout.putExtra("bhaavaam_no", "12");
+                webabout.putExtra("bhaavaam_no", "11");
                 startActivity(webabout);
                 overridePendingTransition(
                         R.anim.activity_animation_right_to_left,
@@ -288,7 +296,7 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                 webabout = new Intent(this, BhaavasActivity.class);
                 //webabout.putExtra("bhaavaam", "health");
                 webabout.putExtra("bhaavaam", "Health");
-                webabout.putExtra("bhaavaam_no", "9");
+                webabout.putExtra("bhaavaam_no", "8");
                 startActivity(webabout);
                 overridePendingTransition(
                         R.anim.activity_animation_right_to_left,
@@ -302,7 +310,7 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                 webabout = new Intent(this, BhaavasActivity.class);
                 //webabout.putExtra("bhaavaam", "marriage");
                 webabout.putExtra("bhaavaam", "Marriage");
-                webabout.putExtra("bhaavaam_no", "8");
+                webabout.putExtra("bhaavaam_no", "7");
                 startActivity(webabout);
                 overridePendingTransition(
                         R.anim.activity_animation_right_to_left,
@@ -316,7 +324,7 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                 webabout = new Intent(this, BhaavasActivity.class);
                 //webabout.putExtra("bhaavaam", "children");
                 webabout.putExtra("bhaavaam", "Children");
-                webabout.putExtra("bhaavaam_no", "6");
+                webabout.putExtra("bhaavaam_no", "5");
                 startActivity(webabout);
                 overridePendingTransition(
                         R.anim.activity_animation_right_to_left,
@@ -340,7 +348,17 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                 mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
                 mytoast.show();
                 break;
-            case 10://Logout
+            case 10://Settings
+                webabout = new Intent(this, Help_AppDetails.class);
+                startActivity(webabout);
+                overridePendingTransition(
+                        R.anim.activity_animation_right_to_left,
+                        R.anim.right_to_left);
+                mytoast = Toast.makeText(getApplicationContext(), "Welcome : Remidies", Toast.LENGTH_SHORT);
+                mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
+                mytoast.show();
+                break;
+            case 11://Logout
                 webabout = new Intent(this, LogOutActivity.class);
                 startActivity(webabout);
                 overridePendingTransition(
@@ -436,7 +454,7 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                     mytoast.show();*/
 
                     starTV.setText(response.body().getRasi());
-                    moonsignTV.setText(response.body().getRasi());
+                    moonsignTV.setText(response.body().getMoonsign());
                     try {
                         //Log.i("aries",response.body().getResult().getNavamsha_Aries());
                         navaamsa_ariesTV.setText(response.body().getResult().getNavamsha_Aries());
@@ -500,6 +518,34 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                 Toast.makeText(getApplicationContext(), "error :" + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        switch (item.getItemId()) {
+            case R.id.action_menu_info:
+                /*Intent userProfileEdit = new Intent(_ctx, UserProfileUpdateView.class);
+                String profileobj = new Gson().toJson(shareresponse);
+                userProfileEdit.putExtra("profileView", profileobj);
+                startActivity(userProfileEdit);
+                finishAffinity();*/
+                //overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
