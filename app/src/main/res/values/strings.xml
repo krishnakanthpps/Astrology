@@ -56,8 +56,8 @@
     </string-array>
 
 
-    <string name="nav_item_dailyhoroscope">Daily Horoscope</string>
-    <string name="nav_item_yourchartdetails">Your Chart Details</string>
+    <string name="nav_item_dailyhoroscope">DailyHoroscope</string>
+    <string name="nav_item_yourchartdetails">YourChartDetails</string>
     <string name="nav_item_personalizedhoroscope">Personalized Horoscope</string>
     <string name="nav_item_logout">Logout</string>
 
@@ -134,7 +134,7 @@
     <string name="action_update_profile_edit">profile_update</string>
     <string name="nav_item_personality">KnowYourSelf</string>
     <string name="nav_item_career">Career</string>
-    <string name="nav_item_moneymatters">Money Matters</string>
+    <string name="nav_item_moneymatters">MoneyMatters</string>
     <string name="nav_item_health">Health</string>
     <string name="nav_item_marriage">Marriage</string>
     <string name="nav_item_children">Children</string>

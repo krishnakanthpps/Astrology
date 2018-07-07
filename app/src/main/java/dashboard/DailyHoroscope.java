@@ -29,8 +29,6 @@ public class DailyHoroscope extends BaseActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private Toolbar mToolbar;
-
-
     @Override
     protected int getLayoutResource() {
         return R.layout.navigationoptionone;
@@ -71,6 +69,7 @@ public class DailyHoroscope extends BaseActivity {
         adapter.addFragment(new DailyFragment(), "Daily");
         adapter.addFragment(new MonthlyFragment(), "Monthly");
         adapter.addFragment(new YearlyFragment(), "Yearly");
+
         viewPager.setAdapter(adapter);
     }
 

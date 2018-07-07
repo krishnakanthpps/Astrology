@@ -1,7 +1,10 @@
 package retrofitrelated;
 
+import java.util.List;
+
 import models.Bhavaasmodel;
 import models.ChakrasResult;
+import models.Janma;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -102,4 +105,17 @@ public interface APIService {
             @Field("current_state") String state,
             @Field("current_country") String country,
             @Field("address") String address);
+
+
+
+
+
+    //The update user profile
+    /*profile update with userid and firstname,lastname and phone,address details only editable.*/
+    @FormUrlEncoded
+    @POST("index.php?r=horoscopeplanets%2Fview")
+    /*username,email and dateofbirth and timeofbirth non editable*/
+    Call<List<Janma>> getList(
+            @Field("userid") String userid);
+
 }
