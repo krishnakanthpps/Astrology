@@ -52,7 +52,7 @@
         <item>@string/nav_item_children</item>
         <item>@string/nav_item_remidies</item>
         <item>@string/nav_item_settings</item>
-        <item>@string/nav_item_logout</item>
+       <!-- <item>@string/nav_item_logout</item>-->
     </string-array>
 
 
@@ -85,7 +85,7 @@
         <item>@drawable/children</item>
         <item>@drawable/personalizedhoroscope</item>
         <item>@drawable/settings</item>
-        <item>@drawable/logout</item>
+       <!-- <item>@drawable/logout</item>-->
         <!-- <item>@drawable/nav_home_white</item>
          <item>@drawable/info_android</item>
          <item>@drawable/contact_us_updated</item>
@@ -132,12 +132,12 @@
         <string name="prompt_register_email">Email</string>
     -->
     <string name="action_update_profile_edit">profile_update</string>
-    <string name="nav_item_personality">Personality</string>
+    <string name="nav_item_personality">KnowYourSelf</string>
     <string name="nav_item_career">Career</string>
     <string name="nav_item_moneymatters">Money Matters</string>
     <string name="nav_item_health">Health</string>
     <string name="nav_item_marriage">Marriage</string>
-    <string name="nav_item_children">Childrean</string>
+    <string name="nav_item_children">Children</string>
     <string name="nav_item_remidies">Remidies</string>
     <string name="nav_item_settings">Settings</string>
     <string name="app_signout">SignOut</string>
@@ -146,5 +146,6 @@
     <string name="new_password">New Password</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
+    <string name="logout">Logout</string>
 
 </resources>

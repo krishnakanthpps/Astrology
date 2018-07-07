@@ -1,4 +1,5 @@
 package retrofitrelated;
+
 import models.Bhavaasmodel;
 import models.ChakrasResult;
 import retrofit2.Call;
@@ -17,6 +18,7 @@ import retrofit2.http.Query;
 public interface APIService {
 
     //The login call
+    /*Login with useremail and password,firebase notification token and device type-android/ios*/
     @FormUrlEncoded
     @POST("index.php?r=site/login")
     Call<LoginResult> loginUser(
@@ -26,6 +28,7 @@ public interface APIService {
             @Field("deviceType") String deviceType);
 
     //The register call
+    /*signup with all details manditory*/
     @FormUrlEncoded
     @POST("index.php?r=users/create")
     Call<RegisterResponse> createUser(
@@ -40,8 +43,8 @@ public interface APIService {
             @Field("deviceType") String deviceType);
 
 
-
     //The forgotpassword call
+    /*forgotpassword with email*/
     @FormUrlEncoded
     @POST("index.php?r=site/requestpasswordreset")
     Call<RegisterResponse> forgotPassword(
@@ -49,39 +52,44 @@ public interface APIService {
 
 
     //The changepassword call
+    /*changepassword with userid,oldpassword,newpassword*/
     @FormUrlEncoded
     @POST("index.php?r=users/changepassword")
     Call<RegisterResponse> changePassword(
             @Field("userid") String userid,
             @Field("oldpassword") String password,
             @Field("password") String newpassword
-           );
+    );
 
     //profileview
+    /*profileview with userid*/
     @GET("index.php?r=users/view")
     Call<ProfileViewResultResponse> loadProfileView(@Query("id") String id);
 
     //sidemenu_options
+    /*for all bhavaas common api just pass userid and bhavam id*/
     @GET("index.php?r=horoscopeplanets/horoscopebhavas")
-    //&id=145&bhavam=self
-    Call<Bhavaasmodel> loadBhaavas(@Query("id") String id,@Query("bhavam") String bhavam);
+    //&id=145&bhavam=1
+    /*self=1,marriage=4*/
+    Call<Bhavaasmodel> loadBhaavas(@Query("id") String id, @Query("bhavam") String bhavam);
 
     /*main dashboard chakras*/
+    /*main dashboard with chakras and expand and collapse webcall*/
     @GET("index.php?r=horoscopeplanets/viewnew")
-        //&id=145&bhavam=self
     Call<ChakrasResult> loadChakras(@Query("id") String id);
 
-
-
     /*option view mychart*/
+    /*sidemenu option with mychart details userid as input*/
     @GET("index.php?r=horoscopeplanets/viewnew2")
-    //&id=16&bhavam=6
+    /*output along with chakras and all bhavas strengths*/
     Call<ChakrasResult> loadMyChartChakras(@Query("id") String id);
 
 
     //The update user profile
+    /*profile update with userid and firstname,lastname and phone,address details only editable.*/
     @FormUrlEncoded
     @POST("index.php?r=users/update")
+    /*username,email and dateofbirth and timeofbirth non editable*/
     Call<RegisterResponse> updateUserProfile(
             @Field("userid") String userid,
             @Field("first_name") String firstname,
@@ -94,5 +102,4 @@ public interface APIService {
             @Field("current_state") String state,
             @Field("current_country") String country,
             @Field("address") String address);
-
 }

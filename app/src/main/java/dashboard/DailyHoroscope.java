@@ -8,6 +8,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.anagha.astrology.R;
 
@@ -25,6 +28,8 @@ public class DailyHoroscope extends BaseActivity {
     static SharedPreferences sPrefs;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private Toolbar mToolbar;
+
 
     @Override
     protected int getLayoutResource() {
@@ -34,6 +39,18 @@ public class DailyHoroscope extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setTitle(getIntent().getStringExtra("bhaavaam"));
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         initUI();
         uiListener();
     }
@@ -86,6 +103,13 @@ public class DailyHoroscope extends BaseActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(
+                R.anim.activity_animation_right_to_left,
+                R.anim.right_to_left);
+    }
 }
 
 

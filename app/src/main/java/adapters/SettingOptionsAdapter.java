@@ -54,4 +54,7 @@ public class SettingOptionsAdapter extends BaseAdapter {
         imageView.setImageResource(optionsModel.get(position).getOptionImage());
         return rowView;
     }
+
+
+
 }

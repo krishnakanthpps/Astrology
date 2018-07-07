@@ -47,6 +47,7 @@ public class BhaavasActivity extends BaseActivity {
     private TextView regularInfoTV;
     private TextView specialInfoTV;
     private TextView progressTV;
+    private TextView staticTV;
     /*private ProgressBar progressBar;*/
     private CircularProgressBar circularProgressBar;
 
@@ -81,6 +82,7 @@ public class BhaavasActivity extends BaseActivity {
         regularInfoTV = (TextView) findViewById(R.id.regularTV);
         specialInfoTV = (TextView) findViewById(R.id.specialTV);
         progressTV = (TextView) findViewById(R.id.progressTV);
+        staticTV = (TextView) findViewById(R.id.staticTV);
         circularProgressBar = (CircularProgressBar) findViewById(R.id.progressBarCircle);
        /* progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);*/
@@ -126,84 +128,48 @@ public class BhaavasActivity extends BaseActivity {
                 //displaying the message from the response as toast
                 if (response.body().getStatus().equalsIgnoreCase("success")) {
                     try {
-                        regularInfoTV.setText(response.body().getBhaavasreg_information());
+                        regularInfoTV.setText(Html.fromHtml("<b>This section of your horoscope also influences following aspects of your life:</b><br><br><p>"+response.body().getBhaavasreg_information()+"</p>"));
                         specialInfoTV.setVisibility(View.VISIBLE);
-                        //progressBar.setVisibility(View.VISIBLE);
                         progressTV.setVisibility(View.VISIBLE);
                         circularProgressBar.setVisibility(View.VISIBLE);
+                        staticTV.setVisibility(View.VISIBLE);
                         circularProgressBar.setProgressBarWidth(20);
                         circularProgressBar.setBackgroundProgressBarWidth(15);
-                        progressTV.setText(response.body().getPercentage()+"/100");
+                        progressTV.setText(response.body().getPercentage() + "/100");
+                        staticTV.setText(Html.fromHtml("<b>Your  <font color='red'>" + getIntent().getStringExtra("bhaavaam") + " </font> chart score is:</b><br>"));
                         if (Integer.parseInt(response.body().getPercentage()) >= 0 && Integer.parseInt(response.body().getPercentage()) <= 25) {
                             //red colored
-                            //progressTV.setText("HIIII");
-                            /*progressBar.setProgress(Integer.parseInt(response.body().getPercentage()));
-                            Drawable progressDrawable = progressBar.getProgressDrawable().mutate();
-                            progressDrawable.setColorFilter(getColor(R.color.progress_red), android.graphics.PorterDuff.Mode.SRC_IN);
-                            progressBar.setProgressTintList(ColorStateList.valueOf(R.color.progress_red));
-                            progressBar.setProgressDrawable(progressDrawable);*/
-
-
                             circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.progress_red));
                             circularProgressBar.setBackgroundColor(ContextCompat.getColor(_ctx, R.color.greyhint));
                             int animationDuration = 2500; // 2500ms = 2,5s
                             circularProgressBar.setProgressWithAnimation(Integer.parseInt(response.body().getPercentage()), animationDuration); // Default duration = 1500ms
-
-
-
+                           /* circularProgressBar.setTooltipText("dad");
+                            circularProgressBar.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                            circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.greyhint));*/
                         } else if (Integer.parseInt(response.body().getPercentage()) >= 25 && Integer.parseInt(response.body().getPercentage()) <= 50) {
                             //green colored
-                            /*progressBar.setProgress(Integer.parseInt(response.body().getPercentage()));
-                            Drawable progressDrawable = progressBar.getProgressDrawable().mutate();
-                            progressDrawable.setColorFilter(ContextCompat.getColor(_ctx, R.color.colorAccent), android.graphics.PorterDuff.Mode.SRC_IN);
-                            progressBar.setProgressTintList(ColorStateList.valueOf(R.color.colorAccent));
-                            progressBar.setProgressDrawable(progressDrawable);*/
-
-
-
-
                             circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.colorAccent));
                             circularProgressBar.setBackgroundColor(ContextCompat.getColor(_ctx, R.color.greyhint));
-                           /* circularProgressBar.setProgressBarWidth(10);
-                            circularProgressBar.setBackgroundProgressBarWidth(15);*/
                             int animationDuration = 2500; // 2500ms = 2,5s
                             circularProgressBar.setProgressWithAnimation(Integer.parseInt(response.body().getPercentage()), animationDuration); // Default duration = 1500ms
 
                         } else if (Integer.parseInt(response.body().getPercentage()) >= 50 && Integer.parseInt(response.body().getPercentage()) <= 75) {
                             //orange colored
-                            /*progressBar.setProgress(Integer.parseInt(response.body().getPercentage()));
-                            Drawable progressDrawable = progressBar.getProgressDrawable().mutate();
-                            progressDrawable.setColorFilter(getColor(R.color.colorPrimary), android.graphics.PorterDuff.Mode.SRC_IN);
-                            progressBar.setProgressTintList(ColorStateList.valueOf(R.color.colorPrimary));
-                            progressBar.setProgressDrawable(progressDrawable);*/
-
-
-
                             circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.colorPrimary));
                             circularProgressBar.setBackgroundColor(ContextCompat.getColor(_ctx, R.color.greyhint));
-                           /* circularProgressBar.setProgressBarWidth(10);
-                            circularProgressBar.setBackgroundProgressBarWidth(15);*/
                             int animationDuration = 2500; // 2500ms = 2,5s
                             circularProgressBar.setProgressWithAnimation(Integer.parseInt(response.body().getPercentage()), animationDuration); // Default duration = 1500ms
 
                         } else {
                             //green colored
-                            /*progressBar.setProgress(Integer.parseInt(response.body().getPercentage()));
-                            Drawable progressDrawable = progressBar.getProgressDrawable().mutate();
-                            progressDrawable.setColorFilter(getColor(R.color.progress_green), android.graphics.PorterDuff.Mode.SRC_IN);
-                            progressBar.setProgressTintList(ColorStateList.valueOf(R.color.progress_green));
-                            progressBar.setProgressDrawable(progressDrawable);*/
-
                             circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.progress_green));
                             circularProgressBar.setBackgroundColor(ContextCompat.getColor(_ctx, R.color.greyhint));
-                           /* circularProgressBar.setProgressBarWidth(10);
-                            circularProgressBar.setBackgroundProgressBarWidth(15);*/
                             int animationDuration = 2500; // 2500ms = 2,5s
                             circularProgressBar.setProgressWithAnimation(Integer.parseInt(response.body().getPercentage()), animationDuration); // Default duration = 1500ms
 
                         }
-                        specialInfoTV.setText(Html.fromHtml(response.body().getRegular_information() + "<br>" +
-                                response.body().getHundredpercentage_information()));
+                        specialInfoTV.setText(Html.fromHtml("<b>What Your Horoscope says about your <font color='red'>" + getIntent().getStringExtra("bhaavaam") + " </font> is:</b><br><br><p>" + response.body().getRegular_information() + "</p><br>" +
+                                "<p>" + response.body().getHundredpercentage_information() + "</p>"));
 
                     } catch (NullPointerException npe) {
                         Log.i("npe", npe.getMessage().toString());
@@ -212,7 +178,6 @@ public class BhaavasActivity extends BaseActivity {
                     Toast mytoast = Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG);
                     mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
                     mytoast.show();
-                    // Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
 

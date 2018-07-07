@@ -11,6 +11,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -109,7 +111,8 @@ public class Help_AppDetails extends BaseActivity implements View.OnClickListene
 
                         startActivity(intentRegisterScreen);
                         Help_AppDetails.this.overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
-        */                break;
+        */
+                        break;
                     case 1://faqs
                         /*intentRegisterScreen = new Intent(_context, HelpItemsWebViewActivity.class);
                         intentRegisterScreen.putExtra("help_app_detail", "openToall_faqs");
@@ -117,7 +120,8 @@ public class Help_AppDetails extends BaseActivity implements View.OnClickListene
 
                         startActivity(intentRegisterScreen);
                         Help_AppDetails.this.overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
-                 */       break;
+                 */
+                        break;
                     case 2:// addstore
                        /* if (NetWorkConnectionCheck.checkInternetConnection(_context)) {
                             if (getBooleanForLoginStatus("loggedin")) {
@@ -175,7 +179,8 @@ public class Help_AppDetails extends BaseActivity implements View.OnClickListene
 
                         startActivity(intentRegisterScreen);
                         Help_AppDetails.this.overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
-             */           break;
+             */
+                        break;
                     /*case 5://Change Password
                         if (NetWorkConnectionCheck.checkInternetConnection(_context)) {
                             if (getBooleanForLoginStatus("loggedin")) {
@@ -219,18 +224,20 @@ public class Help_AppDetails extends BaseActivity implements View.OnClickListene
 
                         startActivity(intentRegisterScreen);
                         Help_AppDetails.this.overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
-                     */   break;
+                     */
+                        break;
                     default:
                         break;
                 }
             }
         });
     }
+
     private void shareIt() {
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Download free Grocer Deals app on google play store");
-        sharingIntent.putExtra(Intent.EXTRA_TEXT,"Download free Grocer Deals app on google play store https://play.google.com/store/apps/details?id=com.eww.mshoppy Grocer Deals app Android Link.");
+        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Download free SriAstrology app on google play store");
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, "Download free SriAstrology app on google play store https://play.google.com/store/apps/details?id=com.eww.mshoppy Grocer Deals app Android Link.");
         startActivity(Intent.createChooser(sharingIntent, "Share our App using"));
     }
 
@@ -249,5 +256,31 @@ public class Help_AppDetails extends BaseActivity implements View.OnClickListene
     private boolean getBooleanForLoginStatus(String loggedin) {
         SharedPreferences.Editor editor = sPrefs.edit();
         return sPrefs.getBoolean("loggedin", false);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        switch (item.getItemId()) {
+            case R.id.action_menu_logout:
+                Intent webabout = new Intent(this, LogOutActivity.class);
+                startActivity(webabout);
+                overridePendingTransition(
+                        R.anim.activity_animation_right_to_left,
+                        R.anim.right_to_left);
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -252,7 +252,7 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
             case 3://Personality
                 webabout = new Intent(this, BhaavasActivity.class);
                 //webabout.putExtra("bhaavaam", "self");
-                webabout.putExtra("bhaavaam", "Personality");
+                webabout.putExtra("bhaavaam", "KnowYourSelf");
                 webabout.putExtra("bhaavaam_no", "1");
                 startActivity(webabout);
                 overridePendingTransition(
@@ -354,16 +354,16 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                 overridePendingTransition(
                         R.anim.activity_animation_right_to_left,
                         R.anim.right_to_left);
-                mytoast = Toast.makeText(getApplicationContext(), "Welcome : Remidies", Toast.LENGTH_SHORT);
+                mytoast = Toast.makeText(getApplicationContext(), "Welcome : Settings", Toast.LENGTH_SHORT);
                 mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
                 mytoast.show();
                 break;
             case 11://Logout
-                webabout = new Intent(this, LogOutActivity.class);
+                /*webabout = new Intent(this, LogOutActivity.class);
                 startActivity(webabout);
                 overridePendingTransition(
                         R.anim.activity_animation_right_to_left,
-                        R.anim.right_to_left);
+                        R.anim.right_to_left);*/
                 break;
             default:
                 break;
@@ -376,13 +376,13 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
         super.onStop();
     }
 
-    private void shareIt() {
+   /* private void shareIt() {
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
         sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Download free Sri Astrology app on google play store");
         sharingIntent.putExtra(Intent.EXTRA_TEXT, "Download free Sri Astrology app on google play store Sri Astrology app Android Link.");
         startActivity(Intent.createChooser(sharingIntent, "Share Sri Astrology App using"));
-    }
+    }*/
 
     @Override
     public void onBackPressed() {
@@ -524,7 +524,7 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
+        //getMenuInflater().inflate(R.menu.menu_dashboard, menu);
         return true;
     }
 
@@ -533,18 +533,12 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
+       /* switch (item.getItemId()) {
             case R.id.action_menu_info:
-                /*Intent userProfileEdit = new Intent(_ctx, UserProfileUpdateView.class);
-                String profileobj = new Gson().toJson(shareresponse);
-                userProfileEdit.putExtra("profileView", profileobj);
-                startActivity(userProfileEdit);
-                finishAffinity();*/
-                //overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
                 break;
             default:
                 break;
-        }
+        }*/
         return super.onOptionsItemSelected(item);
     }
 
