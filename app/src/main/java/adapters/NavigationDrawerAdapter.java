@@ -48,9 +48,9 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     public void onBindViewHolder(MyViewHolder holder, int position) {
         NavDrawerItem current = data.get(position);
         if (position == 0) {
-            holder.title.setText(current.getTitle());
+            //holder.title.setText(current.getTitle());
             holder.title.setVisibility(View.GONE);
-            holder.titleIM.setImageResource(current.getTitleIM());
+            //holder.titleIM.setImageResource(current.getTitleIM());
             holder.titleIM.setVisibility(View.GONE);
         } else {
             holder.title.setText(current.getTitle());

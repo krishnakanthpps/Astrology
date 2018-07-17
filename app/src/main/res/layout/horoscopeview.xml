@@ -5,10 +5,123 @@
     android:layout_margin="10dp"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/horoscopeTV"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="sdadsadsadadasdadadasdadasdadadadadasd"
-        android:textColor="@color/black"></TextView>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:text="Moon :"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"></TextView>
+
+        <TextView
+            android:id="@+id/moon_dailyTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:textColor="#6e6e6e"
+            android:textSize="13sp"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:text="Jupiter :"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"></TextView>
+
+        <TextView
+            android:id="@+id/jupiter_dailyTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:textColor="#6e6e6e"
+            android:textSize="13sp"
+            android:textStyle="normal"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:text="Mercury :"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"></TextView>
+
+        <TextView
+            android:id="@+id/mercury_dailyTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:textColor="#6e6e6e"
+            android:textSize="13sp"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:text="Sun :"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"></TextView>
+
+        <TextView
+            android:id="@+id/sun_dailyTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:textColor="#6e6e6e"
+            android:textSize="13sp"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:text="Mars :"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"></TextView>
+
+        <TextView
+            android:id="@+id/mars_dailyTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:textColor="#6e6e6e"
+            android:textSize="13sp"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:text="Venus :"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"></TextView>
+
+        <TextView
+            android:id="@+id/venus_dailyTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:textColor="#6e6e6e"
+            android:textSize="13sp"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:text="Saturn :"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"></TextView>
+
+        <TextView
+            android:id="@+id/saturn_dailyTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:textColor="#6e6e6e"
+            android:textSize="13sp"></TextView>
+
+    </LinearLayout>
 </ScrollView>

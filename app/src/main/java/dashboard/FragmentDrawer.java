@@ -53,7 +53,7 @@ public class FragmentDrawer extends Fragment {
     public TextView signin_signupTV;
     public TextView profileSignOut;
     View layout;
-    private TextView androidVersionNameTV;
+    //private TextView androidVersionNameTV;
     static SharedPreferences sPrefs;
 
     public FragmentDrawer() {
@@ -92,17 +92,17 @@ public class FragmentDrawer extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         layout = inflater.inflate(R.layout.selectedsign_nav_header_gd_logo_signinup, container, false);
         recyclerView = (RecyclerView) layout.findViewById(R.id.drawerList);
-        androidVersionNameTV = (TextView)layout.findViewById(R.id.appversion);
+        //androidVersionNameTV = (TextView)layout.findViewById(R.id.appversion);
         adapter = new NavigationDrawerAdapter(getActivity(), getData());
         profileName = (TextView) layout.findViewById(R.id.profileName);
         signin_signupTV = (TextView) layout.findViewById(R.id.signin_outTV);
         profileSignOut = (TextView) layout.findViewById(R.id.signoutTV);
         sPrefs = getActivity().getSharedPreferences(WebCall.SharedPreference_Name, 0);
-        try {
+       /* try {
             androidVersionNameTV.setText("App Version: " +  getActivity().getPackageManager().getPackageInfo( getActivity().getPackageName(), 0).versionName);
         } catch (PackageManager.NameNotFoundException pnfe) {
             Log.e("package version", pnfe.toString());
-        }
+        }*/
         if (getBooleanForLoginStatus("loggedin")) {
             profileName.setVisibility(View.VISIBLE);
             profileName.setText(sPrefs.getString("email", null));

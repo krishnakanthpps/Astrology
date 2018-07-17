@@ -4,7 +4,9 @@ import java.util.List;
 
 import models.Bhavaasmodel;
 import models.ChakrasResult;
+import models.DailyPlanetResponse;
 import models.Janma;
+import models.MothlyYearlyHoroscope;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -117,5 +119,20 @@ public interface APIService {
     /*username,email and dateofbirth and timeofbirth non editable*/
     Call<List<Janma>> getList(
             @Field("userid") String userid);
+
+
+    @FormUrlEncoded
+    @POST("index.php?r=dailyplanets/dailyplanetdate")
+    Call<DailyPlanetResponse> loadDailyHoroscope(
+            @Field("userid") String userid);
+
+    @FormUrlEncoded
+    @POST("index.php?r=dailyplanets/dailyplanetyear")
+    Call<MothlyYearlyHoroscope> loadMonthlyYearlyHoroscope(
+            @Field("userid") String userid);
+
+
+
+
 
 }
