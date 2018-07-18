@@ -292,22 +292,32 @@ public class MyChartDetailsActivity extends BaseActivity {
                         janmaamsa_DOBTV.setText(response.body().getDateofbirth());
                         janmaamsa_TimeTV.setText(response.body().getTimeofbirth() + " ");
 
-
                         //progressBarOne.setProgress(getDrawable(Integer.parseInt(response.body().getResult().getSelf())));
                         //progressBarOne.setProgressDrawable(getDrawable(Integer.parseInt(response.body().getResult().getSelf())),progressBarOne);
 
-
+                        //personality-family
                         progressBarOne.setProgress(Integer.parseInt(response.body().getResult().getSelf()));
+                        //wealth
                         progressBarTwo.setProgress(Integer.parseInt(response.body().getResult().getWealth()));
+                        //family
                         progressBarThree.setProgress(Integer.parseInt(response.body().getResult().getFamily()));
-                        progressBarFour.setProgress(Integer.parseInt(response.body().getResult().getMother()));
-                        progressBarFive.setProgress(Integer.parseInt(response.body().getResult().getAssets()));
+                        //mother
+                        progressBarFive.setProgress(Integer.parseInt(response.body().getResult().getMother()));
+                        //assets
+                        progressBarFour.setProgress(Integer.parseInt(response.body().getResult().getAssets()));
+                        //children
                         progressBarSix.setProgress(Integer.parseInt(response.body().getResult().getChildren()));
+                        //enimiesdebt
                         progressBarSeven.setProgress(Integer.parseInt(response.body().getResult().getEnemiesDebt()));
+                        //marriage
                         progressBarEight.setProgress(Integer.parseInt(response.body().getResult().getMarriage()));
+                        //health
                         progressBarNine.setProgress(Integer.parseInt(response.body().getResult().getHealth()));
+                        //luck
                         progressBarTen.setProgress(Integer.parseInt(response.body().getResult().getLucky_Father()));
+                        //career
                         progressBarEleven.setProgress(Integer.parseInt(response.body().getResult().getCareer()));
+                        //savings
                         progressBarTweleve.setProgress(Integer.parseInt(response.body().getResult().getSavings()));
 
                     } catch (NullPointerException npe) {
