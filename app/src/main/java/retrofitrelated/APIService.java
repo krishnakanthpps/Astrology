@@ -127,8 +127,13 @@ public interface APIService {
             @Field("userid") String userid);
 
     @FormUrlEncoded
-    @POST("index.php?r=dailyplanets/dailyplanetyear")
+    @POST("index.php?r=dailyplanets/dailyplanetmonth")
     Call<MothlyYearlyHoroscope> loadMonthlyYearlyHoroscope(
+            @Field("userid") String userid);
+
+    @FormUrlEncoded
+    @POST("index.php?r=dailyplanets/dailyplanetyear")
+    Call<MothlyYearlyHoroscope> loadYearlyHoroscope(
             @Field("userid") String userid);
 
 

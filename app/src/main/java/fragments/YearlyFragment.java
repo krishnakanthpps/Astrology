@@ -84,7 +84,7 @@ public class YearlyFragment extends Fragment {
         //User user = new User(name, email, password, gender);
 
         //defining the call
-        Call<MothlyYearlyHoroscope> call = service.loadMonthlyYearlyHoroscope(sPrefs.getString("userid", null));
+        Call<MothlyYearlyHoroscope> call = service.loadYearlyHoroscope(sPrefs.getString("userid", null));
 
         //calling the api
         call.enqueue(new Callback<MothlyYearlyHoroscope>() {
