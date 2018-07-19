@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.text.TextUtils;
@@ -152,7 +153,6 @@ public class Login extends BaseActivity implements View.OnClickListener {
         //Defining retrofit api service
         APIService service = retrofit.create(APIService.class);
 
-
         //Defining the user object as we need to pass it with the call
         //User user = new User(name, email, password, gender);
 
@@ -161,6 +161,7 @@ public class Login extends BaseActivity implements View.OnClickListener {
                 userNameET.getText().toString(),
                 passwordET.getText().toString(),
                 FirebaseInstanceId.getInstance().getToken(),
+                Build.SERIAL,
                 "Android"
         );
 

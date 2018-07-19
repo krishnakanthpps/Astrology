@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 
@@ -342,6 +343,7 @@ public class Register extends BaseActivity implements View.OnClickListener, Date
                 timeofbirthET.getText().toString(),
                 placeofbirthET.getText().toString(),
                 FirebaseInstanceId.getInstance().getToken(),
+                Build.SERIAL,
                 "Android"
         );
         //calling the api

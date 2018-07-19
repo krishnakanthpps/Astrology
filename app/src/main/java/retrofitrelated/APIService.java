@@ -30,6 +30,7 @@ public interface APIService {
             @Field("username") String username,
             @Field("password") String password,
             @Field("deviceToken") String deviceToken,
+            @Field("mobileDeviceToken") String mobileDeviceToken,
             @Field("deviceType") String deviceType);
 
     //The register call
@@ -45,6 +46,7 @@ public interface APIService {
             @Field("timeofbirth") String timeofbirth,
             @Field("placeofbirth") String placeofbirth,
             @Field("deviceToken") String deviceToken,
+            @Field("mobileDeviceToken") String mobileDeviceToken,
             @Field("deviceType") String deviceType);
 
 
