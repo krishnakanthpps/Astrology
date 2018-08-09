@@ -28,7 +28,6 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:scrollbars="vertical"
-            android:text="Harinath Yadavalli"
             android:textColor="@color/colorPrimary"
             android:textSize="28sp" />
 
@@ -54,7 +53,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="left|center_vertical"
                 android:scrollbars="vertical"
-                android:text="Harinath Yadavalli"
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -91,7 +89,6 @@
                         android:layout_height="wrap_content"
                         android:gravity="left|center_vertical"
                         android:scrollbars="vertical"
-                        android:text="Aswini"
                         android:textColor="@color/colorPrimary"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -120,7 +117,6 @@
                         android:layout_weight="1"
                         android:gravity="left|center_vertical"
                         android:scrollbars="vertical"
-                        android:text="Aries"
                         android:textColor="@color/colorPrimary"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -155,7 +151,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="left|center_vertical"
                 android:scrollbars="vertical"
-                android:text="01/06/2018"
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp" />
 
@@ -166,7 +161,7 @@
                 android:layout_weight="1"
                 android:gravity="end"
                 android:scrollbars="vertical"
-                android:text="Oct 10,1970 1:50:00AM(UTC+5.30)"
+                android:text=""
                 android:textColor="#6e6e6e"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -208,7 +203,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="left|center_vertical"
                 android:scrollbars="vertical"
-                android:text="01/06/2018"
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp" />
 
@@ -219,7 +213,7 @@
                 android:layout_weight="1"
                 android:gravity="end"
                 android:scrollbars="vertical"
-                android:text="Oct 10,1970 1:50:00AM(UTC+5.30)"
+                android:text=""
                 android:textColor="#6e6e6e"
                 android:textSize="12sp"
                 tools:ignore="NestedWeights" />
@@ -231,7 +225,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:padding="5dp"
-            android:text="Navaamsa"
+            android:text="Navaamsa Chakram"
             android:textColor="@color/black"
             android:textSize="14sp" />
 

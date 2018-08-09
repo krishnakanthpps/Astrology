@@ -18,7 +18,10 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 
 
+import java.util.concurrent.TimeUnit;
+
 import models.Userdetailview;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -156,9 +159,15 @@ public class UserProfileView extends BaseActivity {
         progressDialog.setMessage("Loading Profile...");
         progressDialog.show();
 
+
+        final OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .build();
         //building retrofit object
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(APIUrl.BASE_URL)
+                .baseUrl(APIUrl.BASE_URL).client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

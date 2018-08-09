@@ -19,7 +19,10 @@ import android.widget.Toast;
 
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
+import java.util.concurrent.TimeUnit;
+
 import models.Bhavaasmodel;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -79,7 +82,12 @@ public class BhaavasActivity extends BaseActivity {
        /* progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);*/
         if (NetworkConnectionCheck.checkInternetConnection(_ctx)) {
-            userBhaavaasView();
+            try {
+                userBhaavaasView();
+            } catch (NullPointerException npe) {
+            Toast.makeText(_ctx,"Invalid Details",Toast.LENGTH_LONG).show();
+            }
+
         } else {
             new WebCall(_ctx).DialogForWifi_Enable_CloseDialog(_ctx.getString(R.string.internet_enable), _ctx.getString(R.string.internet_enable_message), R.drawable.warning_red);
         }
@@ -97,9 +105,16 @@ public class BhaavasActivity extends BaseActivity {
         progressDialog.setMessage("Loading Bhaavaas...");
         progressDialog.show();
 
+
+        final OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .build();
+
         //building retrofit object
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(APIUrl.BASE_URL)
+                .baseUrl(APIUrl.BASE_URL).client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -108,77 +123,84 @@ public class BhaavasActivity extends BaseActivity {
         //Defining the user object as we need to pass it with the call
         //User user = new User(name, email, password, gender);
         //defining the call
-        Call<Bhavaasmodel> call = service.loadBhaavas(sPrefs.getString("userid", null), getIntent().getStringExtra("bhaavaam_no"));
+        try {
+            Call<Bhavaasmodel> call = service.loadBhaavas(sPrefs.getString("userid", null), getIntent().getStringExtra("bhaavaam_no"));
 
-        //calling the api
-        call.enqueue(new Callback<Bhavaasmodel>() {
-            @SuppressLint("ResourceType")
-            @Override
-            public void onResponse(Call<Bhavaasmodel> call, Response<Bhavaasmodel> response) {
-                //hiding progress dialog
-                progressDialog.dismiss();
-                //displaying the message from the response as toast
-                if (response.body().getStatus().equalsIgnoreCase("success")) {
-                    try {
-                        regularInfoTV.setText(Html.fromHtml("<b>This section of your horoscope also influences following aspects of your life:</b><br><br><p>"+response.body().getBhaavasreg_information()+"</p>"));
-                        specialInfoTV.setVisibility(View.VISIBLE);
-                        progressTV.setVisibility(View.VISIBLE);
-                        circularProgressBar.setVisibility(View.VISIBLE);
-                        staticTV.setVisibility(View.VISIBLE);
-                        circularProgressBar.setProgressBarWidth(20);
-                        circularProgressBar.setBackgroundProgressBarWidth(15);
-                        progressTV.setText(response.body().getPercentage() + "/100");
-                        staticTV.setText(Html.fromHtml("<b>Your  <font color='red'>" + getIntent().getStringExtra("bhaavaam") + " </font> chart score is:</b><br>"));
-                        if (Integer.parseInt(response.body().getPercentage()) >= 0 && Integer.parseInt(response.body().getPercentage()) <= 25) {
-                            //red colored
-                            circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.progress_red));
-                            circularProgressBar.setBackgroundColor(ContextCompat.getColor(_ctx, R.color.greyhint));
-                            int animationDuration = 2500; // 2500ms = 2,5s
-                            circularProgressBar.setProgressWithAnimation(Integer.parseInt(response.body().getPercentage()), animationDuration); // Default duration = 1500ms
+            //calling the api
+            call.enqueue(new Callback<Bhavaasmodel>() {
+                @SuppressLint("ResourceType")
+                @Override
+                public void onResponse(Call<Bhavaasmodel> call, Response<Bhavaasmodel> response) {
+                    //hiding progress dialog
+                    progressDialog.dismiss();
+                    //displaying the message from the response as toast
+                    if (response.body().getStatus().equalsIgnoreCase("success")) {
+                        try {
+                            regularInfoTV.setText(Html.fromHtml("<b>This section of your horoscope also influences following aspects of your life:</b><br><br><p>" + response.body().getBhaavasreg_information() + "</p>"));
+                            specialInfoTV.setVisibility(View.VISIBLE);
+                            progressTV.setVisibility(View.VISIBLE);
+                            circularProgressBar.setVisibility(View.VISIBLE);
+                            staticTV.setVisibility(View.VISIBLE);
+                            circularProgressBar.setProgressBarWidth(20);
+                            circularProgressBar.setBackgroundProgressBarWidth(15);
+                            progressTV.setText(response.body().getPercentage() + "/100");
+                            staticTV.setText(Html.fromHtml("<b>Your  <font color='red'>" + getIntent().getStringExtra("bhaavaam") + " </font> chart score is:</b><br>"));
+                            if (Integer.parseInt(response.body().getPercentage()) >= 0 && Integer.parseInt(response.body().getPercentage()) <= 25) {
+                                //red colored
+                                circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.progress_red));
+                                circularProgressBar.setBackgroundColor(ContextCompat.getColor(_ctx, R.color.greyhint));
+                                int animationDuration = 2500; // 2500ms = 2,5s
+                                circularProgressBar.setProgressWithAnimation(Integer.parseInt(response.body().getPercentage()), animationDuration); // Default duration = 1500ms
                            /* circularProgressBar.setTooltipText("dad");
                             circularProgressBar.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                             circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.greyhint));*/
-                        } else if (Integer.parseInt(response.body().getPercentage()) >= 25 && Integer.parseInt(response.body().getPercentage()) <= 50) {
-                            //green colored
-                            circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.colorAccent));
-                            circularProgressBar.setBackgroundColor(ContextCompat.getColor(_ctx, R.color.greyhint));
-                            int animationDuration = 2500; // 2500ms = 2,5s
-                            circularProgressBar.setProgressWithAnimation(Integer.parseInt(response.body().getPercentage()), animationDuration); // Default duration = 1500ms
+                            } else if (Integer.parseInt(response.body().getPercentage()) >= 25 && Integer.parseInt(response.body().getPercentage()) <= 50) {
+                                //green colored
+                                circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.colorAccent));
+                                circularProgressBar.setBackgroundColor(ContextCompat.getColor(_ctx, R.color.greyhint));
+                                int animationDuration = 2500; // 2500ms = 2,5s
+                                circularProgressBar.setProgressWithAnimation(Integer.parseInt(response.body().getPercentage()), animationDuration); // Default duration = 1500ms
 
-                        } else if (Integer.parseInt(response.body().getPercentage()) >= 50 && Integer.parseInt(response.body().getPercentage()) <= 75) {
-                            //orange colored
-                            circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.colorPrimary));
-                            circularProgressBar.setBackgroundColor(ContextCompat.getColor(_ctx, R.color.greyhint));
-                            int animationDuration = 2500; // 2500ms = 2,5s
-                            circularProgressBar.setProgressWithAnimation(Integer.parseInt(response.body().getPercentage()), animationDuration); // Default duration = 1500ms
+                            } else if (Integer.parseInt(response.body().getPercentage()) >= 50 && Integer.parseInt(response.body().getPercentage()) <= 75) {
+                                //orange colored
+                                circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.colorPrimary));
+                                circularProgressBar.setBackgroundColor(ContextCompat.getColor(_ctx, R.color.greyhint));
+                                int animationDuration = 2500; // 2500ms = 2,5s
+                                circularProgressBar.setProgressWithAnimation(Integer.parseInt(response.body().getPercentage()), animationDuration); // Default duration = 1500ms
 
-                        } else {
-                            //green colored
-                            circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.progress_green));
-                            circularProgressBar.setBackgroundColor(ContextCompat.getColor(_ctx, R.color.greyhint));
-                            int animationDuration = 2500; // 2500ms = 2,5s
-                            circularProgressBar.setProgressWithAnimation(Integer.parseInt(response.body().getPercentage()), animationDuration); // Default duration = 1500ms
+                            } else {
+                                //green colored
+                                circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.progress_green));
+                                circularProgressBar.setBackgroundColor(ContextCompat.getColor(_ctx, R.color.greyhint));
+                                int animationDuration = 2500; // 2500ms = 2,5s
+                                circularProgressBar.setProgressWithAnimation(Integer.parseInt(response.body().getPercentage()), animationDuration); // Default duration = 1500ms
 
+                            }
+                            specialInfoTV.setText(Html.fromHtml("<b>What Your Horoscope says about your <font color='red'>" + getIntent().getStringExtra("bhaavaam") + " </font> is:</b><br><br><p>" + response.body().getRegular_information() + "</p>" +
+                                    "<p>" + response.body().getHundredpercentage_information() + "</p>"));
+
+                        } catch (NullPointerException npe) {
+                            Log.i("npe", npe.getMessage().toString());
+                        }catch (NumberFormatException nfe) {
+                            Log.i("npe", nfe.getMessage().toString());
+                           // Toast.makeText(_ctx,"Unable to load",Toast.LENGTH_LONG).show();
                         }
-                        specialInfoTV.setText(Html.fromHtml("<b>What Your Horoscope says about your <font color='red'>" + getIntent().getStringExtra("bhaavaam") + " </font> is:</b><br><br><p>" + response.body().getRegular_information() + "</p><br>" +
-                                "<p>" + response.body().getHundredpercentage_information() + "</p>"));
-
-                    } catch (NullPointerException npe) {
-                        Log.i("npe", npe.getMessage().toString());
+                    } else {
+                        Toast mytoast = Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG);
+                        mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
+                        mytoast.show();
                     }
-                } else {
-                    Toast mytoast = Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG);
-                    mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
-                    mytoast.show();
                 }
-            }
 
-            @Override
-            public void onFailure(Call<Bhavaasmodel> call, Throwable t) {
-                progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(), "error :" + t.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
+                @Override
+                public void onFailure(Call<Bhavaasmodel> call, Throwable t) {
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "error :" + t.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
+        }catch (NullPointerException npe){
+            Toast.makeText(_ctx,"Unable to load",Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override

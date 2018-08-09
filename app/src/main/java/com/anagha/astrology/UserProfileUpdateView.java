@@ -30,11 +30,13 @@ import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
 import java.lang.reflect.Type;
 import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 import dashboard.FragmentDrawer;
 import dashboard.Register;
 import dashboard.Thankyou;
 import models.Userdetailview;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -384,9 +386,16 @@ public class UserProfileUpdateView extends BaseActivity implements
         progressDialog.setMessage("Profile Updating...");
         progressDialog.show();
 
+
+        final OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .build();
+
         //building retrofit object
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(APIUrl.BASE_URL)
+                .baseUrl(APIUrl.BASE_URL).client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

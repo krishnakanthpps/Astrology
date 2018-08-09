@@ -16,7 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Lorem ipsum"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -25,7 +24,6 @@
             android:layout_height="150dp"
             android:layout_marginTop="50dp"
             android:scrollbars="vertical"
-            android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elitLorem ipsum dolor sit amet, consectetuer adipiscing elit...."
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <ProgressBar

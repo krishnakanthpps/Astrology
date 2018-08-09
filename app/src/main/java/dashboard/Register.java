@@ -28,8 +28,10 @@ import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
 
 import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -323,9 +325,15 @@ public class Register extends BaseActivity implements View.OnClickListener, Date
         progressDialog.setMessage("Signing Up...");
         progressDialog.show();
 
+
+        final OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .build();
         //building retrofit object
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(APIUrl.BASE_URL)
+                .baseUrl(APIUrl.BASE_URL).client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

@@ -15,7 +15,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.concurrent.TimeUnit;
+
 import models.ChakrasResult;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -213,11 +216,18 @@ public class MyChartDetailsActivity extends BaseActivity {
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
+
+        final OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .build();
+
         //building retrofit object
         // .baseUrl(APIUrl.BASE_URL)
         //.baseUrl("http://192.168.2.65/astro-apii/backend/web/")
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(APIUrl.BASE_URL)
+                .baseUrl(APIUrl.BASE_URL).client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -292,31 +302,52 @@ public class MyChartDetailsActivity extends BaseActivity {
                         janmaamsa_DOBTV.setText(response.body().getDateofbirth());
                         janmaamsa_TimeTV.setText(response.body().getTimeofbirth() + " ");
 
-                        //progressBarOne.setProgress(getDrawable(Integer.parseInt(response.body().getResult().getSelf())));
-                        //progressBarOne.setProgressDrawable(getDrawable(Integer.parseInt(response.body().getResult().getSelf())),progressBarOne);
 
+                        bavam_oneTV.setText("Personality :"+response.body().getResult().getSelf()+"/100");
                         //personality-family
                         progressBarOne.setProgress(Integer.parseInt(response.body().getResult().getSelf()));
+
+                        bavam_twoTV.setText("Wealth :"+response.body().getResult().getWealth()+"/100");
                         //wealth
                         progressBarTwo.setProgress(Integer.parseInt(response.body().getResult().getWealth()));
+
+                        bavam_threeTV.setText("Family :"+response.body().getResult().getFamily()+"/100");
                         //family
                         progressBarThree.setProgress(Integer.parseInt(response.body().getResult().getFamily()));
+
+                        bavam_fiveTV.setText("Mother :"+response.body().getResult().getMother()+"/100");
                         //mother
                         progressBarFive.setProgress(Integer.parseInt(response.body().getResult().getMother()));
+
+                        bavam_fourTV.setText("Assets :"+response.body().getResult().getAssets()+"/100");
                         //assets
                         progressBarFour.setProgress(Integer.parseInt(response.body().getResult().getAssets()));
+
+                        bavam_sixTV.setText("Children :"+response.body().getResult().getChildren()+"/100");
                         //children
                         progressBarSix.setProgress(Integer.parseInt(response.body().getResult().getChildren()));
+
+                        bavam_sevenTV.setText("EnimiesDebt :"+response.body().getResult().getEnemiesDebt()+"/100");
                         //enimiesdebt
                         progressBarSeven.setProgress(Integer.parseInt(response.body().getResult().getEnemiesDebt()));
+
+                        bavam_eightTV.setText("Marriage :"+response.body().getResult().getMarriage()+"/100");
                         //marriage
                         progressBarEight.setProgress(Integer.parseInt(response.body().getResult().getMarriage()));
+
+                        bavam_nineTV.setText("Health :"+response.body().getResult().getHealth()+"/100");
                         //health
                         progressBarNine.setProgress(Integer.parseInt(response.body().getResult().getHealth()));
+
+                        bavam_tenTV.setText("Luck :"+response.body().getResult().getLucky_Father()+"/100");
                         //luck
                         progressBarTen.setProgress(Integer.parseInt(response.body().getResult().getLucky_Father()));
+
+                        bavam_elevenTV.setText("Career :"+response.body().getResult().getCareer()+"/100");
                         //career
                         progressBarEleven.setProgress(Integer.parseInt(response.body().getResult().getCareer()));
+
+                        bavam_tweleveTV.setText("Savings :"+response.body().getResult().getSavings()+"/100");
                         //savings
                         progressBarTweleve.setProgress(Integer.parseInt(response.body().getResult().getSavings()));
 

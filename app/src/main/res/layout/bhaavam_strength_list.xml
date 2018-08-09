@@ -37,6 +37,7 @@
                 android:textColor="#6e6e6e"
                 android:textSize="13sp" />
 
+
             <ProgressBar
                 android:id="@+id/bhavam_oneprogressBar"
                 style="?android:attr/progressBarStyleHorizontal"

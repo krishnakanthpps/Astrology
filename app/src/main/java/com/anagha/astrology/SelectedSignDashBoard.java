@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
@@ -22,16 +22,40 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.braintreepayments.api.BraintreeFragment;
+import com.braintreepayments.api.PayPal;
+import com.braintreepayments.api.dropin.DropInActivity;
+import com.braintreepayments.api.dropin.DropInRequest;
+import com.braintreepayments.api.dropin.DropInResult;
+import com.braintreepayments.api.exceptions.InvalidArgumentException;
+import com.braintreepayments.api.interfaces.HttpResponseCallback;
+import com.braintreepayments.api.interfaces.PaymentMethodNonceCreatedListener;
+import com.braintreepayments.api.internal.HttpClient;
+import com.braintreepayments.api.models.PayPalAccountNonce;
+import com.braintreepayments.api.models.PayPalRequest;
+import com.braintreepayments.api.models.PaymentMethodNonce;
+import com.braintreepayments.api.models.PostalAddress;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import dashboard.DailyHoroscope;
 import dashboard.FragmentDrawer;
 import dashboard.Help_AppDetails;
-import dashboard.LogOutActivity;
-import dashboard.Login;
+import dashboard.Remidies;
 import models.ChakrasResult;
 import models.NavDrawerItem;
-import models.SettingsOptions;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,7 +63,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofitrelated.APIService;
 import retrofitrelated.APIUrl;
-import retrofitrelated.LoginResult;
 import utilitys.BaseActivity;
 import utilitys.NetworkConnectionCheck;
 import utilitys.WebCall;
@@ -96,7 +119,14 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
 
     // private ViewPager viewPager;
     //private TabLayout tabLayout;
+    //BraintreeFragment mBraintreeFragment;
 
+
+    String token;
+    // String amount = "100.00";
+    // HashMap<String, String> paramsHash;
+    private int REQUEST_CODE = 1234;
+    private int REQUEST_CODE_PAYPAL = 1235;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -133,11 +163,7 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
 
         loginUserNameTv = (TextView) findViewById(R.id.loggedinusernameTV);
         loginUserNameTv.setText(sPrefs.getString("userName", null));
-
-
-        myWebView.loadUrl("http://expertwebworx.in/astro/backend/web/index.php?r=site/dashas&id=" + Integer.parseInt(sPrefs.getString("userid", null)));
-
-
+        myWebView.loadUrl(APIUrl.WEB_DASAS_URL + Integer.parseInt(sPrefs.getString("userid", null)));
         nameTV = (TextView) findViewById(R.id.nameTV);
         starTV = (TextView) findViewById(R.id.starTV);
         moonsignTV = (TextView) findViewById(R.id.moonsignTV);
@@ -147,17 +173,17 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
         navaamsa_TimeTV = (TextView) findViewById(R.id.navaamsaDOBTIMETV);
 
         /* private TextView navaamsa_ariesTV;
-    private TextView navaamsa_taurusTV;
-    private TextView navaamsa_geminiTV;
-    private TextView navaamsa_cancerTV;
-    private TextView navaamsa_leoTV;
-    private TextView navaamsa_virgoTV;
-    private TextView navaamsa_libraTV;
-    private TextView navaamsa_scorpioTV;
-    private TextView navaamsa_sagittariusTV;
-    private TextView navaamsa_capricornTV;
-    private TextView navaamsa_aquariesTV;
-    private TextView navaamsa_piscesTV;*/
+              private TextView navaamsa_taurusTV;
+             private TextView navaamsa_geminiTV;
+             private TextView navaamsa_cancerTV;
+             private TextView navaamsa_leoTV;
+             private TextView navaamsa_virgoTV;
+             private TextView navaamsa_libraTV;
+             private TextView navaamsa_scorpioTV;
+            private TextView navaamsa_sagittariusTV;
+            private TextView navaamsa_capricornTV;
+            private TextView navaamsa_aquariesTV;
+            private TextView navaamsa_piscesTV;*/
 
 
         navaamsa_ariesTV = (TextView) findViewById(R.id.ariesTV);
@@ -190,12 +216,12 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
         janmaamsa_elevenTV = (TextView) findViewById(R.id.elevenTV);
         janmaamsa_tweleveTV = (TextView) findViewById(R.id.tweleveTV);
 
-
         if (NetworkConnectionCheck.checkInternetConnection(_ctx)) {
             userChakrasView();
         } else {
             new WebCall(_ctx).DialogForWifi_Enable_CloseDialog(_ctx.getString(R.string.internet_enable), _ctx.getString(R.string.internet_enable_message), R.drawable.warning_red);
         }
+
     }
 
     @Override
@@ -227,13 +253,13 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                 break;
             case 1://DailyHoroscope
                 Intent dailyhoroscope = new Intent(this, DailyHoroscope.class);
-                dailyhoroscope.putExtra("bhaavaam", "MyHoroscope");
+                dailyhoroscope.putExtra("bhaavaam", "Daily Predictions");
                 startActivity(dailyhoroscope);
                 overridePendingTransition(
                         R.anim.activity_animation_right_to_left,
                         R.anim.right_to_left);
 
-                mytoast = Toast.makeText(getApplicationContext(), "Welcome : DailyHoroscope", Toast.LENGTH_SHORT);
+                mytoast = Toast.makeText(getApplicationContext(), "Welcome : Daily Predictions", Toast.LENGTH_SHORT);
                 mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
                 mytoast.show();
                 break;
@@ -245,23 +271,23 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                         R.anim.activity_animation_right_to_left,
                         R.anim.right_to_left);
 
-                mytoast = Toast.makeText(getApplicationContext(), "Welcome : Your chart Details", Toast.LENGTH_SHORT);
+                mytoast = Toast.makeText(getApplicationContext(), "Welcome : MyChart Details", Toast.LENGTH_SHORT);
                 mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
                 mytoast.show();
                 break;
             case 3://Personality
                 webabout = new Intent(this, BhaavasActivity.class);
                 //webabout.putExtra("bhaavaam", "self");
-                webabout.putExtra("bhaavaam", "KnowYourSelf");
+                webabout.putExtra("bhaavaam", "Self");
                 webabout.putExtra("bhaavaam_no", "1");
                 startActivity(webabout);
                 overridePendingTransition(
                         R.anim.activity_animation_right_to_left,
                         R.anim.right_to_left);
 
-               /* mytoast = Toast.makeText(getApplicationContext(), "Welcome : Personality", Toast.LENGTH_SHORT);
+                mytoast = Toast.makeText(getApplicationContext(), "Welcome : Self", Toast.LENGTH_SHORT);
                 mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
-                mytoast.show();*/
+                mytoast.show();
                 break;
             case 4://Career
                 webabout = new Intent(this, BhaavasActivity.class);
@@ -335,14 +361,11 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                 mytoast.show();
                 break;
             case 9://Remidies
-               /* webabout = new Intent(this, BhaavasActivity.class);
-                //webabout.putExtra("bhaavaam", "children");
-                webabout.putExtra("bhaavaam", "Children");
-                webabout.putExtra("bhaavaam_no", "6");
+                webabout = new Intent(this, Remidies.class);
                 startActivity(webabout);
                 overridePendingTransition(
                         R.anim.activity_animation_right_to_left,
-                        R.anim.right_to_left);*/
+                        R.anim.right_to_left);
 
                 mytoast = Toast.makeText(getApplicationContext(), "Welcome : Remidies", Toast.LENGTH_SHORT);
                 mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
@@ -358,12 +381,16 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                 mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
                 mytoast.show();
                 break;
-            case 11://Logout
-                /*webabout = new Intent(this, LogOutActivity.class);
+            case 11://Notifications
+                webabout = new Intent(this, Notifications.class);
                 startActivity(webabout);
                 overridePendingTransition(
                         R.anim.activity_animation_right_to_left,
-                        R.anim.right_to_left);*/
+                        R.anim.right_to_left);
+
+                mytoast = Toast.makeText(getApplicationContext(), "Welcome : Notifications", Toast.LENGTH_SHORT);
+                mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
+                mytoast.show();
                 break;
             default:
                 break;
@@ -376,13 +403,7 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
         super.onStop();
     }
 
-   /* private void shareIt() {
-        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-        sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Download free Sri Astrology app on google play store");
-        sharingIntent.putExtra(Intent.EXTRA_TEXT, "Download free Sri Astrology app on google play store Sri Astrology app Android Link.");
-        startActivity(Intent.createChooser(sharingIntent, "Share Sri Astrology App using"));
-    }*/
+
 
     @Override
     public void onBackPressed() {
@@ -391,7 +412,6 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
                 R.anim.activity_animation_right_to_left,
                 R.anim.right_to_left);
     }
-
 
     private class MyWebViewClient extends WebViewClient {
         @Override
@@ -415,18 +435,25 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
         }
     }
 
-
     private void userChakrasView() {
         //defining a progress dialog to show while signing up
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
+
+        final OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .build();
+
         //building retrofit object
         // .baseUrl(APIUrl.BASE_URL)
         //.baseUrl("http://192.168.2.65/astro-apii/backend/web/")
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(APIUrl.BASE_URL)
+                .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -520,7 +547,6 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
         });
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -534,12 +560,144 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
        /* switch (item.getItemId()) {
-            case R.id.action_menu_info:
+            case R.id.action_menu_logout:
+               // new getToken().execute();
+               *//* DropInRequest dropInRequest = new DropInRequest().clientToken(token);
+                startActivityForResult(dropInRequest.getIntent(this),REQUEST_CODE);
+                *//*
+                //PayPal.requestOneTimePayment(mBraintreeFragment, getPayPalRequest("1.00"));
+
                 break;
             default:
                 break;
         }*/
         return super.onOptionsItemSelected(item);
     }
+
+    /*@Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                DropInResult result = data.getParcelableExtra(DropInResult.EXTRA_DROP_IN_RESULT);
+                PaymentMethodNonce nonce = result.getPaymentMethodNonce();
+                //String deviceData = result.getDeviceData();
+                String strNonce = nonce.getNonce();
+                HashMap paramsHash = new HashMap<>();
+                paramsHash.put("amount", "10");
+                paramsHash.put("nonce", strNonce);
+                sendPayments(paramsHash);
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(_ctx, "User Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                Exception error = (Exception) data.getSerializableExtra(DropInActivity.EXTRA_ERROR);
+                Log.d("EDMT_ERROR", error.toString());
+            }
+        } else if (requestCode == REQUEST_CODE_PAYPAL) {
+            if (resultCode == RESULT_OK) {
+                try {
+
+                    *//*DropInResult result = data.getParcelableExtra(DropInResult.EXTRA_DROP_IN_RESULT);
+                    PaymentMethodNonce nonce = result.getPaymentMethodNonce();*//*
+
+                    BraintreeFragment mBraintreeFragment = BraintreeFragment.newInstance(this, token);
+                    //PayPal.authorizeAccount(mBraintreeFragment);
+                    // mBraintreeFragment.addListener(braintreeSuccessListener);
+                    //mBraintreeFragment.addListener(braintreeErrorListener);
+                    //mBraintreeFragment.addListener(braintreeCancelListener);
+                    //mBraintreeFragment.addListener(braintreeCancelListener);
+                    //PayPal.requestBillingAgreement(mBraintreeFragment, new PayPalRequest());
+                    PayPalRequest request = new PayPalRequest("100")
+                            .currencyCode("USD");
+                    final HashMap paramsHash = new HashMap<>();
+                    paramsHash.put("amount", request.getAmount());
+                    PayPal.requestBillingAgreement(mBraintreeFragment, request);
+                    //PayPalAccountNonce payPalAccountNonce;
+                    mBraintreeFragment.addListener(new PaymentMethodNonceCreatedListener() {
+                        @Override
+                        public void onPaymentMethodNonceCreated(PaymentMethodNonce paymentMethodNonce) {
+                            //PayPalAccountNonce payPalAccountNonce = (PayPalAccountNonce) paymentMethodNonce;
+                            //String nonce = payPalAccountNonce.getNonce();
+                            String nonce = paymentMethodNonce.getNonce();
+                            if (paymentMethodNonce instanceof PayPalAccountNonce) {
+                                PayPalAccountNonce payPalAccountNonce = (PayPalAccountNonce) paymentMethodNonce;
+                                // Access additional information
+                                String email = payPalAccountNonce.getEmail();
+                                String firstName = payPalAccountNonce.getFirstName();
+                                String lastName = payPalAccountNonce.getLastName();
+                                String phone = payPalAccountNonce.getPhone();
+                                // See PostalAddress.java for details
+                                PostalAddress billingAddress = payPalAccountNonce.getBillingAddress();
+                                PostalAddress shippingAddress = payPalAccountNonce.getShippingAddress();
+                            }
+                            paramsHash.put("nonce", nonce);
+                        }
+                    });
+                    //PaymentMethodNonce nonce = listener.get();
+                    //PayPalAccountNonce payPalAccountNonce = (PayPalAccountNonce)listener;
+                    //String nonce = payPalAccountNonce.getNonce();
+                    sendPayments(paramsHash);
+                } catch (InvalidArgumentException e) {
+                    // There was an issue with your authorization string.
+                }
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(_ctx, "User Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                Exception error = (Exception) data.getSerializableExtra(DropInActivity.EXTRA_ERROR);
+                Log.d("EDMT_ERROR", error.toString());
+            }
+        } else {
+            Toast.makeText(_ctx, "other option selected", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    PaymentMethodNonceCreatedListener listener = new PaymentMethodNonceCreatedListener() {
+        @Override
+        public void onPaymentMethodNonceCreated(PaymentMethodNonce paymentMethodNonce) {
+            paymentMethodNonce.getNonce();
+        }
+    };
+
+    private void sendPayments(final HashMap<String, String> paramsHashLoc) {
+        RequestQueue queue = Volley.newRequestQueue(SelectedSignDashBoard.this);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, APIUrl.API_CHECK_OUT,
+                new com.android.volley.Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(_ctx, "res:" + response.toString(), Toast.LENGTH_LONG).show();
+                        if (response.toString().contains("success")) {
+                            Toast.makeText(_ctx, "Trasaction successful", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(_ctx, "Trasaction failed", Toast.LENGTH_LONG).show();
+
+                        }
+                        Log.d("EDMT_Log", response.toString());
+                    }
+                }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("EDMT_ERROR", error.toString());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                if (paramsHashLoc == null)
+                    return null;
+                Map<String, String> params = new HashMap<>();
+                for (String key : params.keySet()) {
+                    params.put(key, paramsHashLoc.get(key));
+                }
+                return paramsHashLoc;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("Content-Type", "application/x-www-form-urlencoded");
+                return params;
+            }
+        };
+        queue.add(stringRequest);
+    }*/
 
 }

@@ -7,6 +7,7 @@ import models.ChakrasResult;
 import models.DailyPlanetResponse;
 import models.Janma;
 import models.MothlyYearlyHoroscope;
+import models.RemediesModel;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -91,7 +92,6 @@ public interface APIService {
     /*output along with chakras and all bhavas strengths*/
     Call<ChakrasResult> loadMyChartChakras(@Query("id") String id);
 
-
     //The update user profile
     /*profile update with userid and firstname,lastname and phone,address details only editable.*/
     @FormUrlEncoded
@@ -138,8 +138,9 @@ public interface APIService {
     Call<MothlyYearlyHoroscope> loadYearlyHoroscope(
             @Field("userid") String userid);
 
-
-
-
-
+    /*option view remedies*/
+    /*sidemenu option with remedies details userid as input*/
+    @GET("index.php?r=users/remedies")
+    /*output along with remediestext*/
+    Call<RemediesModel> loadRemedies(@Query("id") String id);
 }

@@ -24,6 +24,9 @@ import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONException;
 
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -144,9 +147,14 @@ public class Login extends BaseActivity implements View.OnClickListener {
         progressDialog.setMessage("Signing In...");
         progressDialog.show();
 
+        final OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .build();
         //building retrofit object
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(APIUrl.BASE_URL)
+                .baseUrl(APIUrl.BASE_URL).client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -175,12 +183,6 @@ public class Login extends BaseActivity implements View.OnClickListener {
                 if (response.body().getStatus().toString().equalsIgnoreCase("success")) {
                     //here save success result object values and navigate to dashboard
                     //update sharedpreference3 with login true for everytime dashboard
-
-                   /* Toast.makeText(getApplicationContext(), response.body().getResult().getEmail()+","
-                            +response.body().getResult().getUserid()+","
-                            +response.body().getResult().getToken(), Toast.LENGTH_LONG).show();*/
-
-
                     saveLoginStatus(getResources().getString(R.string.signin_status_key), true);
                     updateUserBasicDetails(response.body().getResult().getUserid().toString(),
                             response.body().getResult().getUsername(),
@@ -210,7 +212,6 @@ public class Login extends BaseActivity implements View.OnClickListener {
                     Toast mytoast = Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG);
                     mytoast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);  // for center vertical
                     mytoast.show();
-                    // Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
 

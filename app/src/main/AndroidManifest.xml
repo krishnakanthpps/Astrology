@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.anagha.astrology">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -121,11 +122,54 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+        <!--remedies-->
+        <activity
+            android:name="dashboard.Remidies"
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+        <!--helpappdetails-->
         <activity
             android:name="dashboard.Help_AppDetails"
             android:configChanges="orientation"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+        <!--about author-->
+        <activity
+            android:name=".AboutAuthor"
+            android:configChanges="orientation"
+            android:label="@string/about_author_title"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+        <!--getNotifications-->
+        <activity
+            android:name=".Notifications"
+            android:configChanges="orientation"
+            android:label="@string/notifications"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+        <!--notification Details-->
+        <activity
+            android:name=".NotificationDetails"
+            android:configChanges="orientation"
+            android:label="@string/notifications"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+
+
+        <activity
+            android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="${applicationId}.braintree" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

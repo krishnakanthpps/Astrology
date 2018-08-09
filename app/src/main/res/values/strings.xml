@@ -52,12 +52,13 @@
         <item>@string/nav_item_children</item>
         <item>@string/nav_item_remidies</item>
         <item>@string/nav_item_settings</item>
-       <!-- <item>@string/nav_item_logout</item>-->
+        <item>@string/nav_item_notifications</item>
+        <!-- <item>@string/nav_item_logout</item>-->
     </string-array>
 
 
-    <string name="nav_item_dailyhoroscope">DailyHoroscope</string>
-    <string name="nav_item_yourchartdetails">YourChartDetails</string>
+    <string name="nav_item_dailyhoroscope">Daily Predictions</string>
+    <string name="nav_item_yourchartdetails">MyChart Details</string>
     <string name="nav_item_personalizedhoroscope">Personalized Horoscope</string>
     <string name="nav_item_logout">Logout</string>
 
@@ -85,7 +86,8 @@
         <item>@drawable/children</item>
         <item>@drawable/personalizedhoroscope</item>
         <item>@drawable/settings</item>
-       <!-- <item>@drawable/logout</item>-->
+        <item>@drawable/settings</item>
+        <!-- <item>@drawable/logout</item>-->
         <!-- <item>@drawable/nav_home_white</item>
          <item>@drawable/info_android</item>
          <item>@drawable/contact_us_updated</item>
@@ -132,7 +134,7 @@
         <string name="prompt_register_email">Email</string>
     -->
     <string name="action_update_profile_edit">profile_update</string>
-    <string name="nav_item_personality">KnowYourSelf</string>
+    <string name="nav_item_personality">Self</string>
     <string name="nav_item_career">Career</string>
     <string name="nav_item_moneymatters">MoneyMatters</string>
     <string name="nav_item_health">Health</string>
@@ -140,6 +142,7 @@
     <string name="nav_item_children">Children</string>
     <string name="nav_item_remidies">Remedies</string>
     <string name="nav_item_settings">Settings</string>
+    <string name="nav_item_notifications">Notifications</string>
     <string name="app_signout">SignOut</string>
     <string name="forgot">Forgot</string>
     <string name="confirm_password">Confirm Password</string>
@@ -147,5 +150,14 @@
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="logout">Logout</string>
+    <string name="about_author"><![CDATA[Let me start paying my respect to my parents Smt & Sri B.L. Narasimhan, my family diety Sri Veerabhadra and my upaasana diety Sri Laithamba. Born in family of astrologers, I am fortunate to have started my study in Astrology and Palmistry 25 years back and have been practicing since then.<br><p>Every family used to have family astrologers earlier who used to come and tell us about changes in planetary positions, how they are effecting us and the remedial measures to be taken care. This is our humble attempt to bring fruits of vedic astrology to you through a mobile application.]]></string>
+    <string name="about_author_title">About Author</string>
+    <string name="take_order">paypal</string>
+    <string name="notifications">Notifications</string>
+
+    <!--generated from server-->
+
+    <string name="paypal_mClientToken">eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiI1MjM3YjU3YzQzMmMxMDY4Zjc5MTkwZGM4NWVjM2EwYzlmN2EyZTkzNGE5M2NhZTFjYzhhZWE3NWU3YzIzN2Y2fGNyZWF0ZWRfYXQ9MjAxOC0wOC0wNlQxMDo1OTo0MC43NTU0MzczNzArMDAwMFx1MDAyNm1lcmNoYW50X2lkPXA3azNmd3BtcDlzaDM4azVcdTAwMjZwdWJsaWNfa2V5PXdxNm1ybXJ3OTQ5OGtjYngiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvcDdrM2Z3cG1wOXNoMzhrNS9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24iLCJjaGFsbGVuZ2VzIjpbXSwiZW52aXJvbm1lbnQiOiJzYW5kYm94IiwiY2xpZW50QXBpVXJsIjoiaHR0cHM6Ly9hcGkuc2FuZGJveC5icmFpbnRyZWVnYXRld2F5LmNvbTo0NDMvbWVyY2hhbnRzL3A3azNmd3BtcDlzaDM4azUvY2xpZW50X2FwaSIsImFzc2V0c1VybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXV0aFVybCI6Imh0dHBzOi8vYXV0aC52ZW5tby5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tIiwiYW5hbHl0aWNzIjp7InVybCI6Imh0dHBzOi8vb3JpZ2luLWFuYWx5dGljcy1zYW5kLnNhbmRib3guYnJhaW50cmVlLWFwaS5jb20vcDdrM2Z3cG1wOXNoMzhrNSJ9LCJ0aHJlZURTZWN1cmVFbmFibGVkIjp0cnVlLCJwYXlwYWxFbmFibGVkIjp0cnVlLCJwYXlwYWwiOnsiZGlzcGxheU5hbWUiOiJhbmFnaGEiLCJjbGllbnRJZCI6IkFlbExKWVZnX3EyQW1aQVllS1dDZTU0eWs4dGM0ZW5VRnlEMElIZEQ4ei1Ed0tmb2MzczR1M0FXYmdJN013anNlR1lXZGZVQjJkS2JLcHZ2IiwicHJpdmFjeVVybCI6Imh0dHA6Ly9leGFtcGxlLmNvbS9wcCIsInVzZXJBZ3JlZW1lbnRVcmwiOiJodHRwOi8vZXhhbXBsZS5jb20vdG9zIiwiYmFzZVVybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXNzZXRzVXJsIjoiaHR0cHM6Ly9jaGVja291dC5wYXlwYWwuY29tIiwiZGlyZWN0QmFzZVVybCI6bnVsbCwiYWxsb3dIdHRwIjp0cnVlLCJlbnZpcm9ubWVudE5vTmV0d29yayI6ZmFsc2UsImVudmlyb25tZW50Ijoib2ZmbGluZSIsInVudmV0dGVkTWVyY2hhbnQiOmZhbHNlLCJicmFpbnRyZWVDbGllbnRJZCI6Im1hc3RlcmNsaWVudDMiLCJiaWxsaW5nQWdyZWVtZW50c0VuYWJsZWQiOnRydWUsIm1lcmNoYW50QWNjb3VudElkIjoiYW5hZ2hhIiwiY3VycmVuY3lJc29Db2RlIjoiVVNEIn0sIm1lcmNoYW50SWQiOiJwN2szZndwbXA5c2gzOGs1IiwidmVubW8iOiJvZmYifQ==</string>
+
 
 </resources>

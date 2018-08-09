@@ -14,8 +14,10 @@ import android.widget.Toast;
 
 import com.anagha.astrology.R;
 
-import models.DailyPlanetResponse;
+import java.util.concurrent.TimeUnit;
+
 import models.MothlyYearlyHoroscope;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -68,11 +70,17 @@ public class YearlyFragment extends Fragment {
         progressDialog.setMessage("Loading...");
         progressDialog.show();
 
+
+        final OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .build();
         //building retrofit object
         // .baseUrl(APIUrl.BASE_URL)
         //.baseUrl("http://192.168.2.65/astro-apii/backend/web/")
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(APIUrl.BASE_URL)
+                .baseUrl(APIUrl.BASE_URL).client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -105,6 +113,9 @@ public class YearlyFragment extends Fragment {
                         dailyHoroscopeSaturnTV.setText(response.body().getResult().getDaily_Saturn());*/
                     } catch (NullPointerException npe) {
                         Log.i("DashBoard Chakras", npe.getMessage());
+                    } catch (NumberFormatException nfe) {
+                        Log.i("npe", nfe.getMessage().toString());
+                        //Toast.makeText(getContext(), "Unable to load", Toast.LENGTH_LONG).show();
                     }
                 } else {
                     Toast mytoast = Toast.makeText(getContext().getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG);
