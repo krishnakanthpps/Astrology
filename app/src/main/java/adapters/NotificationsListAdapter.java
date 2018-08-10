@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,9 +39,9 @@ public class NotificationsListAdapter extends RecyclerView.Adapter<Notifications
     public void onBindViewHolder(MyViewHolder myHolder, final int position) {
         NotificationsListAdapter.MyViewHolder myViewHolderview = myHolder;
 
-        myViewHolderview.notificationTitle.setText(getItem(position).getNotification_title());
-        myViewHolderview.notificationDescription.setText(getItem(position).getNotification_description());
-        myViewHolderview.notificationDate.setText(getItem(position).getSchedule_time());
+        myViewHolderview.notificationTitle.setText(Html.fromHtml(getItem(position).getNotification_title()));
+        myViewHolderview.notificationDescription.setText(Html.fromHtml(getItem(position).getNotification_description()));
+        myViewHolderview.notificationDate.setText(Html.fromHtml(getItem(position).getSchedule_time()));
 
         myViewHolderview.mainCardView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -7,14 +7,25 @@ public class Bhavaasmodel {
     private String hundredpercentage_information;
     private String regular_information;
     private String percentage;
+    private String lagna_result;
 
-    public Bhavaasmodel(String status, String message, String bhaavasreg_information, String hundredpercentage_information, String regular_information, String percentage) {
+
+    public Bhavaasmodel(String status, String message, String bhaavasreg_information, String hundredpercentage_information, String regular_information, String percentage, String lagna_result) {
         this.status = status;
         this.message = message;
         this.bhaavasreg_information = bhaavasreg_information;
         this.hundredpercentage_information = hundredpercentage_information;
         this.regular_information = regular_information;
         this.percentage = percentage;
+        this.lagna_result = lagna_result;
+    }
+
+    public String getLagna_result() {
+        return lagna_result;
+    }
+
+    public void setLagna_result(String lagna_result) {
+        this.lagna_result = lagna_result;
     }
 
     public String getStatus() {

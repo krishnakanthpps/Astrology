@@ -7,9 +7,8 @@ public class NotificationListModel {
     private String notification_description;
     private String schedule_time;
 
-    public NotificationListModel(String not_id, String notification_type, String notification_title, String notification_description, String schedule_time) {
+    public NotificationListModel(String not_id, String notification_title, String notification_description, String schedule_time) {
         this.not_id = not_id;
-        this.notification_type = notification_type;
         this.notification_title = notification_title;
         this.notification_description = notification_description;
         this.schedule_time = schedule_time;

@@ -2,6 +2,7 @@ package dashboard;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anagha.astrology.R;
+import com.anagha.astrology.SelectedSignDashBoard;
 
 import java.util.concurrent.TimeUnit;
 
@@ -62,9 +64,16 @@ public class Remidies extends BaseActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(
-                R.anim.activity_animation_right_to_left,
-                R.anim.right_to_left);
+        if(getIntent().getStringExtra("call_from").equalsIgnoreCase("main")){
+            overridePendingTransition(
+                    R.anim.activity_animation_right_to_left,
+                    R.anim.right_to_left);
+        }else{
+            Intent intent = new Intent(_context, SelectedSignDashBoard.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
+            this.finish();
+        }
     }
 
     private void onInitUi() {

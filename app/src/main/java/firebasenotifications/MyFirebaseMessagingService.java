@@ -9,13 +9,17 @@ import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import com.anagha.astrology.Notifications;
 import com.anagha.astrology.R;
+import com.anagha.astrology.SelectedSignDashBoard;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import dashboard.DailyHoroscope;
+import dashboard.Remidies;
 import utilitys.Config;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -54,41 +58,33 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 Log.e(TAG, "Exception: " + e.getMessage());
             }
         }
-
     }
 
     private void handleDataMessage(JSONObject json) {
         try {
             String screen = json.getString("screen");
-            String storeId = json.getString("storeId");
-            String storeName = json.getString("storeName");
-            String saleItemId = json.getString("saleItemId");
-            String externalUrl = json.getString("externalurl");
             Intent resultIntent = new Intent();
             switch (screen) {
                 case "home":
-                    //resultIntent = new Intent(getApplicationContext(), Activitymain.class);
+                    resultIntent = new Intent(getApplicationContext(), SelectedSignDashBoard.class);
                     break;
-                case "storedetail":
-                    /*resultIntent = new Intent(getApplicationContext(), UpdatedRoot_Products_List.class);
-                    resultIntent.putExtra("shop_name", storeName);
-                    resultIntent.putExtra("store_id", storeId);
-                    resultIntent.putExtra("call_from", "normal_flow");
-                    resultIntent.putExtra("categorie_id", "0");*/
+                case "daily":
+                    resultIntent = new Intent(this, DailyHoroscope.class);
+                    resultIntent.putExtra("bhaavaam", "Daily Predictions");
+                    resultIntent.putExtra("call_from", "notification");
+                    startActivity(resultIntent);
                     break;
-                case "productdetail":
-                    /*resultIntent = new Intent(getApplicationContext(), UpdatedRoot_Products_List.class);
-                    resultIntent.putExtra("shop_name", storeName);
-                    resultIntent.putExtra("store_id", storeId);
-                    resultIntent.putExtra("call_from", "normal_flow");
-                    resultIntent.putExtra("categorie_id", "0");*/
+                case "remedies":
+                    resultIntent = new Intent(this, Remidies.class);
+                    //resultIntent.putExtra("bhaavaam", "");
+                    resultIntent.putExtra("call_from", "notification");
+                    startActivity(resultIntent);
                     break;
-                case "publicpage":
-                  /*  resultIntent = new Intent(getApplicationContext(), HelpItemsWebViewActivity.class);
-                    if (externalUrl != null) {
-                        resultIntent.putExtra("help_app_detail", "publicpage");
-                        resultIntent.putExtra("publicpage_string", externalUrl);
-                    }*/
+                case "notification":
+                    resultIntent = new Intent(this, Notifications.class);
+                    //resultIntent.putExtra("bhaavaam", "");
+                    resultIntent.putExtra("call_from", "notification");
+                    startActivity(resultIntent);
                     break;
                 default:
                     break;

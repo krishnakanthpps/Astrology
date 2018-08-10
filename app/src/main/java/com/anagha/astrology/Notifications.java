@@ -125,7 +125,7 @@ public class Notifications extends BaseActivity implements NotificationsListAdap
                                 final AlertDialog alert = dialog.create();
                                 alert.show();
                             } else {
-                                if (notificationList.has("notificationlist")) {
+                                if (notificationList.has("notificationhistorylist")) {
                                     // noRecordsFoundTv.setVisibility(View.INVISIBLE);
                                     updateUI(notificationList);
                                 }
@@ -151,7 +151,7 @@ public class Notifications extends BaseActivity implements NotificationsListAdap
 
     private void updateUI(JSONObject person) throws JSONException {
         List<NotificationListModel> notificationListresponse = new ArrayList<>();
-        JSONArray jsonArray = (JSONArray) person.get("notificationlist");
+        JSONArray jsonArray = (JSONArray) person.get("notificationhistorylist");
         if (jsonArray.length() != 0) {
             Gson gson = new Gson();
             notificationListresponse.clear();
@@ -159,7 +159,6 @@ public class Notifications extends BaseActivity implements NotificationsListAdap
             for (int i = 0; i < posts.size(); i++) {
                 NotificationListModel ptmodel = new NotificationListModel(
                         posts.get(i).getNot_id(),
-                        posts.get(i).getNotification_type(),
                         posts.get(i).getNotification_title(),
                         posts.get(i).getNotification_description(),
                         posts.get(i).getSchedule_time()
@@ -187,8 +186,17 @@ public class Notifications extends BaseActivity implements NotificationsListAdap
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(
-                R.anim.activity_animation_right_to_left,
-                R.anim.right_to_left);
+        if(getIntent().getStringExtra("call_from").equalsIgnoreCase("main")){
+            overridePendingTransition(
+                    R.anim.activity_animation_right_to_left,
+                    R.anim.right_to_left);
+        }else{
+            Intent intent = new Intent(_ctx, SelectedSignDashBoard.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
+            this.finish();
+        }
+
+
     }
 }

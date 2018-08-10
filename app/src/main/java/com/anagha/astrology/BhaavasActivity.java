@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
@@ -15,7 +14,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
@@ -43,7 +41,7 @@ public class BhaavasActivity extends BaseActivity {
     private TextView specialInfoTV;
     private TextView progressTV;
     private TextView staticTV;
-    /*private ProgressBar progressBar;*/
+    private TextView lagnaResultTV;
     private CircularProgressBar circularProgressBar;
 
     @Override
@@ -73,21 +71,19 @@ public class BhaavasActivity extends BaseActivity {
 
     private void initUI() {
         sPrefs = getSharedPreferences(WebCall.SharedPreference_Name, 0);
-
         regularInfoTV = (TextView) findViewById(R.id.regularTV);
         specialInfoTV = (TextView) findViewById(R.id.specialTV);
         progressTV = (TextView) findViewById(R.id.progressTV);
         staticTV = (TextView) findViewById(R.id.staticTV);
+        lagnaResultTV = (TextView) findViewById(R.id.lagnaResultTV);
+        lagnaResultTV.setVisibility(View.GONE);
         circularProgressBar = (CircularProgressBar) findViewById(R.id.progressBarCircle);
-       /* progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.GONE);*/
         if (NetworkConnectionCheck.checkInternetConnection(_ctx)) {
             try {
                 userBhaavaasView();
             } catch (NullPointerException npe) {
-            Toast.makeText(_ctx,"Invalid Details",Toast.LENGTH_LONG).show();
+                Toast.makeText(_ctx, "Invalid Details", Toast.LENGTH_LONG).show();
             }
-
         } else {
             new WebCall(_ctx).DialogForWifi_Enable_CloseDialog(_ctx.getString(R.string.internet_enable), _ctx.getString(R.string.internet_enable_message), R.drawable.warning_red);
         }
@@ -136,7 +132,9 @@ public class BhaavasActivity extends BaseActivity {
                     //displaying the message from the response as toast
                     if (response.body().getStatus().equalsIgnoreCase("success")) {
                         try {
-                            regularInfoTV.setText(Html.fromHtml("<b>This section of your horoscope also influences following aspects of your life:</b><br><br><p>" + response.body().getBhaavasreg_information() + "</p>"));
+                           // regularInfoTV.setText(Html.fromHtml("<b>This section of your horoscope also influences following aspects of your life:</b><br><br><p>" + response.body().getBhaavasreg_information() + "</p>"));
+                            regularInfoTV.setText(Html.fromHtml("<font color='blue'>This section of your horoscope also influences following aspects of your life:</font></b><p>" + response.body().getBhaavasreg_information()));
+
                             specialInfoTV.setVisibility(View.VISIBLE);
                             progressTV.setVisibility(View.VISIBLE);
                             circularProgressBar.setVisibility(View.VISIBLE);
@@ -145,6 +143,12 @@ public class BhaavasActivity extends BaseActivity {
                             circularProgressBar.setBackgroundProgressBarWidth(15);
                             progressTV.setText(response.body().getPercentage() + "/100");
                             staticTV.setText(Html.fromHtml("<b>Your  <font color='red'>" + getIntent().getStringExtra("bhaavaam") + " </font> chart score is:</b><br>"));
+                            if (response.body().getLagna_result().length() > 0) {
+                                lagnaResultTV.setText(Html.fromHtml("<font color='blue'>General predictions as per the ascendent you are born in are:</font><br><p>" + response.body().getLagna_result() + "</p>"));
+                                lagnaResultTV.setVisibility(View.VISIBLE);
+                            } else {
+                                lagnaResultTV.setVisibility(View.GONE);
+                            }
                             if (Integer.parseInt(response.body().getPercentage()) >= 0 && Integer.parseInt(response.body().getPercentage()) <= 25) {
                                 //red colored
                                 circularProgressBar.setColor(ContextCompat.getColor(_ctx, R.color.progress_red));
@@ -176,14 +180,18 @@ public class BhaavasActivity extends BaseActivity {
                                 circularProgressBar.setProgressWithAnimation(Integer.parseInt(response.body().getPercentage()), animationDuration); // Default duration = 1500ms
 
                             }
-                            specialInfoTV.setText(Html.fromHtml("<b>What Your Horoscope says about your <font color='red'>" + getIntent().getStringExtra("bhaavaam") + " </font> is:</b><br><br><p>" + response.body().getRegular_information() + "</p>" +
+                            /*     specialInfoTV.setText(Html.fromHtml("<b><font color='blue'>What Your Horoscope says about your <font color='red'>" + getIntent().getStringExtra("bhaavaam") + " </font> is:</b><p>" + response.body().getRegular_information() + "</p>" +
                                     "<p>" + response.body().getHundredpercentage_information() + "</p>"));
+*/
+                            specialInfoTV.setText(Html.fromHtml("<font color='blue'>What Your Horoscope says about your </font><font color='red'>" + getIntent().getStringExtra("bhaavaam") + "</font><font color='blue'> is:</font><p>" + response.body().getRegular_information() + "</p>" +
+                                    "<p>" + response.body().getHundredpercentage_information() + "</p>"));
+
 
                         } catch (NullPointerException npe) {
                             Log.i("npe", npe.getMessage().toString());
-                        }catch (NumberFormatException nfe) {
+                        } catch (NumberFormatException nfe) {
                             Log.i("npe", nfe.getMessage().toString());
-                           // Toast.makeText(_ctx,"Unable to load",Toast.LENGTH_LONG).show();
+                            // Toast.makeText(_ctx,"Unable to load",Toast.LENGTH_LONG).show();
                         }
                     } else {
                         Toast mytoast = Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG);
@@ -198,8 +206,8 @@ public class BhaavasActivity extends BaseActivity {
                     Toast.makeText(getApplicationContext(), "error :" + t.getMessage(), Toast.LENGTH_LONG).show();
                 }
             });
-        }catch (NullPointerException npe){
-            Toast.makeText(_ctx,"Unable to load",Toast.LENGTH_LONG).show();
+        } catch (NullPointerException npe) {
+            Toast.makeText(_ctx, "Unable to load", Toast.LENGTH_LONG).show();
         }
     }
 

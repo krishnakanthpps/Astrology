@@ -120,6 +120,7 @@
             android:name="dashboard.DailyHoroscope"
             android:configChanges="orientation"
             android:label="@string/app_name"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
         <!--remedies-->
@@ -127,6 +128,7 @@
             android:name="dashboard.Remidies"
             android:configChanges="orientation"
             android:label="@string/app_name"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
         <!--helpappdetails-->
@@ -141,6 +143,7 @@
             android:name=".AboutAuthor"
             android:configChanges="orientation"
             android:label="@string/about_author_title"
+
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
         <!--getNotifications-->
@@ -148,6 +151,7 @@
             android:name=".Notifications"
             android:configChanges="orientation"
             android:label="@string/notifications"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
         <!--notification Details-->

@@ -8,7 +8,7 @@ public class APIUrl {
     public static final String LOCAL_BASE_URL = "http://192.168.2.177/astro-api/backend/web/";
     public static final String BASE_URL = "http://expertwebworx.in/astro-api/backend/web/";
     public static final String WEB_DASAS_URL = "http://expertwebworx.in/astro/backend/web/index.php?r=site/dashas&id=";
-    public static final String NOTIFICATIONS_LIST = "http://expertwebworx.in/astro-api/backend/web/index.php?r=notifications/notificationlist";
+    public static final String NOTIFICATIONS_LIST = "http://expertwebworx.in/astro-api/backend/web/index.php?r=notifications/notificationhistorylist";
 
 
 

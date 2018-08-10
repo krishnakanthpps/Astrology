@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 
@@ -53,10 +54,9 @@ public class NotificationDetails extends BaseActivity {
         notificationDate = (TextView)findViewById(R.id.notificationdate_TV);
 
 
-
-        notificationTitle.setText(getIntent().getStringExtra("notificationTitle"));
-        notificationDescription.setText(getIntent().getStringExtra("notificationDescription"));
-        notificationDate.setText(getIntent().getStringExtra("notificationDated"));
+        notificationTitle.setText(Html.fromHtml(getIntent().getStringExtra("notificationTitle")));
+        notificationDescription.setText(Html.fromHtml(getIntent().getStringExtra("notificationDescription")));
+        notificationDate.setText(Html.fromHtml(getIntent().getStringExtra("notificationDated")));
 
 
 

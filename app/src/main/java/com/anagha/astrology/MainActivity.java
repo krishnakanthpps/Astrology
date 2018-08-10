@@ -1,13 +1,24 @@
 package com.anagha.astrology;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
+import org.json.JSONException;
+
+import dashboard.DailyHoroscope;
 import dashboard.Login;
+import dashboard.Remidies;
 import utilitys.BaseActivity;
+import utilitys.Config;
 import utilitys.WebCall;
 import utilitys.WelcomeActivity;
 
@@ -19,7 +30,47 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sPrefs = getSharedPreferences(WebCall.SharedPreference_Name, 0);
-        navigationScreens();
+        if (getIntent() != null && getIntent().getExtras() != null && getIntent().getStringExtra("screen") != null) {
+            notificationRedirectionSplashScreen();
+        }else{
+            navigationScreens();
+        }
+
+    }
+    /*notifaication redirect activities when app closed if notification coming and clicked*/
+    private void notificationRedirectionSplashScreen() {
+            String screenValue = getIntent().getStringExtra("screen");
+            Intent resultIntent = new Intent();
+            switch (screenValue) {
+                case "home":
+                    resultIntent = new Intent(getApplicationContext(), SelectedSignDashBoard.class);
+                    break;
+                case "daily":
+                    resultIntent = new Intent(this, DailyHoroscope.class);
+                    resultIntent.putExtra("bhaavaam", "Daily Predictions");
+                    resultIntent.putExtra("call_from", "notification");
+                    startActivity(resultIntent);
+                    break;
+                case "remedies":
+                    resultIntent = new Intent(this, Remidies.class);
+                    //resultIntent.putExtra("bhaavaam", "");
+                    resultIntent.putExtra("call_from", "notification");
+                    startActivity(resultIntent);
+                    break;
+                case "notification":
+                    resultIntent = new Intent(this, Notifications.class);
+                    //resultIntent.putExtra("bhaavaam", "");
+                    resultIntent.putExtra("call_from", "notification");
+                    startActivity(resultIntent);
+                    break;
+                default:
+                    break;
+            }
+        resultIntent.putExtra("from_notification_click", "from_notification_splash_screen");
+        startActivity(resultIntent);
+        overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
+        this.finish();
+
     }
 
     @Override
