@@ -133,7 +133,10 @@ public class BhaavasActivity extends BaseActivity {
                     if (response.body().getStatus().equalsIgnoreCase("success")) {
                         try {
                            // regularInfoTV.setText(Html.fromHtml("<b>This section of your horoscope also influences following aspects of your life:</b><br><br><p>" + response.body().getBhaavasreg_information() + "</p>"));
-                            regularInfoTV.setText(Html.fromHtml("<font color='blue'>This section of your horoscope also influences following aspects of your life:</font></b><p>" + response.body().getBhaavasreg_information()));
+                           // regularInfoTV.setText(Html.fromHtml("<font color='blue'>This section of your horoscope also influences following aspects of your life:</font></b><p>" + response.body().getBhaavasreg_information()));
+                            regularInfoTV.setText(Html.fromHtml("<font color='blue'> For your information, as per Vedic Astrology, this part of the horoscope\n" +
+                                    "                            also influences following aspects of the life:</font></b><p>" + response.body().getBhaavasreg_information()));
+
 
                             specialInfoTV.setVisibility(View.VISIBLE);
                             progressTV.setVisibility(View.VISIBLE);

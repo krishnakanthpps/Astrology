@@ -304,51 +304,51 @@ public class MyChartDetailsActivity extends BaseActivity {
                         janmaamsa_TimeTV.setText(response.body().getTimeofbirth() + " ");
 
 
-                        bavam_oneTV.setText("Personality :"+response.body().getResult().getSelf()+"/100");
+                        bavam_oneTV.setText("Personality :");
                         //personality-family
                         progressBarOne.setProgress(Integer.parseInt(response.body().getResult().getSelf()));
 
-                        bavam_twoTV.setText("Wealth :"+response.body().getResult().getWealth()+"/100");
+                        bavam_twoTV.setText("Wealth :");
                         //wealth
                         progressBarTwo.setProgress(Integer.parseInt(response.body().getResult().getWealth()));
 
-                        bavam_threeTV.setText("Family :"+response.body().getResult().getFamily()+"/100");
+                        bavam_threeTV.setText("Family :");
                         //family
                         progressBarThree.setProgress(Integer.parseInt(response.body().getResult().getFamily()));
 
-                        bavam_fiveTV.setText("Mother :"+response.body().getResult().getMother()+"/100");
+                        bavam_fiveTV.setText("Mother :");
                         //mother
                         progressBarFive.setProgress(Integer.parseInt(response.body().getResult().getMother()));
 
-                        bavam_fourTV.setText("Assets :"+response.body().getResult().getAssets()+"/100");
+                        bavam_fourTV.setText("Assets :");
                         //assets
                         progressBarFour.setProgress(Integer.parseInt(response.body().getResult().getAssets()));
 
-                        bavam_sixTV.setText("Children :"+response.body().getResult().getChildren()+"/100");
+                        bavam_sixTV.setText("Children :");
                         //children
                         progressBarSix.setProgress(Integer.parseInt(response.body().getResult().getChildren()));
 
-                        bavam_sevenTV.setText("EnimiesDebt :"+response.body().getResult().getEnemiesDebt()+"/100");
+                        bavam_sevenTV.setText("EnimiesDebt :");
                         //enimiesdebt
                         progressBarSeven.setProgress(Integer.parseInt(response.body().getResult().getEnemiesDebt()));
 
-                        bavam_eightTV.setText("Marriage :"+response.body().getResult().getMarriage()+"/100");
+                        bavam_eightTV.setText("Marriage :");
                         //marriage
                         progressBarEight.setProgress(Integer.parseInt(response.body().getResult().getMarriage()));
 
-                        bavam_nineTV.setText("Health :"+response.body().getResult().getHealth()+"/100");
+                        bavam_nineTV.setText("Health :");
                         //health
                         progressBarNine.setProgress(Integer.parseInt(response.body().getResult().getHealth()));
 
-                        bavam_tenTV.setText("Luck :"+response.body().getResult().getLucky_Father()+"/100");
+                        bavam_tenTV.setText("Luck :");
                         //luck
                         progressBarTen.setProgress(Integer.parseInt(response.body().getResult().getLucky_Father()));
 
-                        bavam_elevenTV.setText("Career :"+response.body().getResult().getCareer()+"/100");
+                        bavam_elevenTV.setText("Career :");
                         //career
                         progressBarEleven.setProgress(Integer.parseInt(response.body().getResult().getCareer()));
 
-                        bavam_tweleveTV.setText("Savings :"+response.body().getResult().getSavings()+"/100");
+                        bavam_tweleveTV.setText("Savings :");
                         //savings
                         progressBarTweleve.setProgress(Integer.parseInt(response.body().getResult().getSavings()));
 

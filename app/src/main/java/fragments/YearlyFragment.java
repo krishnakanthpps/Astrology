@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -104,7 +105,7 @@ public class YearlyFragment extends Fragment {
                 if (response.body().getStatus().equalsIgnoreCase("success")) {
                     //starTV.setText(response.body().getRasi());
                     try {
-                        horoscopeMoonTV.setText(response.body().getMoon());
+                        horoscopeMoonTV.setText(Html.fromHtml(response.body().getMoon()));
                         /*dailyHoroscopeJupiterTV.setText(response.body().getResult().getDaily_Jupiter());
                         dailyHoroscopeMercuryTV.setText(response.body().getResult().getDaily_Mercury());
                         dailyHoroscopeSunTV.setText(response.body().getResult().getDaily_Sun());

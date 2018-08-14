@@ -72,7 +72,7 @@
             android:configChanges="orientation"
             android:label="@string/register"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeAuthentication.Dark.Dialog" />
+            android:theme="@style/AppThemeAuthentication.Dark.Dialog"></activity>
         <!--ProfileView-->
         <activity
             android:name=".UserProfileView"

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -176,7 +177,7 @@ public class MonthlyFragment extends Fragment{
                 //displaying the message from the response as toast
                 if (response.body().getStatus().equalsIgnoreCase("success")) {
                     try {
-                        horoscopeMoonTV.setText(response.body().getMoon());
+                        horoscopeMoonTV.setText(Html.fromHtml(response.body().getMoon()));
                     } catch (NullPointerException npe) {
                         Log.i("DashBoard Chakras", npe.getMessage());
                     } catch (NumberFormatException nfe) {

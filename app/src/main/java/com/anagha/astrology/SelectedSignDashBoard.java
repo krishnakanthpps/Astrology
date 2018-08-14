@@ -118,11 +118,6 @@ public class SelectedSignDashBoard extends BaseActivity implements AdapterView.O
     private TextView janmaamsa_elevenTV;
     private TextView janmaamsa_tweleveTV;
 
-    // private ViewPager viewPager;
-    //private TabLayout tabLayout;
-    //BraintreeFragment mBraintreeFragment;
-
-
     String token;
     // String amount = "100.00";
     // HashMap<String, String> paramsHash;

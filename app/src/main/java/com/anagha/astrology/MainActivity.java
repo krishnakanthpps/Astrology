@@ -31,41 +31,50 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         sPrefs = getSharedPreferences(WebCall.SharedPreference_Name, 0);
         if (getIntent() != null && getIntent().getExtras() != null && getIntent().getStringExtra("screen") != null) {
-            notificationRedirectionSplashScreen();
-        }else{
+            if (getLoginStatus(getResources().getString(R.string.signin_status_key))) {
+                notificationRedirectionSplashScreen();
+            } else {
+                Intent intent = new Intent(_context, Login.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
+                MainActivity.this.finish();
+            }
+        } else {
             navigationScreens();
         }
 
     }
+
     /*notifaication redirect activities when app closed if notification coming and clicked*/
     private void notificationRedirectionSplashScreen() {
-            String screenValue = getIntent().getStringExtra("screen");
-            Intent resultIntent = new Intent();
-            switch (screenValue) {
-                case "home":
-                    resultIntent = new Intent(getApplicationContext(), SelectedSignDashBoard.class);
-                    break;
-                case "daily":
-                    resultIntent = new Intent(this, DailyHoroscope.class);
-                    resultIntent.putExtra("bhaavaam", "Daily Predictions");
-                    resultIntent.putExtra("call_from", "notification");
-                    startActivity(resultIntent);
-                    break;
-                case "remedies":
-                    resultIntent = new Intent(this, Remidies.class);
-                    //resultIntent.putExtra("bhaavaam", "");
-                    resultIntent.putExtra("call_from", "notification");
-                    startActivity(resultIntent);
-                    break;
-                case "notification":
-                    resultIntent = new Intent(this, Notifications.class);
-                    //resultIntent.putExtra("bhaavaam", "");
-                    resultIntent.putExtra("call_from", "notification");
-                    startActivity(resultIntent);
-                    break;
-                default:
-                    break;
-            }
+        String screenValue = getIntent().getStringExtra("screen");
+        Intent resultIntent = new Intent();
+
+        switch (screenValue) {
+            case "home":
+                resultIntent = new Intent(getApplicationContext(), SelectedSignDashBoard.class);
+                break;
+            case "daily":
+                resultIntent = new Intent(this, DailyHoroscope.class);
+                resultIntent.putExtra("bhaavaam", "Daily Predictions");
+                resultIntent.putExtra("call_from", "notification");
+                startActivity(resultIntent);
+                break;
+            case "remedies":
+                resultIntent = new Intent(this, Remidies.class);
+                //resultIntent.putExtra("bhaavaam", "");
+                resultIntent.putExtra("call_from", "notification");
+                startActivity(resultIntent);
+                break;
+            case "notification":
+                resultIntent = new Intent(this, Notifications.class);
+                //resultIntent.putExtra("bhaavaam", "");
+                resultIntent.putExtra("call_from", "notification");
+                startActivity(resultIntent);
+                break;
+            default:
+                break;
+        }
         resultIntent.putExtra("from_notification_click", "from_notification_splash_screen");
         startActivity(resultIntent);
         overridePendingTransition(R.anim.activity_animation_right_to_left, R.anim.right_to_left);
