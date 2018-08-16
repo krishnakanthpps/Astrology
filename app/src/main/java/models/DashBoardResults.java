@@ -30,7 +30,7 @@ public class DashBoardResults {
     //public String navamsha_Virgo;
 
 
-    public String Self;
+   /* public String Self;
     public String Wealth;
     public String Family;
     public String Mother;
@@ -41,7 +41,20 @@ public class DashBoardResults {
     public String Health;
     public String Lucky_Father;
     public String Career;
-    public String Savings;
+    public String Savings;*/
+
+    public String Self;
+    public String Wealth_Family;
+    public String Coborns_Prowess;
+    public String Assets_Vehicles;
+    public String Children_Mantra;
+    public String Enemies_Debts;
+    public String Spouse_MarriedLife;
+    public String Health_Longevity;
+    public String Luck_Inheritance;
+    public String Career_Success;
+    public String Savings_Income;
+    public String Expenses_Moksha;
 
     public String getJanma_Cancer() {
         return janma_Cancer;
@@ -245,7 +258,7 @@ public class DashBoardResults {
         Self = self;
     }
 
-    public String getWealth() {
+    /*public String getWealth() {
         return Wealth;
     }
 
@@ -331,5 +344,94 @@ public class DashBoardResults {
 
     public void setSavings(String savings) {
         Savings = savings;
+    }*/
+
+
+    public String getWealth_Family() {
+        return Wealth_Family;
+    }
+
+    public void setWealth_Family(String wealth_Family) {
+        Wealth_Family = wealth_Family;
+    }
+
+    public String getCoborns_Prowess() {
+        return Coborns_Prowess;
+    }
+
+    public void setCoborns_Prowess(String coborns_Prowess) {
+        Coborns_Prowess = coborns_Prowess;
+    }
+
+    public String getAssets_Vehicles() {
+        return Assets_Vehicles;
+    }
+
+    public void setAssets_Vehicles(String assets_Vehicles) {
+        Assets_Vehicles = assets_Vehicles;
+    }
+
+    public String getChildren_Mantra() {
+        return Children_Mantra;
+    }
+
+    public void setChildren_Mantra(String children_Mantra) {
+        Children_Mantra = children_Mantra;
+    }
+
+    public String getEnemies_Debts() {
+        return Enemies_Debts;
+    }
+
+    public void setEnemies_Debts(String enemies_Debts) {
+        Enemies_Debts = enemies_Debts;
+    }
+
+    public String getSpouse_MarriedLife() {
+        return Spouse_MarriedLife;
+    }
+
+    public void setSpouse_MarriedLife(String spouse_MarriedLife) {
+        Spouse_MarriedLife = spouse_MarriedLife;
+    }
+
+    public String getHealth_Longevity() {
+        return Health_Longevity;
+    }
+
+    public void setHealth_Longevity(String health_Longevity) {
+        Health_Longevity = health_Longevity;
+    }
+
+    public String getLuck_Inheritance() {
+        return Luck_Inheritance;
+    }
+
+    public void setLuck_Inheritance(String luck_Inheritance) {
+        Luck_Inheritance = luck_Inheritance;
+    }
+
+    public String getCareer_Success() {
+        return Career_Success;
+    }
+
+    public void setCareer_Success(String career_Success) {
+        Career_Success = career_Success;
+    }
+
+    public String getSavings_Income() {
+        return Savings_Income;
+    }
+
+    public void setSavings_Income(String savings_Income) {
+        Savings_Income = savings_Income;
+    }
+
+    public String getExpenses_Moksha() {
+        return Expenses_Moksha;
+    }
+
+    public void setExpenses_Moksha(String expenses_Moksha) {
+        Expenses_Moksha = expenses_Moksha;
     }
 }

@@ -304,53 +304,53 @@ public class MyChartDetailsActivity extends BaseActivity {
                         janmaamsa_TimeTV.setText(response.body().getTimeofbirth() + " ");
 
 
-                        bavam_oneTV.setText("Personality :");
+                        bavam_oneTV.setText("Self :");
                         //personality-family
                         progressBarOne.setProgress(Integer.parseInt(response.body().getResult().getSelf()));
 
-                        bavam_twoTV.setText("Wealth :");
+                        bavam_twoTV.setText("Wealth/Family :");
                         //wealth
-                        progressBarTwo.setProgress(Integer.parseInt(response.body().getResult().getWealth()));
+                        progressBarTwo.setProgress(Integer.parseInt(response.body().getResult().getWealth_Family()));
 
-                        bavam_threeTV.setText("Family :");
+                        bavam_threeTV.setText("Co-borns/Prowess :");
                         //family
-                        progressBarThree.setProgress(Integer.parseInt(response.body().getResult().getFamily()));
+                        progressBarThree.setProgress(Integer.parseInt(response.body().getResult().getCoborns_Prowess()));
 
-                        bavam_fiveTV.setText("Mother :");
-                        //mother
-                        progressBarFive.setProgress(Integer.parseInt(response.body().getResult().getMother()));
-
-                        bavam_fourTV.setText("Assets :");
+                        bavam_fourTV.setText("Assets/Vehicles :");
                         //assets
-                        progressBarFour.setProgress(Integer.parseInt(response.body().getResult().getAssets()));
+                        progressBarFour.setProgress(Integer.parseInt(response.body().getResult().getAssets_Vehicles()));
 
-                        bavam_sixTV.setText("Children :");
+                        bavam_fiveTV.setText("Children/Mantra :");
+                        //mother
+                        progressBarFive.setProgress(Integer.parseInt(response.body().getResult().getChildren_Mantra()));
+
+                        bavam_sixTV.setText("Enemies/Debts :");
                         //children
-                        progressBarSix.setProgress(Integer.parseInt(response.body().getResult().getChildren()));
+                        progressBarSix.setProgress(Integer.parseInt(response.body().getResult().getEnemies_Debts()));
 
-                        bavam_sevenTV.setText("EnimiesDebt :");
+                        bavam_sevenTV.setText("Spouse/MarriedLife :");
                         //enimiesdebt
-                        progressBarSeven.setProgress(Integer.parseInt(response.body().getResult().getEnemiesDebt()));
+                        progressBarSeven.setProgress(Integer.parseInt(response.body().getResult().getSpouse_MarriedLife()));
 
-                        bavam_eightTV.setText("Marriage :");
+                        bavam_eightTV.setText("Health/Longevity :");
                         //marriage
-                        progressBarEight.setProgress(Integer.parseInt(response.body().getResult().getMarriage()));
+                        progressBarEight.setProgress(Integer.parseInt(response.body().getResult().getHealth_Longevity()));
 
-                        bavam_nineTV.setText("Health :");
+                        bavam_nineTV.setText("Luck/Inheritance :");
                         //health
-                        progressBarNine.setProgress(Integer.parseInt(response.body().getResult().getHealth()));
+                        progressBarNine.setProgress(Integer.parseInt(response.body().getResult().getLuck_Inheritance()));
 
-                        bavam_tenTV.setText("Luck :");
+                        bavam_tenTV.setText("Career/Success :");
                         //luck
-                        progressBarTen.setProgress(Integer.parseInt(response.body().getResult().getLucky_Father()));
+                        progressBarTen.setProgress(Integer.parseInt(response.body().getResult().getCareer_Success()));
 
-                        bavam_elevenTV.setText("Career :");
+                        bavam_elevenTV.setText("Savings/Income :");
                         //career
-                        progressBarEleven.setProgress(Integer.parseInt(response.body().getResult().getCareer()));
+                        progressBarEleven.setProgress(Integer.parseInt(response.body().getResult().getSavings_Income()));
 
-                        bavam_tweleveTV.setText("Savings :");
+                        bavam_tweleveTV.setText("Expenses/Moksha :");
                         //savings
-                        progressBarTweleve.setProgress(Integer.parseInt(response.body().getResult().getSavings()));
+                        progressBarTweleve.setProgress(Integer.parseInt(response.body().getResult().getExpenses_Moksha()));
 
                     } catch (NullPointerException npe) {
                         Log.i("DashBoard Chakras", npe.getMessage());

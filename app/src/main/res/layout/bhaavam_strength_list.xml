@@ -33,7 +33,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLength="25"
-                android:text="Personality"
+                android:text="Self"
                 android:textColor="#6e6e6e"
                 android:textSize="13sp" />
 
@@ -63,7 +63,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLength="25"
-                android:text="Wealth       "
+                android:text="Wealth_Family       "
                 android:textColor="#6e6e6e"
                 android:textSize="13sp" />
 
@@ -92,41 +92,12 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLength="25"
-                android:text="Family        "
+                android:text="Coborns_Prowess        "
                 android:textColor="#6e6e6e"
                 android:textSize="13sp" />
 
             <ProgressBar
                 android:id="@+id/bhavam_threeprogressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:indeterminateTint="@color/greyhint"
-                android:progress="50"
-                android:visibility="visible" />
-        </LinearLayout>
-        <!--mother-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/bhavam_fiveTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:maxLength="25"
-                android:text="Mother"
-                android:textColor="#6e6e6e"
-                android:textSize="13sp" />
-
-            <ProgressBar
-                android:id="@+id/bhavam_fiveprogressBar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -150,7 +121,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLength="25"
-                android:text="Assets        "
+                android:text="Children_Mantra        "
                 android:textColor="#6e6e6e"
                 android:textSize="13sp" />
 
@@ -165,7 +136,36 @@
                 android:progress="50"
                 android:visibility="visible" />
         </LinearLayout>
-        <!--children-->
+        <!--mother-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/bhavam_fiveTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLength="25"
+                android:text="Assets_Vehicles"
+                android:textColor="#6e6e6e"
+                android:textSize="13sp" />
+
+            <ProgressBar
+                android:id="@+id/bhavam_fiveprogressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:indeterminateTint="@color/greyhint"
+                android:progress="50"
+                android:visibility="visible" />
+        </LinearLayout>
+          <!--children-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLength="25"
-                android:text="Children      "
+                android:text="Enemies_Debts      "
                 android:textColor="#6e6e6e"
                 android:textSize="13sp" />
 
@@ -208,7 +208,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLength="25"
-                android:text="EnemiesDebt"
+                android:text="Spouse_MarriedLife"
                 android:textColor="#6e6e6e"
                 android:textSize="13sp" />
 
@@ -237,7 +237,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLength="25"
-                android:text="Marriage     "
+                android:text="Health_Longevity     "
                 android:textColor="#6e6e6e"
                 android:textSize="13sp" />
 
@@ -266,7 +266,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLength="25"
-                android:text="Health        "
+                android:text="Luck_Inheritance        "
                 android:textColor="#6e6e6e"
                 android:textSize="13sp" />
 
@@ -295,7 +295,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLength="25"
-                android:text="Luck            "
+                android:text="Career_Success            "
                 android:textColor="#6e6e6e"
                 android:textSize="13sp" />
 
@@ -324,7 +324,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:maxLength="25"
-                android:text="Career     "
+                android:text="Savings_Income     "
                 android:textColor="#6e6e6e"
                 android:textSize="13sp" />
 
@@ -354,7 +354,7 @@
                 android:gravity="center"
                 android:maxLength="25"
                 android:minWidth="20dp"
-                android:text="Savings"
+                android:text="Expenses_Moksha"
                 android:textColor="#6e6e6e"
                 android:textSize="13sp" />
 

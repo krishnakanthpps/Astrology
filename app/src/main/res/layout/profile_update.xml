@@ -194,7 +194,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/userprofile_update_dateofbirthTV"
+                    android:id="@+id/dateofbirthEt"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="right"
@@ -209,7 +209,7 @@
 
 
                 <TextView
-                    android:id="@+id/userprofile_update_timeofbirthTV"
+                    android:id="@+id/timeofbirthEt"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="right"

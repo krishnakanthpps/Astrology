@@ -2,12 +2,10 @@ package com.anagha.astrology;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
-
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -21,20 +19,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
-import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
-import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
 import java.lang.reflect.Type;
-import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
-import dashboard.FragmentDrawer;
-import dashboard.Register;
-import dashboard.Thankyou;
+import dashboard.DatePickerFragment;
+import dashboard.TimePickerFragment;
 import models.Userdetailview;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -44,7 +36,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofitrelated.APIService;
 import retrofitrelated.APIUrl;
-import retrofitrelated.ProfileViewResultResponse;
 import retrofitrelated.RegisterResponse;
 import utilitys.BaseActivity;
 import utilitys.NetworkConnectionCheck;
@@ -55,9 +46,10 @@ import utilitys.WebCall;
  */
 
 public class UserProfileUpdateView extends BaseActivity implements
-        View.OnClickListener,
+        View.OnClickListener {
+    /*,
         DatePickerDialog.OnDateSetListener,
-        TimePickerDialog.OnTimeSetListener {
+        TimePickerDialog.OnTimeSetListener*/
     private Context _ctx = UserProfileUpdateView.this;
     private Toolbar mToolbar;
     static SharedPreferences sPrefs;
@@ -81,11 +73,11 @@ public class UserProfileUpdateView extends BaseActivity implements
     private EditText userprofile_update_stateET;
     private EditText userprofile_update_countryET;
     Userdetailview shareresponse;
-    DatePickerDialog datePickerDialog;
+    /*DatePickerDialog datePickerDialog;
     int Year, Month, Day;
     Calendar calendar;
     TimePickerDialog timePickerDialog;
-    int CalendarHour, CalendarMinute;
+    int CalendarHour, CalendarMinute;*/
 
     @Override
     protected int getLayoutResource() {
@@ -124,8 +116,8 @@ public class UserProfileUpdateView extends BaseActivity implements
         userprofile_update_userMobileTV = (EditText) findViewById(R.id.userprofile_update_userMobileTV);
 
 
-        userprofile_update_dateofbirthTV = (TextView) findViewById(R.id.userprofile_update_dateofbirthTV);
-        userprofile_update_timeofbirthTV = (TextView) findViewById(R.id.userprofile_update_timeofbirthTV);
+        userprofile_update_dateofbirthTV = (TextView) findViewById(R.id.dateofbirthEt);
+        userprofile_update_timeofbirthTV = (TextView) findViewById(R.id.timeofbirthEt);
 
         userprofile_update_userFNET = (EditText) findViewById(R.id.userprofile_update_userFNET);
         userprofile_update_userLET = (EditText) findViewById(R.id.userprofile_update_userLET);
@@ -136,10 +128,10 @@ public class UserProfileUpdateView extends BaseActivity implements
         userprofile_update_countryET = (EditText) findViewById(R.id.userprofile_update_countryET);
         //user_profile_view_countryTV = (EditText) findViewById(R.id.user_profile_view_countryTV);
 
-        calendar = Calendar.getInstance();
+       /* calendar = Calendar.getInstance();
         Year = calendar.get(Calendar.YEAR);
         Month = calendar.get(Calendar.MONTH);
-        Day = calendar.get(Calendar.DAY_OF_MONTH);
+        Day = calendar.get(Calendar.DAY_OF_MONTH);*/
 
 
         String res = getIntent().getStringExtra("profileView");
@@ -152,6 +144,10 @@ public class UserProfileUpdateView extends BaseActivity implements
         userprofile_update_userNameTV.setText(shareresponse.getUsername());
         userprofile_update_userEmailTV.setText(shareresponse.getEmail());
         userprofile_update_userMobileTV.setText(shareresponse.getMobile());
+
+
+
+
         userprofile_update_dateofbirthTV.setText(shareresponse.getDateofbirth());
         userprofile_update_timeofbirthTV.setText(shareresponse.getTimeofbirth());
 
@@ -268,16 +264,20 @@ public class UserProfileUpdateView extends BaseActivity implements
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.userprofile_update_dateofbirthTV:
-                datePickerDialog = DatePickerDialog.newInstance(UserProfileUpdateView.this, Year, Month, Day);
+            case R.id.dateofbirthEt:
+               /* datePickerDialog = DatePickerDialog.newInstance(UserProfileUpdateView.this, Year, Month, Day);
                 datePickerDialog.setThemeDark(false);
                 datePickerDialog.showYearPickerFirst(false);
                 datePickerDialog.setAccentColor(Color.parseColor("#009688"));
                 datePickerDialog.setTitle("Select DateOfBirth From DatePicker");
-                datePickerDialog.show(getFragmentManager(), "DatePickerDialog");
+                datePickerDialog.show(getFragmentManager(), "DatePickerDialog");*/
+
+                DialogFragment dateFragment = new DatePickerFragment();
+                dateFragment.show(getSupportFragmentManager(), "datePicker");
+
                 break;
-            case R.id.userprofile_update_timeofbirthTV:
-                CalendarHour = calendar.get(Calendar.HOUR_OF_DAY);
+            case R.id.timeofbirthEt:
+               /* CalendarHour = calendar.get(Calendar.HOUR_OF_DAY);
                 CalendarMinute = calendar.get(Calendar.MINUTE);
                 timePickerDialog = TimePickerDialog.newInstance(UserProfileUpdateView.this, CalendarHour, CalendarMinute, true);
                 timePickerDialog.setThemeDark(false);
@@ -287,12 +287,15 @@ public class UserProfileUpdateView extends BaseActivity implements
                         Toast.makeText(UserProfileUpdateView.this, "Time Not Selected", Toast.LENGTH_SHORT).show();
                     }
                 });
-                timePickerDialog.show(getFragmentManager(), "Material Design TimePicker Dialog");
+                timePickerDialog.show(getFragmentManager(), "Material Design TimePicker Dialog");*/
+
+                DialogFragment timeFragment = new TimePickerFragment();
+                timeFragment.show(getSupportFragmentManager(), "timePicker");
                 break;
         }
     }
 
-    @Override
+  /*  @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
         int UpdatedMonth = Month + 1;
         String date = "Selected Date : " + Day + "-" + UpdatedMonth + "-" + Year;
@@ -377,7 +380,7 @@ public class UserProfileUpdateView extends BaseActivity implements
 
 
         userprofile_update_timeofbirthTV.setText(Hour + ":" + minute + " : " + ampm);
-    }
+    }*/
 
 
     private void userProfileUpdate() {
